@@ -678,10 +678,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 8.870924, y: 4.990164}
-      - {x: -8.871288, y: 4.989987}
-      - {x: -8.8710985, y: -4.9900208}
-      - {x: 8.871076, y: -4.990053}
+    - - {x: 8.75, y: 5}
+      - {x: -8.75, y: 5}
+      - {x: -8.75, y: -5}
+      - {x: 8.75, y: -5}
 --- !u!114 &9219539971373306330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,7 +776,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 4.99
+    OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

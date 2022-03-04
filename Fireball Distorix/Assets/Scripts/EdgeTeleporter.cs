@@ -41,7 +41,7 @@ public class EdgeTeleporter : MonoBehaviour
 
 
                 temp.x = Random.Range(TopLeft.x, TopRight.x);
-                temp.y = TopLeft.y;
+                temp.y = TopLeft.y + 0.1f;
                 if (fireball.IsWater)
                     temp.y = TopLeft.y-0.5f;
                 fireball.transform.position = temp;
@@ -66,7 +66,7 @@ public class EdgeTeleporter : MonoBehaviour
 
 
                 temp.x = Random.Range(BottomLeft.x, BottomRight.x);
-                temp.y = BottomLeft.y;
+                temp.y = BottomLeft.y + 0.1f;
                 if (fireball.IsWater)
                     temp.y = BottomLeft.y + 0.5f;
                 fireball.transform.position = temp;
@@ -91,7 +91,7 @@ public class EdgeTeleporter : MonoBehaviour
 
 
                 temp.y = Random.Range(BottomLeft.y, BottomRight.y);
-                temp.x = BottomLeft.x;
+                temp.x = BottomLeft.x + 0.1f;
                 if (fireball.IsWater)
                     temp.x = BottomLeft.x + 0.5f;
                 fireball.transform.position = temp;
@@ -116,7 +116,7 @@ public class EdgeTeleporter : MonoBehaviour
 
 
                 temp.y = Random.Range(BottomLeft.y, BottomRight.y);
-                temp.x = BottomLeft.x;
+                temp.x = BottomLeft.x + 0.1f;
                 if (fireball.IsWater)
                     temp.x = BottomLeft.x - 0.5f;
                 fireball.transform.position = temp;
