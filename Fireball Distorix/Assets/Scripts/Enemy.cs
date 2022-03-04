@@ -38,7 +38,12 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<Enemy>().enabled = false;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

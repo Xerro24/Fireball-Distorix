@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        for (int i = 1; i <= 50; i++)
+        for (int i = 1; i <= GameObject.Find("Rooms").transform.childCount; i++)
         {
             if (collision.gameObject.CompareTag("Rooms") && collision.name == "Room " + i)
             {
