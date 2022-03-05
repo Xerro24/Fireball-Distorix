@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
+    private bool BodyDelivered;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class Door : MonoBehaviour
     void Update()
     {
         
-        if (GameObject.Find("Boss") == null && (GameObject.Find("Boss (20)") == null))
+        if (GameObject.Find("Boss") == null )
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
@@ -24,7 +25,9 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         PlayerController player = collision.GetComponent<PlayerController>();
+        /*
         if (collision.gameObject.CompareTag("Player") && player != null && SceneManager.GetActiveScene().buildIndex == 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -36,9 +39,23 @@ public class Door : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
 
         }
+        */
 
-        else if (collision.gameObject.CompareTag("Player") && player != null)
+        if (collision.gameObject.CompareTag("People") && player == null)
         {
+            BodyDelivered = true;
+            Destroy(collision.gameObject);
+
+        }
+
+        if (collision.gameObject.CompareTag("Player") && player != null)
+        {
+            if (BodyDelivered)
+            {
+                PlayerController.BodyCount += 1;
+            }
+
+            print(BodyDelivered);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         }

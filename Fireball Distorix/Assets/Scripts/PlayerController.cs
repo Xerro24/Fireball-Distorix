@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
 
     public int CurrentRoom = 1;
 
+    private bool temp;
+
+    public static int BodyCount;
+
 
 
     // Start is called before the first frame update
@@ -168,6 +172,22 @@ public class PlayerController : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Rooms") && collision.name == "Room " + i)
             {
+                if (!collision.GetComponent<Rooms>().IsShootingRoom)
+                {
+
+                    StopCoroutine(gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().co);
+                    gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().CanShoot = false;
+                    
+                    temp = true;
+                    
+                }
+
+                else if (temp && collision.GetComponent<Rooms>().IsShootingRoom)
+                {
+                    gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().CanShoot = true;
+                    temp = false;
+                    
+                }
                 CurrentRoom = i;
                 break;
             }

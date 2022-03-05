@@ -42,11 +42,16 @@ public class Shooter : MonoBehaviour
     public Sprite WaterShooter;
 
 
+
+    public Coroutine co;
+
     // Start is called before the first frame update
     void Start()
     { 
         // The Sprite Renderer 
         sr = GetComponent<SpriteRenderer>();
+        co = StartCoroutine(Shoot());
+        Destroy(GameObject.Find("Fireball(Clone)"));
     }
 
 
@@ -85,13 +90,17 @@ public class Shooter : MonoBehaviour
         // Checks if the player fired and if the shooter is allowed to shoot 
         //if (Input.GetButtonDown("Fire1") && CanShoot) //&& !PaQ.IsPaused)
         //{
-            // Shoots, Coroutine for delay
-           // StartCoroutine(Shoot());
+        // Shoots, Coroutine for delay
+        // StartCoroutine(Shoot());
         //}
-
-        while (Input.GetButton("Fire1") && CanShoot && Time.timeScale == 1)
+        if (CanShoot)
         {
-            StartCoroutine(Shoot());
+
+        
+            while (Input.GetButton("Fire1") && CanShoot && Time.timeScale == 1)
+            {
+                co = StartCoroutine(Shoot());
+            }
         }
     }
 
@@ -103,7 +112,7 @@ public class Shooter : MonoBehaviour
 
 
     // The shooting
-    IEnumerator Shoot()
+    public IEnumerator Shoot()
     {
         // Checks if it should shoot water
         if (IsWater)

@@ -8,7 +8,7 @@ public class BossSpawner : MonoBehaviour
     public GameObject player;
     private int TotalEnemies;
     private int NullEnemies;
-    private bool SpawnBoss = true;
+    private bool SpawnBoss = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,7 @@ public class BossSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
+        
         for (int i = 1; i <= GameObject.Find("Rooms").transform.childCount; i++)
         {
             if (GameObject.Find("Room " + i))
@@ -26,14 +26,13 @@ public class BossSpawner : MonoBehaviour
                 Transform RoomEnemies = GameObject.Find("Room " + i).transform.Find("Enemies");
                 for (int j = 0; j <= RoomEnemies.childCount-1; j++)
                 {
-                    if (!RoomEnemies.GetChild(j))
+                    if (RoomEnemies.GetChild(j).gameObject.GetComponent<Enemy>().enabled == false)
                     {
                         TotalEnemies++;
                         NullEnemies++;
-                        print("nnefnnfsef");
                     }
 
-                    else if (RoomEnemies.GetChild(j))
+                    else if (RoomEnemies.GetChild(j) != null)
                     {
                         TotalEnemies++;
                         
@@ -42,8 +41,8 @@ public class BossSpawner : MonoBehaviour
                     
             }
         }
-        print("Total enemies = " + TotalEnemies);
-        print("Null enemies = " + NullEnemies);
+        //print("Total enemies = " + TotalEnemies);
+        //print("Null enemies = " + NullEnemies);
 
         if (NullEnemies == TotalEnemies)
         {
@@ -55,7 +54,7 @@ public class BossSpawner : MonoBehaviour
             TotalEnemies = 0;
             NullEnemies = 0;
         }
-    */
+    
     
 
         if (SpawnBoss && player.GetComponent<PlayerController>().CurrentRoom == 12)
@@ -65,6 +64,11 @@ public class BossSpawner : MonoBehaviour
             gameObject.GetComponent<Enemy>().enabled = true;
             gameObject.GetComponent<Boss>().enabled = true;
 
+        }
+
+        if (gameObject.GetComponent<Enemy>().Health <= 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 }
