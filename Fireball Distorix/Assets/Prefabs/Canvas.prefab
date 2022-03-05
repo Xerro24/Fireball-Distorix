@@ -167,7 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d9cf8ea940b13b42b3412db0c56557d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85bb27894f9ea684fa2178268b1f8dca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -189,11 +189,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0255097f700fece48ab6e5a096420ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StackEmpty: {fileID: 21300000, guid: 6d9cf8ea940b13b42b3412db0c56557d, type: 3}
-  Stack1: {fileID: 21300000, guid: f8761ecd8c98bea47bc4fa17492ec058, type: 3}
-  Stack2: {fileID: 21300000, guid: 005806004411afc439f350d640fff486, type: 3}
-  Stack3: {fileID: 21300000, guid: 15f4d435c281ac94eb665cc4d7d33447, type: 3}
-  Stack4: {fileID: 21300000, guid: 67071b703fe41fc47992abcc410ad65e, type: 3}
+  StackEmpty: {fileID: 21300000, guid: 85bb27894f9ea684fa2178268b1f8dca, type: 3}
+  Stack1: {fileID: 21300000, guid: 74db82b511aaa264bbdb53362cb5db0a, type: 3}
+  Stack2: {fileID: 21300000, guid: 415e322b23f3c034c8ca427de8be7b1b, type: 3}
+  Stack3: {fileID: 21300000, guid: 2a40d08d64fb38246a0ef0d198efb288, type: 3}
+  Stack4: {fileID: 21300000, guid: 0bcfaf654f3ac8c46b5d7ae674b861f1, type: 3}
 --- !u!1 &2949105348431915065
 GameObject:
   m_ObjectHideFlags: 0
