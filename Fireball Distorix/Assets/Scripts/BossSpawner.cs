@@ -9,6 +9,7 @@ public class BossSpawner : MonoBehaviour
     private int TotalEnemies;
     private int NullEnemies;
     private bool SpawnBoss = false;
+    private int FinalRoom;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class BossSpawner : MonoBehaviour
         {
             if (GameObject.Find("Room " + i))
             {
+                
                 Transform RoomEnemies = GameObject.Find("Room " + i).transform.Find("Enemies");
                 for (int j = 0; j <= RoomEnemies.childCount-1; j++)
                 {
@@ -37,6 +39,11 @@ public class BossSpawner : MonoBehaviour
                         TotalEnemies++;
                         
                     }
+                }
+
+                if (GameObject.Find("Room " + i).GetComponent<Rooms>().IsFinalRoom)
+                {
+                    FinalRoom = i;
                 }
                     
             }
@@ -57,7 +64,7 @@ public class BossSpawner : MonoBehaviour
     
     
 
-        if (SpawnBoss && player.GetComponent<PlayerController>().CurrentRoom == 12)
+        if (SpawnBoss && player.GetComponent<PlayerController>().CurrentRoom == FinalRoom)
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             gameObject.GetComponent<BoxCollider2D>().enabled = true;

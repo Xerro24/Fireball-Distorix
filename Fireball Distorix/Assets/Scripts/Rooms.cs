@@ -5,6 +5,7 @@ using UnityEngine;
 public class Rooms : MonoBehaviour
 {
     public bool IsShootingRoom;
+    public bool IsFinalRoom;
 
     // Start is called before the first frame update
     void Start()

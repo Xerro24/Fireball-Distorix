@@ -11,6 +11,8 @@ public class Boss : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public float speed = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,8 @@ public class Boss : MonoBehaviour
     void Update()
     {
 
-        rb.velocity = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
+        rb.velocity = new Vector2((player.transform.position.x - transform.position.x) * speed, (player.transform.position.y - transform.position.y)
+             * speed);
 
 
 
