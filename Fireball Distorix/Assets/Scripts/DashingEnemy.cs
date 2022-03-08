@@ -14,6 +14,7 @@ public class DashingEnemy : MonoBehaviour
     private float timer;
     public float time;
 
+
     Vector2 xy;
     //Vector2 y;
 
@@ -22,28 +23,41 @@ public class DashingEnemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         timer = 0;
-}
+        //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>(), false);
+        //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), Tilemap.GetComponent<Collider2D>(), false);
+    }
 
     // Update is called once per frame
     void Update()
     {
-         xy = new Vector2 (player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y).normalized;
-        if (timer >= time)
+        
+        if ("Room " + player.GetComponent<PlayerController>().CurrentRoom == transform.parent.parent.name)
         {
-            rb.velocity = new Vector2(xy.x * speed, (xy.y * speed));
-            timer = 0;
-        }
-
-        else if (timer >= time + 0.2)
-        {
-            rb.velocity = new Vector2(0, 0);
             
+            xy = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y).normalized;
+            if (timer >= time && timer <= time + 0.25)
+            {
+
+                rb.velocity = new Vector2(xy.x * speed, (xy.y * speed));
+
+
+            }
+
+            else if (timer >= time + 0.25)
+            {
+                rb.velocity = new Vector2(0, 0);
+                timer = 0;
+
+            }
+
+            timer += Time.deltaTime;
         }
 
         else
         {
-            timer += Time.deltaTime;
             rb.velocity = new Vector2(0, 0);
         }
+
+        
     }
 }
