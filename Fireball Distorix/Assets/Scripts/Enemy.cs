@@ -43,7 +43,13 @@ public class Enemy : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.GetComponent<Enemy>().enabled = false;
-        
+        //gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        //gameObject.GetComponent<MovingEnemy>().enabled = false;
+        //gameObject.GetComponent<DashingEnemy>().enabled = false;
+        foreach (BoxCollider2D c in GetComponents<BoxCollider2D>())
+        {
+            c.enabled = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
