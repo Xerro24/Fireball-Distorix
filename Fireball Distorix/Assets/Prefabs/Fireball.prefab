@@ -127,7 +127,7 @@ MonoBehaviour:
   damage: 1
   IsWater: 0
   timerStart: 0
-  player: {fileID: 0}
+  Player: {fileID: 0}
   VapCap: 0
 --- !u!58 &552843915962527638
 CircleCollider2D:
@@ -144,4 +144,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.4

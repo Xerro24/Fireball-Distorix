@@ -1,36 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
-public class StackCounter : MonoBehaviour
+public class EnemyCounter : MonoBehaviour
 {
-
-    
     private TextMeshProUGUI text;
 
-    
+    private RoomCounting room;
+
+    private int EnemiesLeft;
 
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        
+        room = GameObject.Find("Rooms").GetComponent<RoomCounting>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //text.text = player.Stack.ToString();
-        if (PlayerController.Stack < 0)
-        {
-            text.SetText("0");
-        }
-        else
-        {
-            text.SetText(PlayerController.Stack.ToString());
-        }
+        //EnemiesLeft = room.TotalEnemies - room.NullEnemies;
+            text.SetText("Enemies: " + room.EnemiesLeft);
         
+
     }
 }

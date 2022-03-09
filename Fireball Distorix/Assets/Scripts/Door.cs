@@ -55,7 +55,7 @@ public class Door : MonoBehaviour
                 PlayerController.BodyCount += 1;
             }
 
-            print(BodyDelivered);
+            
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         }

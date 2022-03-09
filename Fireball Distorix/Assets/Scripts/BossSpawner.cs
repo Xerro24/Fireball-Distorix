@@ -6,65 +6,38 @@ using UnityEngine.SceneManagement;
 public class BossSpawner : MonoBehaviour
 {
     public GameObject player;
-    private int TotalEnemies;
-    private int NullEnemies;
+    //private int TotalEnemies;
+    //private int NullEnemies;
     private bool SpawnBoss = false;
-    private int FinalRoom;
+    //private int FinalRoom;
+
+    private RoomCounting room;
     // Start is called before the first frame update
     void Start()
     {
         //gameObject.SetActive(true);
+        player = GameObject.Find("Player");
+        room = GameObject.Find("Rooms").GetComponent<RoomCounting>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        for (int i = 1; i <= GameObject.Find("Rooms").transform.childCount; i++)
-        {
-            if (GameObject.Find("Room " + i))
-            {
-                
-                Transform RoomEnemies = GameObject.Find("Room " + i).transform.Find("Enemies");
-                for (int j = 0; j <= RoomEnemies.childCount-1; j++)
-                {
-                    if (RoomEnemies.GetChild(j).gameObject.GetComponent<Enemy>().enabled == false)
-                    {
-                        TotalEnemies++;
-                        NullEnemies++;
-                    }
-
-                    else if (RoomEnemies.GetChild(j) != null)
-                    {
-                        TotalEnemies++;
-                        
-                    }
-                }
-
-                if (GameObject.Find("Room " + i).GetComponent<Rooms>().IsFinalRoom)
-                {
-                    FinalRoom = i;
-                }
-                    
-            }
-        }
+        
         //print("Total enemies = " + TotalEnemies);
         //print("Null enemies = " + NullEnemies);
 
-        if (NullEnemies == TotalEnemies)
+        if (room.stop)
         {
             SpawnBoss = true;
         }
 
-        else
-        {
-            TotalEnemies = 0;
-            NullEnemies = 0;
-        }
+        
     
     
 
-        if (SpawnBoss && player.GetComponent<PlayerController>().CurrentRoom == FinalRoom)
+        if (SpawnBoss && player.GetComponent<PlayerController>().CurrentRoom == room.FinalRoom)
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             gameObject.GetComponent<BoxCollider2D>().enabled = true;

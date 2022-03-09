@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
 
     public static int BodyCount;
 
+    public bool easychanger;
+    public static bool EasyMode = false;
+
 
 
     // Start is called before the first frame update
@@ -42,14 +45,20 @@ public class PlayerController : MonoBehaviour
     {
         // The rb variable is set to the Rigidbody2D component of the GameObject that this script is attached to
         rb = GetComponent<Rigidbody2D>();
-
+        if (easychanger)
+            EasyMode = true;
 
         sr = GetComponent<SpriteRenderer>();
+
+        
 
         if (WantToChangeStack)
             Stack = StackStart;
 
         StackStartLevel = Stack;
+
+        if (EasyMode && SceneManager.GetActiveScene().buildIndex == 0)
+            Stack += 20;
 
         
     }
@@ -131,8 +140,18 @@ public class PlayerController : MonoBehaviour
 
         if (StackCounter >= 5)
         {
-            Stack += 1;
+            if (EasyMode)
+            {
+                Stack += 2;
+            }
+
+            else
+            {
+                Stack += 1;
+            }
+
             StackCounter -= 5;
+
         }
 
     }

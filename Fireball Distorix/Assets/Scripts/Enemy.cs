@@ -9,12 +9,14 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer sr;
     public float timer = 0.1f;
     public float Speed;
+    private PlayerController Player;
 
 
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        Player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -27,8 +29,17 @@ public class Enemy : MonoBehaviour
     {
         Health -= damage;
         sr.color = new Color(255f, 0f, 0f, 1f);
+        //if (Player.EasyMode)
+        {
+            //Player.StackCounter += 2;
+        }
+        //else
+        {
+            Player.StackCounter += 1;
+        }
         yield return new WaitForSeconds(timer);
         sr.color = new Color(255f, 255f, 255f, 1f);
+        
 
         if (Health <= 0)
         {

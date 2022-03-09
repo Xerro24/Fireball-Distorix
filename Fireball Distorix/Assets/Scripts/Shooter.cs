@@ -52,6 +52,7 @@ public class Shooter : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         co = StartCoroutine(Shoot());
         Destroy(GameObject.Find("Fireball(Clone)"));
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
 

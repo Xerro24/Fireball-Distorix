@@ -23,6 +23,7 @@ public class DashingEnemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         timer = 0;
+        player = GameObject.Find("Player");
         //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>(), false);
         //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), Tilemap.GetComponent<Collider2D>(), false);
     }

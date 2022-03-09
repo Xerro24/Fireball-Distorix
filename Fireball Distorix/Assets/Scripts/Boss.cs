@@ -17,6 +17,7 @@ public class Boss : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame

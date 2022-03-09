@@ -25,7 +25,7 @@ public class Fireball : MonoBehaviour
 
     private int PlayerDamage;
 
-    public PlayerController player;
+    public PlayerController Player;
 
     public int VapCap;
 
@@ -36,7 +36,7 @@ public class Fireball : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         timer = timerStart;
         PlayerDamage = damage;
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        Player = GameObject.Find("Player").GetComponent<PlayerController>();
 
     }
 
@@ -180,8 +180,10 @@ public class Fireball : MonoBehaviour
         if (enemy != null && damage > 0)
         {
             StartCoroutine(enemy.TakeDamage(damage));
-            PlayerController Player = GameObject.Find("Player").GetComponent<PlayerController>();
-            Player.StackCounter += 1;
+            //PlayerController Player = GameObject.Find("Player").GetComponent<PlayerController>();
+            
+
+            
         }
 
 
