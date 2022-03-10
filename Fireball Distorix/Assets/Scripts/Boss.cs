@@ -41,7 +41,7 @@ public class Boss : MonoBehaviour
              * speed);
 
 
-        if (BossLevel == 2)
+        if (BossLevel >= 2)
         {
             if (StartDash)
             {
@@ -58,8 +58,28 @@ public class Boss : MonoBehaviour
 
             }
 
-            else if (timer >= time && timer <= time + 0.25)
+            else if (timer >= time && timer <= time + 0.25 && BossLevel == 2)
             {
+
+                rb.velocity = new Vector2(xy.x * DashSpeed, (xy.y * DashSpeed));
+                //print("During Dash");
+
+            }
+
+            else if (timer >= time && timer <= time + 0.25 && BossLevel > 2)
+            {
+                //StartDash = true;
+                //xy = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y).normalized;
+
+                rb.velocity = new Vector2(xy.x * DashSpeed, (xy.y * DashSpeed));
+                //print("During Dash");
+
+            }
+
+            else if (timer >= time && timer <= time + 0.5 && BossLevel > 2)
+            {
+                //StartDash = true;
+                //xy = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y).normalized;
 
                 rb.velocity = new Vector2(xy.x * DashSpeed, (xy.y * DashSpeed));
                 //print("During Dash");
@@ -146,7 +166,20 @@ public class Boss : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        PlayerController player = collision.GetComponent<PlayerController>();
+        if (collision.gameObject.CompareTag("Player") && player != null)
+        //if (player.IsDashing == false && player.Iframes <= 0)
+        {
+
+            if (!PlayerController.EasyMode)
+            {
+                player.Die();
+
+            }
+
+
+
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

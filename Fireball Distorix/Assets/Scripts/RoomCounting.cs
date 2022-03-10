@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class RoomCounting : MonoBehaviour
 {
-    public int TotalEnemies;
-    public int NullEnemies;
+    public int TotalEnemies = 0;
+    public int NullEnemies = 0;
     public int FinalRoom;
-    public int EnemiesLeft;
+    public int EnemiesLeft = 0;
 
     public bool stop = false;
     // Start is called before the first frame update
