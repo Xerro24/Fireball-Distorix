@@ -11,6 +11,8 @@ public class BossSpawner : MonoBehaviour
     public bool SpawnBoss = false;
     //private int FinalRoom;
 
+    public GameObject DashPrefab;
+
     private RoomCounting room;
     // Start is called before the first frame update
     void Start()
@@ -39,15 +41,22 @@ public class BossSpawner : MonoBehaviour
 
         if (SpawnBoss && player.GetComponent<PlayerController>().CurrentRoom == room.FinalRoom)
         {
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            gameObject.GetComponent<Enemy>().enabled = true;
-            gameObject.GetComponent<Boss>().enabled = true;
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = true;
+            GetComponent<Enemy>().enabled = true;
+            GetComponent<Boss>().enabled = true;
 
         }
 
-        if (gameObject.GetComponent<Enemy>().Health <= 0)
+        
+
+        if (GetComponent<Enemy>().Health <= 0)
         {
+            if (GetComponent<Boss>().BossLevel == 2)
+            {
+                GameObject DashUpgrade = Instantiate(DashPrefab, transform.position, transform.rotation);
+                //print("danf");
+            }
             gameObject.SetActive(false);
         }
     }

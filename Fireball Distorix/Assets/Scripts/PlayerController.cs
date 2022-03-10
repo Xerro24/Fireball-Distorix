@@ -40,6 +40,20 @@ public class PlayerController : MonoBehaviour
 
     public bool CanDamaged = true;
 
+    public static bool HasDash;
+
+    public float DashSpeed;
+    private float Dashtime = 0;
+    public float StartDash;
+    private int DashInput = 0;
+    private int DashInputY = 0;
+    private bool CanDash = true;
+    public float DashDelay = 1f;
+    public bool IsDashing = false;
+
+    public float Iframes;
+    public float IframesStart = 2f;
+
 
 
     // Start is called before the first frame update
@@ -62,7 +76,9 @@ public class PlayerController : MonoBehaviour
         if (EasyMode && SceneManager.GetActiveScene().buildIndex == 0)
             Stack += 20;
 
-        
+        Dashtime = StartDash;
+
+
     }
 
 
@@ -132,19 +148,6 @@ public class PlayerController : MonoBehaviour
                 Stack += 20;
             }
 
-        //print(CurrentRoom);
-
-
-    }
-
-    // Less frequent Update used for physics calculations
-    private void FixedUpdate()
-    {
-        // Creates a 2d vector. x/y = direction, speed = speed, and Time.deltatime for consistency through the frames
-        // Then applies the vector to the RigidBody's velocity
-        rb.velocity = new Vector2(x * Speed * Time.deltaTime, y * Speed * Time.deltaTime);
-
-
 
         if (StackCounter >= 5)
         {
@@ -162,30 +165,107 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (Iframes <= 0)
+        {
+            sr.color = new Color(255f, 255f, 255f, 1f);
+            CanDamaged = true;
+        }
+        else
+        {
+            Iframes -= Time.deltaTime;
+            CanDamaged = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && CanDash == true && IsDashing == false && HasDash)
+        {
+            StartCoroutine(DashInputDelay());
+        }
+
+       
+
+        //print(CurrentRoom);
+
+
+    }
+
+    // Less frequent Update used for physics calculations
+    private void FixedUpdate()
+    {
+        // Creates a 2d vector. x/y = direction, speed = speed, and Time.deltatime for consistency through the frames
+        // Then applies the vector to the RigidBody's velocity
+        rb.velocity = new Vector2(x * Speed * Time.deltaTime, y * Speed * Time.deltaTime);
+
+        if (DashInput != 0 || DashInputY != 0)
+        {
+            if (Dashtime <= 0)
+            {
+                DashInput = 0;
+                DashInputY = 0;
+                Dashtime = StartDash;
+                rb.velocity = Vector2.zero;
+                IsDashing = false;
+                CanDash = false;
+                Iframes = IframesStart;
+                sr.color = new Color(0f, 0f, 255f, 1f);
+            }
+            else
+            {
+                Dashtime -= Time.deltaTime;
+                if (DashInput == 1)
+                {
+                    rb.velocity = Vector2.right * DashSpeed * Time.deltaTime;
+                    IsDashing = true;
+
+                }
+                else if (DashInput == -1)
+                {
+                    rb.velocity = Vector2.left * DashSpeed * Time.deltaTime;
+                    IsDashing = true;
+                }
+                if (DashInputY == 1)
+                {
+                    rb.velocity = Vector2.up * DashSpeed * Time.deltaTime;
+                    IsDashing = true;
+                }
+                else if (DashInputY == -1)
+                {
+                    rb.velocity = Vector2.down * DashSpeed * Time.deltaTime;
+                    IsDashing = true;
+                }
+
+            }
+        }
+
+
+
+        
+
     }
 
 
     public IEnumerator TakeDamage(int damage)
     {
-
-        Stack -= damage;
-
-        sr.color = new Color(255f, 0f, 0f, 1f);
-
-        CanDamaged = false;
-
-        yield return new WaitForSeconds(0.1f);
-
-        sr.color = new Color(255f, 255f, 255f, 1f);
-
-
-        if (Stack < 0)
+        if (!IsDashing)
         {
+            Stack -= damage;
 
-            Die();
+            sr.color = new Color(255f, 0f, 0f, 1f);
+
+            CanDamaged = false;
+
+            yield return new WaitForSeconds(0.1f);
+
+            sr.color = new Color(255f, 255f, 255f, 1f);
+
+
+            if (Stack < 0)
+            {
+
+                Die();
+            }
+
+            CanDamaged = true;
         }
-
-        CanDamaged = true;
 
     }
 
@@ -252,6 +332,33 @@ public class PlayerController : MonoBehaviour
     public void Upgrade()
     {
         Speed = 700;
+    }
+
+    private IEnumerator DashInputDelay()
+    {
+
+        if (DashInput == 0)
+        {
+            if (x == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            {
+                DashInput = 1;
+            }
+            else if (x == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            {
+                DashInput = -1;
+            }
+            if (y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            {
+                DashInputY = 1;
+            }
+            else if (y == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            {
+                DashInputY = -1;
+            }
+
+        }
+        yield return new WaitForSeconds(DashDelay);
+        CanDash = true;
     }
 
 

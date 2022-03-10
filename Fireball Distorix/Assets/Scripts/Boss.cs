@@ -22,6 +22,8 @@ public class Boss : MonoBehaviour
     private bool StartDash;
 
     public int BossLevel = 1;
+
+    
     
     Vector2 xy;
     // Start is called before the first frame update
@@ -84,7 +86,9 @@ public class Boss : MonoBehaviour
                 timer = 0;
             }
         }
+
         
+
 
         /*
         if (transform.position.x < 7 && transform.position.x >= -7 && transform.position.y < 0)

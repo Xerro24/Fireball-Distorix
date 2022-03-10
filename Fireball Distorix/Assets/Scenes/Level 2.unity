@@ -18939,7 +18939,7 @@ PrefabInstance:
       objectReference: {fileID: 437738646}
     - target: {fileID: 4381382984809358646, guid: 29b04afe7d718004db4ccff23cae1359, type: 3}
       propertyPath: SpawnBoss
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29b04afe7d718004db4ccff23cae1359, type: 3}
@@ -42365,11 +42365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926684, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 75.7
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926684, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 24.4
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926684, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42408,6 +42408,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
+      propertyPath: DashSpeed
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
+      propertyPath: StartDash
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: StackStart
       value: 1000
       objectReference: {fileID: 0}
@@ -42416,12 +42424,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
+      propertyPath: IframesStart
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: WantToChangeStack
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926686, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 956280936155926687, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 956280936155926687, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
