@@ -2729,6 +2729,10 @@ PrefabInstance:
       value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 4381382984809358645, guid: 29b04afe7d718004db4ccff23cae1359, type: 3}
+      propertyPath: time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381382984809358645, guid: 29b04afe7d718004db4ccff23cae1359, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 820276942}
@@ -2736,6 +2740,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 820276942}
+    - target: {fileID: 4381382984809358646, guid: 29b04afe7d718004db4ccff23cae1359, type: 3}
+      propertyPath: SpawnBoss
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29b04afe7d718004db4ccff23cae1359, type: 3}
 --- !u!4 &1127454430 stripped
@@ -50332,7 +50340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: easychanger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926686, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: m_Name

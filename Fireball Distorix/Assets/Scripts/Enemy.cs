@@ -70,8 +70,8 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && player != null)
         //if (player.IsDashing == false && player.Iframes <= 0)
         {
-            
-            StartCoroutine(player.TakeDamage(1));
+            if (player.CanDamaged)
+                StartCoroutine(player.TakeDamage(1));
             
         }
 

@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
     public bool easychanger;
     public static bool EasyMode = false;
 
+    public bool CanDamaged = true;
+
 
 
     // Start is called before the first frame update
@@ -124,6 +126,12 @@ public class PlayerController : MonoBehaviour
             Upgrade();
         }
 
+        if (Input.GetKeyDown(KeyCode.P) && !EasyMode)
+            {
+                EasyMode = true;
+                Stack += 20;
+            }
+
         //print(CurrentRoom);
 
 
@@ -164,6 +172,8 @@ public class PlayerController : MonoBehaviour
 
         sr.color = new Color(255f, 0f, 0f, 1f);
 
+        CanDamaged = false;
+
         yield return new WaitForSeconds(0.1f);
 
         sr.color = new Color(255f, 255f, 255f, 1f);
@@ -174,6 +184,8 @@ public class PlayerController : MonoBehaviour
 
             Die();
         }
+
+        CanDamaged = true;
 
     }
 

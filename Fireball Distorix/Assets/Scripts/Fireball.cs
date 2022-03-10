@@ -164,8 +164,8 @@ public class Fireball : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && player != null && !IsWater)
         //if (player.IsDashing == false && player.Iframes <= 0)
         {
-            
-            StartCoroutine(DestroyFireballAfterPlayerDamage(player));
+            if (player.CanDamaged)
+                StartCoroutine(DestroyFireballAfterPlayerDamage(player));
 
         }
 

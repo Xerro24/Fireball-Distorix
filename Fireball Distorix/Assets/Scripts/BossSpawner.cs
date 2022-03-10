@@ -8,7 +8,7 @@ public class BossSpawner : MonoBehaviour
     public GameObject player;
     //private int TotalEnemies;
     //private int NullEnemies;
-    private bool SpawnBoss = false;
+    public bool SpawnBoss = false;
     //private int FinalRoom;
 
     private RoomCounting room;
