@@ -30,9 +30,6 @@ EditorBuildSettings:
     path: Assets/Scenes/fat.unity
     guid: 235e8f839a9d8fd4c8d714b2bf279f6b
   - enabled: 0
-    path: Assets/Scenes/norm end.unity
-    guid: 2c3839c9eed59f04fb9facde253d4dd9
-  - enabled: 0
     path: Assets/Scenes/Yay.unity
     guid: af4e7e09c519b664388521a98d1a591a
   - enabled: 0
@@ -44,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 8a4def661dac9994b858dfe20ab5e2cd
+  - enabled: 1
+    path: Assets/Scenes/norm end.unity
+    guid: 2c3839c9eed59f04fb9facde253d4dd9
   m_configObjects: {}

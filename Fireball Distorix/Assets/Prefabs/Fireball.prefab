@@ -126,7 +126,7 @@ MonoBehaviour:
   FireballSpeed: 2.5
   damage: 1
   IsWater: 0
-  timerStart: 0
+  timerStart: 3
   Player: {fileID: 0}
   VapCap: 0
 --- !u!58 &552843915962527638

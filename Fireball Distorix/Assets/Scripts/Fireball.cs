@@ -52,6 +52,11 @@ public class Fireball : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if (timer <= -597)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Boundaries()
