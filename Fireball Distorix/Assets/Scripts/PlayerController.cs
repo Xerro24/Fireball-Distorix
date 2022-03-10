@@ -54,6 +54,8 @@ public class PlayerController : MonoBehaviour
     public float Iframes;
     public float IframesStart = 2f;
 
+    private bool IsIFramesDone = false;
+
 
 
     // Start is called before the first frame update
@@ -165,9 +167,14 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (Iframes <= 0)
+        if (Iframes <= 0 && !IsIFramesDone)
         {
             sr.color = new Color(255f, 255f, 255f, 1f);
+            IsIFramesDone = true;
+            CanDamaged = true;
+        }
+        if (Iframes <= 0 && IsIFramesDone)
+        {
             CanDamaged = true;
         }
         else
@@ -206,6 +213,7 @@ public class PlayerController : MonoBehaviour
                 IsDashing = false;
                 CanDash = false;
                 Iframes = IframesStart;
+                IsIFramesDone = false;
                 sr.color = new Color(0f, 0f, 255f, 1f);
             }
             else
