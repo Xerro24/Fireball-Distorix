@@ -6,7 +6,10 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    
+    private void Start()
+    {
+        PlayerController.Stack = 0;
+    }
     public void NoramlMode()
     {
         PlayerController.EasyMode = true;
