@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public Sprite Xessy;
     public Sprite Xes_Happy;
 
-    private bool IsPaused = false;
+    
 
     public int CurrentRoom = 1;
 
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
         StackStartLevel = Stack;
 
-        if (EasyMode && SceneManager.GetActiveScene().buildIndex == 0)
+        if (EasyMode && SceneManager.GetActiveScene().buildIndex == 1)
             Stack += 20;
 
         Dashtime = StartDash;
@@ -121,16 +121,7 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        if (Input.GetKeyDown(KeyCode.C) && !IsPaused)
-        {
-            Time.timeScale = 0;
-            IsPaused = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.C) && IsPaused)
-        {
-            Time.timeScale = 1;
-            IsPaused = false;
-        }
+        
 
         if (GameObject.Find("Enemy") == null && GameObject.Find("Enemy (1)") == null && GameObject.Find("Enemy (2)") == null && 
             GameObject.Find("Enemy (3)") == null && GameObject.Find("Boss") == null && sr.sprite == Xessy)
