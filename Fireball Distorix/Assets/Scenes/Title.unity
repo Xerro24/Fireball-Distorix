@@ -4383,20 +4383,22 @@ MonoBehaviour:
 
     Mouse1 - Shoot
 
-    space - Dash(when
+    Space - Dash(when
     unlocked)
+
+    Esc/C - Pause
 
 
 
     Mechanics
 
-    The goal of the game is to kill all the enemies
-    with your fireballs, but once your fireballs reaches the edge, they teleport
-    from the edges causing you to dodge your own fireballs. Whenever your fireball
-    hits an enemy, a meter fills up. Once you hit 5 enemies you gain 2 "stacks".
-    Every time you get hit youlose a stack. If you get hit with 0 stacks, you die.
-    At the end of a level you can exchange stacks for upgrade [I haven''t implemented
-    this yet :( ]'
+    The goal of the game is to
+    kill all the enemies with your fireballs, but once your fireballs reaches the
+    edge, they teleport from the edges causing you to dodge your own fireballs. Whenever
+    your fireball hits an enemy, a meter fills up. Once you hit 5 enemies you gain
+    2 "stacks". Every time you get hit youlose a stack. If you get hit with 0 stacks,
+    you die. At the end of a level you can exchange stacks for upgrade [I haven''t
+    implemented this yet :( ]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

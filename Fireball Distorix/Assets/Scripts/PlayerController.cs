@@ -101,10 +101,9 @@ public class PlayerController : MonoBehaviour
             sr.sprite = Xessy;
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && !PauseMenu.IsPaused)
         {
-            Stack = StackStartLevel;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Die();
         }
 
         if (Input.GetKeyDown(KeyCode.J))
@@ -220,6 +219,32 @@ public class PlayerController : MonoBehaviour
                 else if (DashInputY == -1)
                 {
                     rb.velocity = Vector2.down * DashSpeed * Time.deltaTime;
+                    IsDashing = true;
+                }
+
+
+
+
+
+                if (DashInput == 2)
+                {
+                    rb.velocity = new Vector2(1, 1) * DashSpeed/2 * Time.deltaTime;
+                    IsDashing = true;
+
+                }
+                else if (DashInput == -2)
+                {
+                    rb.velocity = new Vector2(-1, 1) * DashSpeed/2 * Time.deltaTime;
+                    IsDashing = true;
+                }
+                if (DashInputY == 2)
+                {
+                    rb.velocity = new Vector2(1,-1) * DashSpeed/2 * Time.deltaTime;
+                    IsDashing = true;
+                }
+                else if (DashInputY == -2)
+                {
+                    rb.velocity = new Vector2(-1, -1) * DashSpeed/2 * Time.deltaTime;
                     IsDashing = true;
                 }
 
@@ -344,6 +369,24 @@ public class PlayerController : MonoBehaviour
             else if (y == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
                 DashInputY = -1;
+            }
+
+
+            if (x == 1 && y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            {
+                DashInput = 2;
+            }
+            else if (x == -1 && y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            {
+                DashInput = -2;
+            }
+            if (y == -1 && x == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            {
+                DashInputY = 2;
+            }
+            else if (y == -1 && x == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            {
+                DashInputY = -2;
             }
 
         }

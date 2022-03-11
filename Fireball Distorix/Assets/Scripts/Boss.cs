@@ -66,15 +66,15 @@ public class Boss : MonoBehaviour
 
             }
 
-            else if (timer >= time && timer <= time + 0.25 && BossLevel > 2)
-            {
+            //else if (timer >= time && timer <= time + 0.25 && BossLevel > 2)
+            //{
                 //StartDash = true;
                 //xy = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y).normalized;
 
-                rb.velocity = new Vector2(xy.x * DashSpeed, (xy.y * DashSpeed));
+                //rb.velocity = new Vector2(xy.x * DashSpeed, (xy.y * DashSpeed));
                 //print("During Dash");
 
-            }
+            //}
 
             else if (timer >= time && timer <= time + 0.5 && BossLevel > 2)
             {

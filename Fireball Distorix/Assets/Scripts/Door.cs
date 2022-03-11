@@ -16,7 +16,7 @@ public class Door : MonoBehaviour
     void Update()
     {
         
-        if (GameObject.Find("Boss") == null )
+        if (GameObject.Find("Boss") == null && GameObject.Find("DashUpgrade(Clone)") == null)
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
