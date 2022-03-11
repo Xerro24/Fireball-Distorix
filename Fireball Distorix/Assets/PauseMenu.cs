@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,27 +9,49 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PauseMenuUI = transform.FindChild("PauseMenu").gameObject;
+        PauseMenuUI = transform.Find("PauseMenu").gameObject;
         PauseMenuUI.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (!IsPaused)
             {
-                Time.timeScale = 0;
-                PauseMenu.IsPaused = true;
-                PauseMenuUI.SetActive(true);
+                Pause();
             }
             else
             {
-                Time.timeScale = 1;
-                PauseMenu.IsPaused = false;
-                PauseMenuUI.SetActive(true);
+                Resume();
             }
         }
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        IsPaused = false;
+        PauseMenuUI.SetActive(false);
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        IsPaused = true;
+        PauseMenuUI.SetActive(true);
+    }
+
+    public void HowToPlay()
+    {
+        //print("Yes");
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1;
+        IsPaused = false;
+        SceneManager.LoadScene(0);
     }
 }

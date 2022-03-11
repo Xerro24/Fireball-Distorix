@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         StackStartLevel = Stack;
 
         if (EasyMode && SceneManager.GetActiveScene().buildIndex == 1)
-            Stack += 20;
+            Stack = 20;
 
         Dashtime = StartDash;
 
@@ -99,11 +99,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             sr.sprite = Xessy;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -135,11 +130,7 @@ public class PlayerController : MonoBehaviour
             Upgrade();
         }
 
-        if (Input.GetKeyDown(KeyCode.P) && !EasyMode)
-            {
-                EasyMode = true;
-                Stack += 20;
-            }
+        
 
 
         if (StackCounter >= 5)
