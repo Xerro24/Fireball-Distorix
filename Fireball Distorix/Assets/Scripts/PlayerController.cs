@@ -191,11 +191,11 @@ public class PlayerController : MonoBehaviour
                 DashInputY = 0;
                 Dashtime = StartDash;
                 rb.velocity = Vector2.zero;
-                IsDashing = false;
                 CanDash = false;
                 Iframes = IframesStart;
                 IsIFramesDone = false;
                 sr.color = new Color(0f, 0f, 255f, 1f);
+                IsDashing = false;
             }
             else
             {

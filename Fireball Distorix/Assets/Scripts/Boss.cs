@@ -23,7 +23,7 @@ public class Boss : MonoBehaviour
 
     public int BossLevel = 1;
 
-    
+    private int Multidash;
     
     Vector2 xy;
     // Start is called before the first frame update
@@ -86,11 +86,22 @@ public class Boss : MonoBehaviour
 
             }
 
+            else if (timer >= time + 0.25 && BossLevel <= 3 && Multidash < 3)
+            {
+                StartDash = true;
+                rb.velocity = new Vector2(0, 0);
+                timer = time - 0.3f;
+                Multidash++;
+                //print("After Dash");
+
+            }
+
             else if (timer >= time + 0.25)
             {
                 StartDash = true;
                 rb.velocity = new Vector2(0, 0);
                 timer = 0;
+                Multidash = 0;
                 //print("After Dash");
 
             }
@@ -186,7 +197,7 @@ public class Boss : MonoBehaviour
     {
         PlayerController player = collision.GetComponent<PlayerController>();
         if (collision.gameObject.CompareTag("Player") && player != null)
-        //if (player.IsDashing == false && player.Iframes <= 0)
+        if (player.IsDashing == false && player.Iframes <= 0)
         {
             if (PlayerController.EasyMode)
             {
