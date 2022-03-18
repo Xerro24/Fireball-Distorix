@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour
     // The Stack mechanic
     public static int Stack;
     public int StackCounter;
+    // The amount of Stacks you want to start with
     public int StackStart;
+    // If you can change the Stack 
     public bool WantToChangeStack = false;
     private int StackStartLevel;
 
@@ -41,6 +43,8 @@ public class PlayerController : MonoBehaviour
     public bool CanDamaged = true;
 
     public static bool HasDash;
+
+    public bool WantToChangeDash = false;
 
     public float DashSpeed;
     private float Dashtime = 0;
@@ -73,10 +77,13 @@ public class PlayerController : MonoBehaviour
         if (WantToChangeStack)
             Stack = StackStart;
 
+        if (WantToChangeDash)
+            HasDash = true;
+
         StackStartLevel = Stack;
 
         if (EasyMode && SceneManager.GetActiveScene().buildIndex == 1)
-            Stack = 20;
+            Stack += 20;
 
         Dashtime = StartDash;
 
@@ -262,7 +269,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!IsDashing)
         {
-            Stack -= damage;
+            
 
             sr.color = new Color(255f, 0f, 0f, 1f);
 
@@ -271,6 +278,8 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
 
             sr.color = new Color(255f, 255f, 255f, 1f);
+
+            Stack -= damage;
 
 
             if (Stack < 0)

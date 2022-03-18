@@ -23,6 +23,7 @@ public class Shield : MonoBehaviour
             Fireball fireball = collision.GetComponent<Fireball>();
             collision.GetComponent<SpriteRenderer>().enabled = false;
             collision.GetComponent<CircleCollider2D>().enabled = false;
+            fireball.damage = 0;
             
         }
     }

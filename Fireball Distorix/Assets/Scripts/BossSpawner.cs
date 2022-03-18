@@ -45,6 +45,10 @@ public class BossSpawner : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = true;
             GetComponent<Enemy>().enabled = true;
             GetComponent<Boss>().enabled = true;
+            for (int j = 0; j <= transform.childCount - 1; j++)
+            {
+                transform.GetChild(j).gameObject.SetActive(true);
+            }
 
         }
 

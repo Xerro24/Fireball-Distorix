@@ -11,12 +11,21 @@ public class Enemy : MonoBehaviour
     public float Speed;
     private PlayerController Player;
 
+    private bool isBoss;
+
+    private bool PlayerCanDamaged = true;
+
+    public bool CanDamaged = true;
+
 
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         Player = GameObject.Find("Player").GetComponent<PlayerController>();
+        if (GetComponent<Boss>() != null)
+            isBoss = true;
+        
     }
 
     // Update is called once per frame
@@ -27,6 +36,7 @@ public class Enemy : MonoBehaviour
 
     public IEnumerator TakeDamage(int damage)
     {
+        CanDamaged = false;
         Health -= damage;
         sr.color = new Color(255f, 0f, 0f, 1f);
         //if (Player.EasyMode)
@@ -38,6 +48,7 @@ public class Enemy : MonoBehaviour
             Player.StackCounter += 1;
         }
         yield return new WaitForSeconds(timer);
+        CanDamaged = true;
         sr.color = new Color(255f, 255f, 255f, 1f);
         
 
@@ -61,6 +72,11 @@ public class Enemy : MonoBehaviour
         {
             c.enabled = false;
         }
+
+        for (int j = 0; j <= transform.childCount - 1; j++)
+        {
+            transform.GetChild(j).gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -70,8 +86,8 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && player != null)
         //if (player.IsDashing == false && player.Iframes <= 0)
         {
-            if (player.CanDamaged)
-                StartCoroutine(player.TakeDamage(1));
+            if (player.CanDamaged && !isBoss && PlayerCanDamaged)
+                StartCoroutine(PlayerTakeDamage(1));
             
         }
 
@@ -82,5 +98,43 @@ public class Enemy : MonoBehaviour
             player.Stack -= 1;
         }
         */
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        PlayerController player = collision.GetComponent<PlayerController>();
+        if (collision.gameObject.CompareTag("Player") && player != null)
+            if (player.IsDashing == false && player.Iframes <= 0 && isBoss)
+            {
+                if (PlayerController.EasyMode)
+                {
+                    //PlayerController.Stack -= 1;
+                    if (player.CanDamaged && PlayerCanDamaged)// && timer >= time - 0.2)
+                    {
+                        StartCoroutine(PlayerTakeDamage(2));
+                    }
+                        
+                }
+
+                else if (!PlayerController.EasyMode)
+                {
+                    player.Die();
+                }
+
+
+
+            }
+
+
+    }
+
+    public IEnumerator PlayerTakeDamage(int damage)
+    {
+        PlayerCanDamaged = false;
+        StartCoroutine(Player.TakeDamage(damage));
+        yield return new WaitForSeconds(0.5f);
+        PlayerCanDamaged = true;
+        
+
     }
 }

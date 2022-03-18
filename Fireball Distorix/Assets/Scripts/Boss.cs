@@ -36,9 +36,11 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        rb.velocity = new Vector2((player.transform.position.x - transform.position.x) * speed, (player.transform.position.y - transform.position.y)
-             * speed);
+        if (timer >= 0)
+        { 
+        rb.velocity = new Vector2((player.transform.position.x - transform.position.x) * speed, 
+                                   (player.transform.position.y - transform.position.y)* speed);
+        }
 
 
         if (BossLevel >= 2)
@@ -86,15 +88,17 @@ public class Boss : MonoBehaviour
 
             }
 
-            else if (timer >= time + 0.25 && BossLevel <= 3 && Multidash < 3)
+            /*
+            else if (timer >= time + 0.25 && BossLevel <= 3 && Multidash < 2)
             {
                 StartDash = true;
                 rb.velocity = new Vector2(0, 0);
-                timer = time - 0.3f;
+                timer = time - 1f;
                 Multidash++;
                 //print("After Dash");
 
             }
+            */
 
             else if (timer >= time + 0.25)
             {
@@ -117,6 +121,14 @@ public class Boss : MonoBehaviour
                 timer = 0;
             }
         }
+
+        if ("Room " + player.GetComponent<PlayerController>().CurrentRoom != transform.parent.name)
+        {
+            rb.velocity = new Vector2((transform.parent.transform.position.x - transform.position.x) * speed,
+                                   (transform.parent.transform.position.y - transform.position.y) * speed);
+            timer = -1f;
+        }
+
 
         
 
@@ -179,9 +191,19 @@ public class Boss : MonoBehaviour
     {
         PlayerController player = collision.GetComponent<PlayerController>();
         if (collision.gameObject.CompareTag("Player") && player != null)
-        //if (player.IsDashing == false && player.Iframes <= 0)
+        if (player.IsDashing == false && player.Iframes <= 0)
         {
+                /*
+            if (PlayerController.EasyMode)
+            {
+                //PlayerController.Stack -= 1;
+                while (player.CanDamaged)
+                {
+                    StartCoroutine(player.TakeDamage(100));
 
+                }
+            }
+                */
             if (!PlayerController.EasyMode)
             {
                 player.Die();
@@ -193,30 +215,7 @@ public class Boss : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        PlayerController player = collision.GetComponent<PlayerController>();
-        if (collision.gameObject.CompareTag("Player") && player != null)
-        if (player.IsDashing == false && player.Iframes <= 0)
-        {
-            if (PlayerController.EasyMode)
-            {
-                //PlayerController.Stack -= 1;
-                while (player.CanDamaged && timer >= time - 0.2)
-                {
-                    StartCoroutine(player.TakeDamage(2));
-
-                }
-            }
-
-            else if (!PlayerController.EasyMode)
-            {
-                player.Die();
-            }
-
-
-
-        }
-    }
-
+    ///*
+    
+    //*/
 }

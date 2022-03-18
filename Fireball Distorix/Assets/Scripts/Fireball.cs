@@ -182,7 +182,7 @@ public class Fireball : MonoBehaviour
         }
         */
 
-        if (enemy != null && damage > 0)
+        if (enemy != null && damage > 0 && enemy.CanDamaged)
         {
             StartCoroutine(enemy.TakeDamage(damage));
             //PlayerController Player = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -229,4 +229,14 @@ public class Fireball : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /*
+    public IEnumerator FireballDamageDelay(Enemy enemy)
+    {
+        int tempDamage = damage;
+        damage = 0;
+        yield return StartCoroutine(enemy.TakeDamage(tempDamage));
+        damage = 1;
+        
+    }
+    */
 }
