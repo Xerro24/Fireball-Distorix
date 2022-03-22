@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         PlayerController.Stack = 0;
+        PlayerController.HasDash = false;
+        PlayerController.EasyMode = true;
     }
     public void NoramlMode()
     {

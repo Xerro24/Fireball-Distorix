@@ -8,6 +8,9 @@ TagManager:
   - People
   - Tilemap
   - Enemy
+  - Guard 1
+  - Guard 2
+  - Guard 3
   layers:
   - Default
   - TransparentFX

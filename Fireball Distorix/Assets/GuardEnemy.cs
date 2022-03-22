@@ -8,12 +8,21 @@ public class GuardEnemy : MonoBehaviour
     private int EnemiesKilled;
 
     private bool first;
-    
+    private bool second;
+    private bool third;
+
+    public bool Up;
+    public bool Down;
+    public bool Left;
+    public bool Right;
+
+    public int GuardNumber;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        EnemiesToKill = GameObject.FindGameObjectsWithTag("Guard " + GuardNumber);
     }
 
     // Update is called once per frame
@@ -36,11 +45,52 @@ public class GuardEnemy : MonoBehaviour
             //gameObject.SetActive(false);
 
             first = true;
-            transform.Translate(new Vector2(18, 0), transform);
+            if (Right)
+                transform.Translate(new Vector2(18, 0), transform);
+            if (Left)
+                transform.Translate(new Vector2(-18, 0), transform);
+            if (Up)
+                transform.Translate(new Vector2(0, 10), transform);
+            if (Down)
+                transform.Translate(new Vector2(0, -10), transform);
 
 
         }
-       
+
+        else if (EnemiesKilled == 8 && !second)
+        {
+            //gameObject.SetActive(false);
+
+            second = true;
+            if (Right)
+                transform.Translate(new Vector2(18, 0), transform);
+            if (Left)
+                transform.Translate(new Vector2(-18, 0), transform);
+            if (Up)
+                transform.Translate(new Vector2(0, 10), transform);
+            if (Down)
+                transform.Translate(new Vector2(0, -10), transform);
+
+
+        }
+
+        else if (EnemiesKilled == 12 && !third)
+        {
+            //gameObject.SetActive(false);
+
+            third = true;
+            if (Right)
+                transform.Translate(new Vector2(9, 0), transform);
+            if (Left)
+                transform.Translate(new Vector2(-9, 0), transform);
+            if (Up)
+                transform.Translate(new Vector2(0, 5), transform);
+            if (Down)
+                transform.Translate(new Vector2(0, -5), transform);
+
+
+        }
+
 
         EnemiesKilled = 0;
     }

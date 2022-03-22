@@ -111,7 +111,7 @@ public class Enemy : MonoBehaviour
                     //PlayerController.Stack -= 1;
                     if (player.CanDamaged && PlayerCanDamaged)// && timer >= time - 0.2)
                     {
-                        StartCoroutine(PlayerTakeDamage(2));
+                        StartCoroutine(PlayerTakeDamage(10));
                     }
                         
                 }
