@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Old Scenes/2.unity
     guid: 1b9f02f9350431c46bc85324aa2b948d
   - enabled: 0
-    path: Assets/Scenes/Old Scenes/Shop 1.unity
-    guid: a45835255d932f149905bdc34b19e26b
-  - enabled: 0
     path: Assets/Scenes/Old Scenes/3.unity
     guid: 4cbef9c52d2201f4ab1d74bbb7535a36
   - enabled: 0
@@ -41,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: c08149ba8cebd2d46b82b62e18492fe5
+  - enabled: 1
+    path: Assets/Scenes/Old Scenes/Shop 1.unity
+    guid: a45835255d932f149905bdc34b19e26b
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 8a4def661dac9994b858dfe20ab5e2cd

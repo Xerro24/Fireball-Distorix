@@ -18,6 +18,8 @@ public class GuardEnemy : MonoBehaviour
 
     public int GuardNumber;
 
+    public int max;
+
 
     // Start is called before the first frame update
     void Start()
@@ -74,7 +76,7 @@ public class GuardEnemy : MonoBehaviour
 
         }
 
-        else if (EnemiesKilled == 12 && !third)
+        else if (EnemiesKilled == max && !third)
         {
             //gameObject.SetActive(false);
 

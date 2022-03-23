@@ -21,9 +21,31 @@ public class Shield : MonoBehaviour
         if (collision.name == "Fireball(Clone)")
         {
             Fireball fireball = collision.GetComponent<Fireball>();
-            collision.GetComponent<SpriteRenderer>().enabled = false;
-            collision.GetComponent<CircleCollider2D>().enabled = false;
-            fireball.damage = 0;
+            int tremp = Random.Range(1, 4);
+            string hemp = "";
+            if (tremp == 1)
+            {
+                hemp = "Bottom";
+            }
+
+            else if (tremp == 2)
+            {
+                hemp = "Top";
+            }
+
+            else if (tremp == 3)
+            {
+                hemp = "Right";
+            }
+
+            else if (tremp == 4)
+            {
+                hemp = "Left";
+            }
+
+            transform.parent.parent.parent.parent.Find(hemp).GetComponent<EdgeTeleporter>().Teleport(fireball);
+
+            
             
         }
     }

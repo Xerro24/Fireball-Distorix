@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     public bool CanDamaged = true;
 
     public static bool HasDash;
+    public static bool HasWaterball;
 
     public bool WantToChangeDash = false;
 
@@ -86,6 +87,11 @@ public class PlayerController : MonoBehaviour
             Stack += 20;
 
         Dashtime = StartDash;
+
+        if (HasWaterball)
+        {
+            GetComponent<WaterBucketSpawner>().enabled = true;
+        }
 
 
     }
@@ -131,9 +137,9 @@ public class PlayerController : MonoBehaviour
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        if (Chest.HasUpgrade && Speed < 700)
+        //if (Chest.HasUpgrade && Speed < 700)
         {
-            Upgrade();
+            //Upgrade();
         }
 
         

@@ -499,6 +499,7 @@ MonoBehaviour:
   Left: 0
   Right: 0
   GuardNumber: 3
+  max: 10
 --- !u!1001 &274604556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -906,6 +907,7 @@ MonoBehaviour:
   Left: 0
   Right: 0
   GuardNumber: 3
+  max: 10
 --- !u!1001 &384188032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1783,6 +1785,7 @@ MonoBehaviour:
   Left: 0
   Right: 0
   GuardNumber: 1
+  max: 12
 --- !u!1 &545100151 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2502562606414369104, guid: 4b71c32178e456b4889c54779c8c87f3, type: 3}
@@ -1806,6 +1809,7 @@ MonoBehaviour:
   Left: 0
   Right: 0
   GuardNumber: 1
+  max: 12
 --- !u!4 &618847730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4381382984809358633, guid: 29b04afe7d718004db4ccff23cae1359, type: 3}
@@ -3034,11 +3038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3567708004063824271, guid: eec8fefc2f6471d43875b03a65d8e3a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 78
+      value: 51.59
       objectReference: {fileID: 0}
     - target: {fileID: 3567708004063824271, guid: eec8fefc2f6471d43875b03a65d8e3a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 37.58
       objectReference: {fileID: 0}
     - target: {fileID: 3567708004063824271, guid: eec8fefc2f6471d43875b03a65d8e3a1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24801,6 +24805,7 @@ MonoBehaviour:
   Left: 0
   Right: 1
   GuardNumber: 2
+  max: 10
 --- !u!1001 &1769380792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54444,6 +54449,7 @@ MonoBehaviour:
   Left: 0
   Right: 1
   GuardNumber: 2
+  max: 10
 --- !u!1001 &2044327173
 PrefabInstance:
   m_ObjectHideFlags: 0

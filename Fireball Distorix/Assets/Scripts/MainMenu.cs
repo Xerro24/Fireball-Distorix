@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
         PlayerController.Stack = 0;
         PlayerController.HasDash = false;
         PlayerController.EasyMode = true;
+        PlayerController.HasWaterball = false;
     }
     public void NoramlMode()
     {

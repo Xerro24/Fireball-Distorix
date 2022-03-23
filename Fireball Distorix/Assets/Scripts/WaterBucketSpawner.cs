@@ -19,6 +19,7 @@ public class WaterBucketSpawner : MonoBehaviour
 
     private PlayerController player;
 
+    private GameObject room;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,41 +32,22 @@ public class WaterBucketSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.CurrentRoom == 1)
+        //if (player.CurrentRoom == 1)
         {
-            xRangeMin = -7f;
-            xRangeMax = 7f;
-            yRangeMin = -3f;
-            yRangeMax = 3f;
-        }
-
-        else if (player.CurrentRoom == 2)
-        {
-            xRangeMin = 11f;
-            xRangeMax = 25f;
-            yRangeMin = -3f;
-            yRangeMax = 3f;
-        }
-
-        else if (player.CurrentRoom == 3)
-        {
-            xRangeMin = 11f;
-            xRangeMax = 25f;
-            yRangeMin = -13f;
-            yRangeMax = -7f;
-        }
-
-        else if (player.CurrentRoom == 4)
-        {
-            xRangeMin = 30f;
-            xRangeMax = 42f;
-            yRangeMin = -13f;
-            yRangeMax = -7f;
+            room = GameObject.Find("Room " + player.CurrentRoom);
+            if (room.GetComponent<Rooms>().IsShootingRoom)
+            {
+                xRangeMin = room.transform.GetChild(1).GetChild(0).position.x + 2;
+                xRangeMax = room.transform.GetChild(4).GetChild(0).position.x - 2;
+                yRangeMin = room.transform.GetChild(2).GetChild(0).position.y + 2;
+                yRangeMax = room.transform.GetChild(3).GetChild(0).position.y - 2;
+            }
+            
         }
 
 
         // Checks if a water bucket has already been spawned and if the shooter isn't in water shooting mode
-        if (GameObject.Find("Water Bucket(Clone)") == null && !GameObject.Find("Fire Shooter").GetComponent<Shooter>().IsWater && PlayerController.Stack >= 2)
+        if (GameObject.Find("Water Bucket(Clone)") == null && !GameObject.Find("Fire Shooter").GetComponent<Shooter>().IsWater )//&& PlayerController.Stack >= 2)
         {
             // Decreases the timer
             timer -= Time.deltaTime;

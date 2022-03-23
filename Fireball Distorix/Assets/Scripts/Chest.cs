@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    public static bool HasUpgrade = false;
+    //public static bool HasUpgrade = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +23,10 @@ public class Chest : MonoBehaviour
         PlayerController player = collision.GetComponent<PlayerController>();
         if (collision.gameObject.CompareTag("Player") && player != null)
         {
-            if (PlayerController.Stack >= 10)
+            if (PlayerController.Stack >= 2)
             {
-                PlayerController.Stack -= 10;
-                HasUpgrade = true;
+                PlayerController.Stack -= 2;
+                PlayerController.HasWaterball = true;
                 Destroy(gameObject);
             }
         }
