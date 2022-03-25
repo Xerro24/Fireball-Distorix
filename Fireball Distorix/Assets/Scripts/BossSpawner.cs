@@ -14,6 +14,9 @@ public class BossSpawner : MonoBehaviour
     public GameObject DashPrefab;
 
     private RoomCounting room;
+
+    private bool temp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,9 +33,10 @@ public class BossSpawner : MonoBehaviour
         //print("Total enemies = " + TotalEnemies);
         //print("Null enemies = " + NullEnemies);
 
-        if (room.stop)
+        if (room.stop && !temp)
         {
             SpawnBoss = true;
+            temp = true;
         }
 
         
@@ -50,6 +54,7 @@ public class BossSpawner : MonoBehaviour
                 transform.GetChild(j).gameObject.SetActive(true);
             }
 
+            SpawnBoss = false;
         }
 
         

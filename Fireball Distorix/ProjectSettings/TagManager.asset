@@ -11,6 +11,7 @@ TagManager:
   - Guard 1
   - Guard 2
   - Guard 3
+  - Shield Shutoff
   layers:
   - Default
   - TransparentFX

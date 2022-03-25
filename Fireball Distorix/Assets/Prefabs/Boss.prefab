@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4381382984809358646}
   - component: {fileID: 4381382984809358645}
   - component: {fileID: 4381382984809358644}
+  - component: {fileID: 6740420801711921186}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -128,6 +129,7 @@ MonoBehaviour:
   Health: 20
   timer: 0.1
   Speed: 0
+  CanDamaged: 1
 --- !u!114 &4381382984809358646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +183,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6740420801711921186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4381382984809358635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538f41992b6ed7645b707c89b04013f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

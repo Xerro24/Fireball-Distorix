@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
 
     public bool CanDamaged = true;
 
+    private bool temp;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,23 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         //transform.position = new Vector2(6, Mathf.PingPong(Time.time * Speed, 6) - 3);
+        if (isBoss && transform.GetChild(0).gameObject.activeSelf)
+        {
+            CanDamaged = false;
+        }
+
+        
+        else if (isBoss && !transform.GetChild(0).gameObject.activeSelf && !temp)
+        {
+            CanDamaged = true;
+            temp = true;
+        }
+
+        if (isBoss && !transform.GetChild(0).gameObject.activeSelf)
+        {
+            print("f");
+        }
+        //print(isBoss && !transform.GetChild(0).gameObject.activeSelf);
     }
 
     public IEnumerator TakeDamage(int damage)

@@ -43,10 +43,18 @@ public class Shield : MonoBehaviour
                 hemp = "Left";
             }
 
-            transform.parent.parent.parent.parent.Find(hemp).GetComponent<EdgeTeleporter>().Teleport(fireball);
+            if (transform.parent.parent.gameObject.GetComponent<Boss>() == null)
+            {
+                //print("t");
+                transform.parent.parent.parent.parent.Find(hemp).GetComponent<EdgeTeleporter>().Teleport(fireball);
+            }
+                
 
-            
-            
+            else
+                transform.parent.parent.parent.Find(hemp).GetComponent<EdgeTeleporter>().Teleport(fireball);
+
+
+
         }
     }
 }

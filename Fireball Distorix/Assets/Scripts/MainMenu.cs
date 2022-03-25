@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -33,11 +35,13 @@ public class MainMenu : MonoBehaviour
         print("Goodbye >~<");
     }
 
-    public void Level1()
+    public void Level()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(EventSystem.current.currentSelectedGameObject.name);
+        
     }
 
+    /*
     public void Level2()
     {
         SceneManager.LoadScene(2);
@@ -67,5 +71,5 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(7);
     }
-
+    */
 }
