@@ -23,9 +23,16 @@ public class Chest : MonoBehaviour
         PlayerController player = collision.GetComponent<PlayerController>();
         if (collision.gameObject.CompareTag("Player") && player != null)
         {
-            if (PlayerController.Stack >= 2)
+            if (PlayerController.Stack >= 25 && PlayerController.EasyMode)
             {
-                PlayerController.Stack -= 2;
+                PlayerController.Stack -= 25;
+                PlayerController.HasWaterball = true;
+                Destroy(gameObject);
+            }
+
+            else if (PlayerController.Stack >= 5 && !PlayerController.EasyMode)
+            {
+                PlayerController.Stack -= 5;
                 PlayerController.HasWaterball = true;
                 Destroy(gameObject);
             }

@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9509d9072a1c846449e5ee8b68ffb2e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerStart: 10
+  timerStart: 20
   BucketPrefab: {fileID: 7372386834301171394, guid: 6bf8879a9751926479e8ae825d912518, type: 3}
   xRangeMin: -7
   xRangeMax: 7

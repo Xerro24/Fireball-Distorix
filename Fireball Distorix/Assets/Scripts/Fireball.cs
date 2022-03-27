@@ -213,7 +213,9 @@ public class Fireball : MonoBehaviour
             if (collision.name == "Fireball(Clone)")
             {
                 VaporizeCounter += 1;
-                Destroy(collision.gameObject);
+                collision.GetComponent<SpriteRenderer>().enabled = false;
+                collision.GetComponent<CircleCollider2D>().enabled = false;
+                collision.GetComponent<Fireball>().damage = 0;
 
             }
 

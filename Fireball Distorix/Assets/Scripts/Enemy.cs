@@ -46,11 +46,13 @@ public class Enemy : MonoBehaviour
             temp = true;
         }
 
+        /*
         if (isBoss && !transform.GetChild(0).gameObject.activeSelf)
         {
             print("f");
         }
         //print(isBoss && !transform.GetChild(0).gameObject.activeSelf);
+        */
     }
 
     public IEnumerator TakeDamage(int damage)
@@ -81,9 +83,9 @@ public class Enemy : MonoBehaviour
     {
         //gameObject.SetActive(false);
 
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        gameObject.GetComponent<Enemy>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<Enemy>().enabled = false;
         //gameObject.GetComponent<BoxCollider2D>().enabled = false;
         //gameObject.GetComponent<MovingEnemy>().enabled = false;
         //gameObject.GetComponent<DashingEnemy>().enabled = false;
