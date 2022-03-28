@@ -182,10 +182,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(DashInputDelay());
         }
 
-       
+
 
         //print(CurrentRoom);
 
+        //print(EasyMode);
 
     }
 

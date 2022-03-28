@@ -27,6 +27,13 @@ public class Enemy : MonoBehaviour
         Player = GameObject.Find("Player").GetComponent<PlayerController>();
         if (GetComponent<Boss>() != null)
             isBoss = true;
+
+        if (isBoss && !PlayerController.EasyMode)
+        {
+            float temp2 = Health;
+            temp2 *= 2.5f;
+            Health = (int)temp2;
+        }
         
     }
 

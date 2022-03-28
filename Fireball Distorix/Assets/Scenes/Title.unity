@@ -862,11 +862,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Start with 0 stacks, gain 1 stacks per 5 hits, Boss insta-kills
+  m_text: 'Start with 0 stacks, gain 1 stacks per 5 hits, Boss insta-kills and has
+    more health
 
 
-    Significantly
-    harder, not recomended for players who are not good at bullet-hell'
+    Significantly harder, not recomended for players who are not
+    good at bullet-hell'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6849,7 +6850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Start with 20 stacks, gain 2 stacks per 5 hits, Boss doesn''t insta-kill
+  m_text: 'Start with 20 stacks, gain 2 stacks per 5 hits, Boss does 10 damage
 
 
     Recomended
