@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     public bool CanDamaged = true;
 
-    private bool temp;
+    public bool temp;
 
 
     // Start is called before the first frame update
@@ -51,6 +51,7 @@ public class Enemy : MonoBehaviour
         {
             CanDamaged = true;
             temp = true;
+            
         }
 
         /*
@@ -60,12 +61,13 @@ public class Enemy : MonoBehaviour
         }
         //print(isBoss && !transform.GetChild(0).gameObject.activeSelf);
         */
+        
     }
 
     public IEnumerator TakeDamage(int damage)
     {
         CanDamaged = false;
-        Health -= damage;
+        
         sr.color = new Color(255f, 0f, 0f, 1f);
         //if (Player.EasyMode)
         {
@@ -76,6 +78,7 @@ public class Enemy : MonoBehaviour
             Player.StackCounter += 1;
         }
         yield return new WaitForSeconds(timer);
+        Health -= damage;
         CanDamaged = true;
         sr.color = new Color(255f, 255f, 255f, 1f);
         

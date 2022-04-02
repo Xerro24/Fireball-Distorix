@@ -43,7 +43,7 @@ public class BossSpawner : MonoBehaviour
     
     
 
-        if (SpawnBoss && player.GetComponent<PlayerController>().CurrentRoom == room.FinalRoom)
+        if (SpawnBoss && player.GetComponent<PlayerController>().CurrentRoom == room.FinalRoom && !GetComponent<Boss>().isActiveAndEnabled)
         {
             GetComponent<SpriteRenderer>().enabled = true;
             GetComponent<BoxCollider2D>().enabled = true;

@@ -14,6 +14,8 @@ public class Shield : MonoBehaviour
     private GameObject player;
 
     public float RotPOWER = 100;
+
+    public bool DestroyFireball;
     
 
     // Start is called before the first frame update
@@ -67,7 +69,7 @@ public class Shield : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Fireball(Clone)")
+        if (collision.name == "Fireball(Clone)" && !DestroyFireball)
         {
             Fireball fireball = collision.GetComponent<Fireball>();
             int tremp = Random.Range(1, 4);
@@ -101,6 +103,17 @@ public class Shield : MonoBehaviour
 
             else
                 transform.parent.parent.parent.Find(hemp).GetComponent<EdgeTeleporter>().Teleport(fireball);
+
+
+
+        }
+
+        if (collision.name == "Fireball(Clone)" && DestroyFireball)
+        {
+            Fireball fireball = collision.GetComponent<Fireball>();
+            collision.GetComponent<SpriteRenderer>().enabled = false;
+            collision.GetComponent<CircleCollider2D>().enabled = false;
+            fireball.damage = 0;
 
 
 
