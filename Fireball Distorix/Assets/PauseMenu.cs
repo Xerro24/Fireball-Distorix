@@ -5,12 +5,14 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool IsPaused = false;
     private GameObject PauseMenuUI;
+    PlayerController player;
 
     // Start is called before the first frame update
     void Start()
     {
         PauseMenuUI = transform.Find("PauseMenu").gameObject;
         PauseMenuUI.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -50,8 +52,10 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
+
         Time.timeScale = 1;
         IsPaused = false;
+        SaveSystem.Save(player);
         SceneManager.LoadScene(0);
     }
 }
