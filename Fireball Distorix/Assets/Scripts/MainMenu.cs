@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
     {
         PlayerController.EasyMode = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PlayerController.Stack += 20;
 
     }
 

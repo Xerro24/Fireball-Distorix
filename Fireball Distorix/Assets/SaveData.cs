@@ -14,7 +14,8 @@ public class SaveData
 
     public SaveData (PlayerController player)
     {
-        Stack = player.StackStart;
+        Stack = player.StackStartLevel;
+        //Stack = PlayerController.Stack;
         EasyMode = PlayerController.EasyMode;
         HasDash = PlayerController.HasDash;
         HasWaterball = PlayerController.HasWaterball;

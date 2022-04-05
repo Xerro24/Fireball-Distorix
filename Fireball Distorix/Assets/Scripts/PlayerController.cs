@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public int StackStart;
     // If you can change the Stack 
     public bool WantToChangeStack = false;
-    private int StackStartLevel;
+    public int StackStartLevel;
 
     public SpriteRenderer sr;
 
@@ -83,8 +83,6 @@ public class PlayerController : MonoBehaviour
 
         StackStartLevel = Stack;
 
-        if (EasyMode && SceneManager.GetActiveScene().buildIndex == 1)
-            Stack += 20;
 
         Dashtime = StartDash;
 
