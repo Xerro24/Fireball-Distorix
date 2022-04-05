@@ -41,6 +41,21 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    public void Continue()
+    {
+        SaveData data = SaveSystem.Load();
+
+        if (data != null)
+        { 
+            PlayerController.Stack = data.Stack;
+            PlayerController.EasyMode = data.EasyMode;
+            PlayerController.HasDash = data.HasDash;
+            PlayerController.HasWaterball = data.HasWaterball;
+            SceneManager.LoadScene(data.Level);
+        }
+
+    }
+
     /*
     public void Level2()
     {
