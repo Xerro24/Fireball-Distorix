@@ -11,7 +11,7 @@ public static class SaveSystem
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = Application.persistentDataPath + "/FireBall Distorix.save";
+        string path = Application.persistentDataPath + "/Fireball Distorix.save";
 
         FileStream stream = new FileStream(path, FileMode.Create);
 
@@ -24,7 +24,7 @@ public static class SaveSystem
 
     public static SaveData Load ()
     {
-        string path = Application.persistentDataPath + "/FireBall Distorix.save";
+        string path = Application.persistentDataPath + "/Fireball Distorix.save";
 
         if (File.Exists(path))
         {
