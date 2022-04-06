@@ -4,16 +4,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.IO;
 
 
 public class MainMenu : MonoBehaviour
 {
+    SaveData data;
     private void Start()
     {
+        data = SaveSystem.Load();
         PlayerController.Stack = 0;
         PlayerController.HasDash = false;
         PlayerController.EasyMode = true;
         PlayerController.HasWaterball = false;
+
+        string path = Application.persistentDataPath + "/Fireball Distorix.save";
+        if (File.Exists(path))
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
+
     }
     public void NoramlMode()
     {
@@ -44,7 +54,6 @@ public class MainMenu : MonoBehaviour
 
     public void Continue()
     {
-        SaveData data = SaveSystem.Load();
 
         if (data != null)
         { 
