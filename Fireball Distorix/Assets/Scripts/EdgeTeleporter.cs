@@ -6,13 +6,13 @@ public class EdgeTeleporter : MonoBehaviour
 {
 
     private Transform Room;
-    private string name;
+    private string selfname;
 
     // Start is called before the first frame update
     void Start()
     {
         Room = gameObject.transform.parent;
-        name = gameObject.name;
+        selfname = gameObject.name;
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class EdgeTeleporter : MonoBehaviour
     public void Teleport(Fireball fireball)
     {
         Vector2 temp;
-        if (name == "Bottom")
+        if (selfname == "Bottom")
         {
 
             //Room.GetChild(1);
@@ -64,7 +64,7 @@ public class EdgeTeleporter : MonoBehaviour
             fireball.damage = 0;
         }
 
-        else if (name == "Top")
+        else if (selfname == "Top")
         {
             Room.GetChild(2);
             Vector2 BottomLeft = Room.GetChild(2).GetChild(0).position;
@@ -89,7 +89,7 @@ public class EdgeTeleporter : MonoBehaviour
             fireball.damage = 0;
         }
 
-        else if (name == "Right")
+        else if (selfname == "Right")
         {
             Room.GetChild(3);
             Vector2 BottomLeft = Room.GetChild(3).GetChild(0).position;
@@ -114,7 +114,7 @@ public class EdgeTeleporter : MonoBehaviour
             fireball.damage = 0;
         }
 
-        else if (name == "Left")
+        else if (selfname == "Left")
         {
             Room.GetChild(4);
             Vector2 BottomLeft = Room.GetChild(4).GetChild(0).position;

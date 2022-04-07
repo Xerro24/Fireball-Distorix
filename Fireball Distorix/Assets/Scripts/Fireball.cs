@@ -228,6 +228,7 @@ public class Fireball : MonoBehaviour
     public IEnumerator DestroyFireballAfterPlayerDamage(PlayerController player)
     {
         yield return StartCoroutine(player.TakeDamage(PlayerDamage));
+        //disable for ememies taking damage
         Destroy(gameObject);
     }
 

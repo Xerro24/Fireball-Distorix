@@ -31,6 +31,10 @@ public class Boss : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
+        if (Multidash == 5)
+        {
+
+        }
     }
 
     // Update is called once per frame
