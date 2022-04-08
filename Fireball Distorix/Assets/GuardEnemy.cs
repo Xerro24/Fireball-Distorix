@@ -9,7 +9,7 @@ public class GuardEnemy : MonoBehaviour
 
     private bool first;
     private bool second;
-    private bool third;
+    public bool third;
 
     public bool Up;
     public bool Down;
@@ -19,6 +19,8 @@ public class GuardEnemy : MonoBehaviour
     public int GuardNumber;
 
     public int max;
+
+    public bool die;
 
 
     // Start is called before the first frame update
@@ -91,6 +93,11 @@ public class GuardEnemy : MonoBehaviour
                 transform.Translate(new Vector2(0, -5), transform);
 
 
+        }
+
+       if (EnemiesKilled == EnemiesToKill.Length && die)   
+        {
+            Destroy(gameObject);
         }
 
 

@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7430b0a6cbd129f459b028dffdd22f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
-  timerStart: 0
+  timer: 2
+  timerStart: 2
   Aim: {fileID: 5391659215456707287}
   CanShoot: 1
   FirePoint: {fileID: 5391659214131741429}

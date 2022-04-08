@@ -21,6 +21,8 @@ public class EnemyShooter : MonoBehaviour
     public float FireballSpeed = 20f;
     public float FireballDelay = 5f;
 
+
+    private bool temp;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,26 +54,34 @@ public class EnemyShooter : MonoBehaviour
 
         else
         {
-            print("test");
+            //print("test");
         }
 
-        if (timer <= 0)
-        {
+        //print(player.GetComponent<PlayerController>().CurrentRoom + " " + transform.parent.parent.name);
 
+        if ("Room " + player.GetComponent<PlayerController>().CurrentRoom == transform.parent.parent.parent.parent.name)
+        {
+            if (timer <= 0)
+            {
+                temp = true;
+            }
+
+            timer -= Time.deltaTime;
         }
 
-        if (CanShoot)
-        {
+        
+
+      
 
 
-            if (CanShoot && Time.timeScale == 1)
+            if (CanShoot && Time.timeScale == 1 && temp)
             {
                 StartCoroutine(Shoot());
             }
-        }
+        
 
 
-        timer = timerStart;
+        
 
     }
 

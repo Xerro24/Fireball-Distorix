@@ -118,15 +118,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6138e206c7f44d84aafabf69389d43dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMin: 0
-  xMax: 0
-  yMin: 0
-  yMax: 0
   rb: {fileID: 0}
   FireballSpeed: 2.5
-  damage: 1
+  damage: 100
   IsWater: 0
   timerStart: 3
+  PlayerDamage: 1
   Player: {fileID: 0}
   VapCap: 0
 --- !u!58 &552843915962527638

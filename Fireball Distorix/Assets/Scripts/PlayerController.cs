@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public IEnumerator TakeDamage(int damage)
+    public IEnumerator TakeDamage(float damage)
     {
         if (!IsDashing)
         {
@@ -284,7 +284,7 @@ public class PlayerController : MonoBehaviour
 
             sr.color = new Color(255f, 255f, 255f, 1f);
 
-            Stack -= damage;
+            Stack -= (int)damage;
 
 
             if (Stack < 0)

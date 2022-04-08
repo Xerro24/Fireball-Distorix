@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
-    public int Health = 10;
+    public float Health = 10;
     private SpriteRenderer sr;
     public float timer = 0.1f;
     public float Speed;
@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         {
             float temp2 = Health;
             temp2 *= 2.5f;
-            Health = (int)temp2;
+            Health = temp2;
         }
         
     }
@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public IEnumerator TakeDamage(int damage)
+    public IEnumerator TakeDamage(float damage)
     {
         CanDamaged = false;
         
@@ -159,7 +159,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public IEnumerator PlayerTakeDamage(int damage)
+    public IEnumerator PlayerTakeDamage(float damage)
     {
         PlayerCanDamaged = false;
         StartCoroutine(Player.TakeDamage(damage));

@@ -35,6 +35,8 @@ public class EnemyFireball : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        print(damage);
     }
 
    
@@ -58,10 +60,9 @@ public class EnemyFireball : MonoBehaviour
 
     public IEnumerator DestroyFireballAfterPlayerDamage(PlayerController player)
     {
+        //PlayerController.Stack -= damage;
         yield return StartCoroutine(player.TakeDamage(damage));
+        Debug.Log(damage);
         Destroy(gameObject);
     }
-
-    
-
 }
