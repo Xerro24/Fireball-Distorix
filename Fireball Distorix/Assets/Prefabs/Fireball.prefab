@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   FireballSpeed: 2.5
-  damage: 100
+  damage: 1
   IsWater: 0
   timerStart: 3
   PlayerDamage: 1

@@ -62,7 +62,7 @@ public class Door : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player") && player != null && player.sr.sprite == player.Xessy)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
 
         }
     }
