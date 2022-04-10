@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,27 +23,33 @@ public class PlayerController : MonoBehaviour
     public bool WantToChangeStack = false;
     public int StackStartLevel;
 
+    // The SpriteRenderer and the sprites
     public SpriteRenderer sr;
-
     public Sprite Xessy;
     public Sprite Xes_Happy;
 
-    
 
+    // The room the player is currently in
     public int CurrentRoom = 1;
 
-    private bool temp;
+    // If the player is in a no shooting enviroment
+    private bool NoShooting;
 
+    // The number of bodies delivered
     public static int BodyCount;
 
-    public bool easychanger;
+    // The normal mode and if you want to change
+    public bool WantToChangeEasyMode;
     public static bool EasyMode = false;
 
+    // If the player can be damaged
     public bool CanDamaged = true;
 
+    // If the player has the respective upgrades
     public static bool HasDash;
     public static bool HasWaterball;
 
+    
     public bool WantToChangeDash = false;
 
     public float DashSpeed;
@@ -68,12 +73,12 @@ public class PlayerController : MonoBehaviour
     {
         // The rb variable is set to the Rigidbody2D component of the GameObject that this script is attached to
         rb = GetComponent<Rigidbody2D>();
-        if (easychanger)
+        if (WantToChangeEasyMode)
             EasyMode = true;
 
         sr = GetComponent<SpriteRenderer>();
 
-        
+
 
         if (WantToChangeStack)
             Stack = StackStart;
@@ -123,12 +128,12 @@ public class PlayerController : MonoBehaviour
             {
                 Stack += StackStart;
             }
-            
+
         }
 
-        
 
-        if (GameObject.Find("Enemy") == null && GameObject.Find("Enemy (1)") == null && GameObject.Find("Enemy (2)") == null && 
+
+        if (GameObject.Find("Enemy") == null && GameObject.Find("Enemy (1)") == null && GameObject.Find("Enemy (2)") == null &&
             GameObject.Find("Enemy (3)") == null && GameObject.Find("Boss") == null && sr.sprite == Xessy)
         {
             //sr.sprite = Xes_Happy;
@@ -140,7 +145,7 @@ public class PlayerController : MonoBehaviour
             //Upgrade();
         }
 
-        
+
 
 
         if (StackCounter >= 5)
@@ -240,23 +245,23 @@ public class PlayerController : MonoBehaviour
 
                 if (DashInput == 2)
                 {
-                    rb.velocity = new Vector2(1, 1) * DashSpeed/2 * Time.deltaTime;
+                    rb.velocity = new Vector2(1, 1) * DashSpeed / 2 * Time.deltaTime;
                     IsDashing = true;
 
                 }
                 else if (DashInput == -2)
                 {
-                    rb.velocity = new Vector2(-1, 1) * DashSpeed/2 * Time.deltaTime;
+                    rb.velocity = new Vector2(-1, 1) * DashSpeed / 2 * Time.deltaTime;
                     IsDashing = true;
                 }
                 if (DashInputY == 2)
                 {
-                    rb.velocity = new Vector2(1,-1) * DashSpeed/2 * Time.deltaTime;
+                    rb.velocity = new Vector2(1, -1) * DashSpeed / 2 * Time.deltaTime;
                     IsDashing = true;
                 }
                 else if (DashInputY == -2)
                 {
-                    rb.velocity = new Vector2(-1, -1) * DashSpeed/2 * Time.deltaTime;
+                    rb.velocity = new Vector2(-1, -1) * DashSpeed / 2 * Time.deltaTime;
                     IsDashing = true;
                 }
 
@@ -265,7 +270,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        
+
 
     }
 
@@ -274,7 +279,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!IsDashing)
         {
-            
+
 
             sr.color = new Color(255f, 0f, 0f, 1f);
 
@@ -302,7 +307,7 @@ public class PlayerController : MonoBehaviour
     {
         Stack = StackStartLevel;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
+
     }
 
 
@@ -317,16 +322,16 @@ public class PlayerController : MonoBehaviour
 
                     StopCoroutine(gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().co);
                     gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().CanShoot = false;
-                    
-                    temp = true;
-                    
+
+                    NoShooting = true;
+
                 }
 
-                else if (temp && collision.GetComponent<Rooms>().IsShootingRoom)
+                else if (NoShooting && collision.GetComponent<Rooms>().IsShootingRoom)
                 {
                     gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().CanShoot = true;
-                    temp = false;
-                    
+                    NoShooting = false;
+
                 }
                 CurrentRoom = i;
                 break;
@@ -355,7 +360,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+
     }
 
     public void Upgrade()
