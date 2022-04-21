@@ -51,7 +51,9 @@ public class PlayerController : MonoBehaviour
 
     
     public bool WantToChangeDash = false;
-
+    
+    // The Dash mechanic
+    // The speed that the dash 
     public float DashSpeed;
     private float Dashtime = 0;
     public float StartDash;

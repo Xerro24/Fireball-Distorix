@@ -91,7 +91,7 @@ public class Fireball : MonoBehaviour
         if (IsWater)
         {
 
-            if (collision.name == "Fireball(Clone)")
+            if (collision.name == "Fireball(Clone)" || collision.name ==  "Enemy Fireball Variant(Clone)")
             {
                 VaporizeCounter += 1;
                 collision.GetComponent<SpriteRenderer>().enabled = false;

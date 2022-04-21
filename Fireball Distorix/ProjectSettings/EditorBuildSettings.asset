@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Old Scenes/3 - Copy.unity
     guid: 63b0d22dd29d6144eb1e1b1529ae29a7
+  - enabled: 0
+    path: Assets/Scenes/Old Level 5.unity
+    guid: 7a0a970126b39624385d9195a0902982
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: 5be43b57651804041bfce9da7d6530d2
@@ -49,7 +52,7 @@ EditorBuildSettings:
     guid: e24db14ef94fc8740a052ebddc39c997
   - enabled: 1
     path: Assets/Scenes/Level 5.unity
-    guid: 7a0a970126b39624385d9195a0902982
+    guid: b4b2f05e7e806924f877783278cf040b
   - enabled: 1
     path: Assets/Scenes/Level 6.unity
     guid: b1b2f53de99e24f46a4e3503a3765698

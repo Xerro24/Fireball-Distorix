@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter Enemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7643452657955808734, guid: 6d85091d0d9019841bd473a0002ab26b, type: 3}
+      propertyPath: m_TagString
+      value: Guard 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d85091d0d9019841bd473a0002ab26b, type: 3}
 --- !u!4 &3499248293915469283 stripped
