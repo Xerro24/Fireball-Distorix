@@ -82,7 +82,7 @@ public class Shooter : MonoBehaviour
 
         // Checks if the Distance is greater or equal to one, help me... send help
         // This is because it bugs out with the angle and it's better to not move the shooter
-        if (Distance >= 1 && Time.timeScale == 1)
+        if (Distance >= 1 && !PauseMenu.IsPaused)
         {
             // Applies the angle as a rotation
             Aim.eulerAngles = new Vector3(0, 0, angle);
@@ -99,7 +99,7 @@ public class Shooter : MonoBehaviour
         {
 
         
-            while (Input.GetButton("Fire1") && CanShoot && Time.timeScale == 1)
+            while (Input.GetButton("Fire1") && CanShoot && !PauseMenu.IsPaused)
             {
                 co = StartCoroutine(Shoot());
             }

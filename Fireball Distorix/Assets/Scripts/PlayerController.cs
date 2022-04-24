@@ -68,6 +68,12 @@ public class PlayerController : MonoBehaviour
 
     private bool IsIFramesDone = false;
 
+    public float Stamina;
+    public float StaminaStart;
+    private bool IsSloMo;
+    public bool CanSlow = true;
+
+
 
 
     // Start is called before the first frame update
@@ -98,6 +104,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<WaterBucketSpawner>().enabled = true;
         }
 
+        Stamina = StaminaStart;
 
     }
 
@@ -187,7 +194,39 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(DashInputDelay());
         }
 
+        if (Input.GetMouseButton(1) && Stamina > 0 && CanSlow)
+        {
+            Time.timeScale = 0.5f;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            Stamina -= Time.unscaledDeltaTime;
+            IsSloMo = true;
 
+        }
+
+        else if ((!Input.GetMouseButton(1) || Stamina <= 0) && Time.timeScale == 0.5 && !PauseMenu.IsPaused)
+        {
+            Time.timeScale = 1;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            IsSloMo = false;
+        }
+
+        if (Stamina < StaminaStart && !IsSloMo && !PauseMenu.IsPaused)
+        {
+            Stamina += Time.unscaledDeltaTime;
+        }
+
+        if (Stamina >= StaminaStart && !IsSloMo && !PauseMenu.IsPaused)
+        {
+            Stamina = StaminaStart;
+            CanSlow = true;
+
+        }
+
+        if (Stamina < 0)
+        {
+            Stamina = 0;
+            CanSlow = false;
+        }
 
         //print(CurrentRoom);
 

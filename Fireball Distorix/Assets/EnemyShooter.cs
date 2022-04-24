@@ -45,7 +45,7 @@ public class EnemyShooter : MonoBehaviour
 
         // Checks if the Distance is greater or equal to one, help me... send help
         // This is because it bugs out with the angle and it's better to not move the shooter
-        if (Distance >= 1 && Time.timeScale == 1)
+        if (Distance >= 1 && !PauseMenu.IsPaused)
         {
             // Applies the angle as a rotation
             transform.parent.eulerAngles = new Vector3(0, 0, angle);
@@ -74,7 +74,7 @@ public class EnemyShooter : MonoBehaviour
       
 
 
-            if (CanShoot && Time.timeScale == 1 && temp)
+            if (CanShoot && !PauseMenu.IsPaused && temp)
             {
                 StartCoroutine(Shoot());
             }
