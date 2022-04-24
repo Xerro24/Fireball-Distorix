@@ -33,7 +33,14 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        Time.timeScale = 1;
+        if (player.IsSloMo)
+        {
+            Time.timeScale = 0.5f;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
         IsPaused = false;
         PauseMenuUI.SetActive(false);
     }

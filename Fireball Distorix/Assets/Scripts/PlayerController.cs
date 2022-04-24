@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     public float Stamina;
     public float StaminaStart;
-    private bool IsSloMo;
+    public bool IsSloMo;
     public bool CanSlow = true;
 
 
@@ -194,10 +194,10 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(DashInputDelay());
         }
 
-        if (Input.GetMouseButton(1) && Stamina > 0 && CanSlow)
+        if (Input.GetMouseButton(1) && Stamina > 0 && CanSlow && !PauseMenu.IsPaused)
         {
             Time.timeScale = 0.5f;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            //Time.fixedDeltaTime = 0.02f * Time.timeScale;
             Stamina -= Time.unscaledDeltaTime;
             IsSloMo = true;
 
@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour
         else if ((!Input.GetMouseButton(1) || Stamina <= 0) && Time.timeScale == 0.5 && !PauseMenu.IsPaused)
         {
             Time.timeScale = 1;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            //Time.fixedDeltaTime = 0.02f * Time.timeScale;
             IsSloMo = false;
         }
 
@@ -231,6 +231,8 @@ public class PlayerController : MonoBehaviour
         //print(CurrentRoom);
 
         //print(EasyMode);
+
+        print(IsSloMo);
 
     }
 
