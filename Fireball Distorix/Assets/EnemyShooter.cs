@@ -23,6 +23,8 @@ public class EnemyShooter : MonoBehaviour
 
 
     private bool temp;
+
+    public float offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +50,7 @@ public class EnemyShooter : MonoBehaviour
         if (Distance >= 1 && !PauseMenu.IsPaused)
         {
             // Applies the angle as a rotation
-            transform.parent.eulerAngles = new Vector3(0, 0, angle);
+            transform.parent.eulerAngles = new Vector3(0, 0, angle + offset);
 
         }
 
@@ -59,7 +61,7 @@ public class EnemyShooter : MonoBehaviour
 
         //print(player.GetComponent<PlayerController>().CurrentRoom + " " + transform.parent.parent.name);
 
-        if ("Room " + player.GetComponent<PlayerController>().CurrentRoom == transform.parent.parent.parent.parent.name)
+        if ("Room " + player.GetComponent<PlayerController>().CurrentRoom == transform.parent.parent.parent.parent.name && transform.parent.parent.gameObject.GetComponent<Boss>() == null)
         {
             if (timer <= 0)
             {
@@ -69,12 +71,22 @@ public class EnemyShooter : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        
+        else if ("Room " + player.GetComponent<PlayerController>().CurrentRoom == transform.parent.parent.parent.name && transform.parent.parent.gameObject.GetComponent<Boss>() != null)
+        {
+            print("h");
+            if (timer <= 0)
+            {
+                temp = true;
+            }
 
-      
+            timer -= Time.deltaTime;
+
+        }
 
 
-            if (CanShoot && !PauseMenu.IsPaused && temp)
+
+
+        if (CanShoot && !PauseMenu.IsPaused && temp)
             {
                 StartCoroutine(Shoot());
             }

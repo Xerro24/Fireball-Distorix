@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.110170096
       objectReference: {fileID: 0}
+    - target: {fileID: 3758353048561155860, guid: 4b71c32178e456b4889c54779c8c87f3, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b71c32178e456b4889c54779c8c87f3, type: 3}
 --- !u!1 &625452178561440880 stripped
@@ -107,9 +111,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemiesToKill: []
+  third: 0
   Up: 0
   Down: 1
   Left: 0
   Right: 0
   GuardNumber: 1
   max: 12
+  die: 0

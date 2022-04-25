@@ -232,7 +232,7 @@ public class PlayerController : MonoBehaviour
 
         //print(EasyMode);
 
-        print(IsSloMo);
+        //print(IsSloMo);
 
     }
 

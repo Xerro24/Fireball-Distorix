@@ -24,6 +24,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -252123568995316838, guid: 6d85091d0d9019841bd473a0002ab26b, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -252123568995316838, guid: 6d85091d0d9019841bd473a0002ab26b, type: 3}
       propertyPath: m_UseFullKinematicContacts
       value: 1
       objectReference: {fileID: 0}

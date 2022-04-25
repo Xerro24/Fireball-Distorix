@@ -110,7 +110,12 @@ public class Fireball : MonoBehaviour
     {
         yield return StartCoroutine(player.TakeDamage(PlayerDamage));
         //disable for ememies taking damage
-        Destroy(gameObject);
+        
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<CircleCollider2D>().enabled = false;
+        damage = 0;
+
+        //Destroy(gameObject);
     }
 
     /*

@@ -127,6 +127,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd77fdcf5fef35c488718194185817e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FollowPlayer: 0
+  RotateAround: 0
+  negative: 0
+  timer: 0
+  timerStart: 0
+  RotPOWER: 100
+  DestroyFireball: 0
 --- !u!61 &2008775050
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -160,6 +167,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -252123568995316838, guid: 6d85091d0d9019841bd473a0002ab26b, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7643452657955808733, guid: 6d85091d0d9019841bd473a0002ab26b, type: 3}
       propertyPath: m_RootOrder
       value: 0

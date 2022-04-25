@@ -108,6 +108,7 @@ public class Shield : MonoBehaviour
 
         }
 
+        /*
         if (collision.name == "Fireball(Clone)" && DestroyFireball)
         {
             Fireball fireball = collision.GetComponent<Fireball>();
@@ -118,5 +119,6 @@ public class Shield : MonoBehaviour
 
 
         }
+        */
     }
 }
