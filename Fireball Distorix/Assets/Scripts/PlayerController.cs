@@ -106,6 +106,11 @@ public class PlayerController : MonoBehaviour
 
         Stamina = StaminaStart;
 
+        if (EasyMode)
+        {
+            DashDelay /= 1.5f;
+        }
+
     }
 
 
