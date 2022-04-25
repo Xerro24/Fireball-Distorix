@@ -42,6 +42,9 @@ public class Shooter : MonoBehaviour
     public Sprite WaterShooter;
 
 
+    public float damage = 1;
+
+
 
     public Coroutine co;
 
@@ -145,6 +148,8 @@ public class Shooter : MonoBehaviour
             // Add force to the fireball
             Rigidbody2D rb = Fireball.GetComponent<Rigidbody2D>();
             rb.AddForce(FirePoint.up * FireballSpeed *Time.fixedDeltaTime, ForceMode2D.Impulse);
+
+            Fireball.GetComponent<Fireball>().damage = damage;
 
             // Makes it so the shooter can't shoot until the amount of seconds in FireballDelay
             CanShoot = false;

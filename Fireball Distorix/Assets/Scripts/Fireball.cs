@@ -79,11 +79,15 @@ public class Fireball : MonoBehaviour
 
         if (enemy != null && damage > 0 && enemy.CanDamaged)
         {
-            StartCoroutine(enemy.TakeDamage(damage));
-            //PlayerController Player = GameObject.Find("Player").GetComponent<PlayerController>();
-            
+            //if (!enemy.isBoss)
+                StartCoroutine(enemy.TakeDamage(damage));
 
-            
+            //else
+                //StartCoroutine(enemy.TakeDamage(1));
+            //PlayerController Player = GameObject.Find("Player").GetComponent<PlayerController>();
+
+
+
         }
 
 

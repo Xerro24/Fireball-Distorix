@@ -10,6 +10,8 @@ public class SaveData
     public bool EasyMode;
     public bool HasDash;
     public bool HasWaterball;
+    public bool HasDamage;
+    public int BodyCount;
     public int Level;
 
     public SaveData (PlayerController player)
@@ -19,6 +21,8 @@ public class SaveData
         EasyMode = PlayerController.EasyMode;
         HasDash = PlayerController.HasDash;
         HasWaterball = PlayerController.HasWaterball;
+        HasDamage = PlayerController.HasDamageUp;
+        BodyCount = PlayerController.BodyCount;
         Level = SceneManager.GetActiveScene().buildIndex;
 
     }

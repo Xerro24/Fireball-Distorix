@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public float Speed;
     private PlayerController Player;
 
-    private bool isBoss;
+    public bool isBoss;
 
     private bool PlayerCanDamaged = true;
 

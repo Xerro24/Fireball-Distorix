@@ -61,6 +61,8 @@ public class MainMenu : MonoBehaviour
             PlayerController.EasyMode = data.EasyMode;
             PlayerController.HasDash = data.HasDash;
             PlayerController.HasWaterball = data.HasWaterball;
+            PlayerController.HasDamageUp = data.HasDamage;
+            PlayerController.BodyCount = data.BodyCount;
             SceneManager.LoadScene(data.Level);
         }
 

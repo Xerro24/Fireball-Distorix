@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     // If the player has the respective upgrades
     public static bool HasDash;
     public static bool HasWaterball;
+    public static bool HasDamageUp;
 
     
     public bool WantToChangeDash = false;
@@ -102,6 +103,11 @@ public class PlayerController : MonoBehaviour
         if (HasWaterball)
         {
             GetComponent<WaterBucketSpawner>().enabled = true;
+        }
+
+        if (HasDamageUp)
+        {
+            transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().damage *= 1.8f;
         }
 
         Stamina = StaminaStart;
@@ -238,6 +244,7 @@ public class PlayerController : MonoBehaviour
         //print(EasyMode);
 
         //print(IsSloMo);
+        //print(HasDamageUp);
 
     }
 

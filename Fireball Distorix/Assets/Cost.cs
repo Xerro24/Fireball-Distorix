@@ -10,17 +10,21 @@ public class Cost : MonoBehaviour
 
     public string Easy;
     public string Hard;
+    public string cost;
 
     // Start is called before the first frame update
     void Start()
     {
+
         text = GetComponent<TextMeshProUGUI>();
 
         if (PlayerController.EasyMode)
-            text.SetText(Easy);
+            cost = Easy;
 
         else
-            text.SetText(Hard);
+            cost = Hard;
+
+        text.SetText(cost);
     }
 
     // Update is called once per frame

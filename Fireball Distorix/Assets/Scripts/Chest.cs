@@ -6,6 +6,9 @@ public class Chest : MonoBehaviour
 {
     //public static bool HasUpgrade = false;
 
+    public int EasyCost;
+    public int HardCost;
+    public string upgrade;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,17 +26,25 @@ public class Chest : MonoBehaviour
         PlayerController player = collision.GetComponent<PlayerController>();
         if (collision.gameObject.CompareTag("Player") && player != null)
         {
-            if (PlayerController.Stack >= 25 && PlayerController.EasyMode)
+            if (PlayerController.Stack >= EasyCost && PlayerController.EasyMode)
             {
-                PlayerController.Stack -= 25;
-                PlayerController.HasWaterball = true;
-                Destroy(gameObject);
+                PlayerController.Stack -= EasyCost;
+                if (upgrade == "Waterball")
+                    PlayerController.HasWaterball = true;
+                if (upgrade == "Damage")
+                    PlayerController.HasDamageUp = true;
+
+
+                    Destroy(gameObject);
             }
 
-            else if (PlayerController.Stack >= 5 && !PlayerController.EasyMode)
+            else if (PlayerController.Stack >= HardCost && !PlayerController.EasyMode)
             {
-                PlayerController.Stack -= 5;
-                PlayerController.HasWaterball = true;
+                PlayerController.Stack -= HardCost;
+                if (upgrade == "Waterball")
+                    PlayerController.HasWaterball = true;
+                if (upgrade == "Damage")
+                    PlayerController.HasDamageUp = true;
                 Destroy(gameObject);
             }
         }
