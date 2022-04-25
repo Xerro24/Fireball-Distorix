@@ -35,6 +35,11 @@ public class Boss : MonoBehaviour
         {
 
         }
+
+        if (PlayerController.EasyMode)
+        {
+            DashSpeed /= 2;
+        }
     }
 
     // Update is called once per frame

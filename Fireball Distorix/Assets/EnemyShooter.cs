@@ -30,6 +30,16 @@ public class EnemyShooter : MonoBehaviour
     {
         timer = timerStart;
         player = GameObject.Find("Player");
+        
+        if (PlayerController.EasyMode && transform.parent.parent.gameObject.GetComponent<Boss>() != null)
+        {
+            FireballDelay *= 4;
+        }
+
+        else if (PlayerController.EasyMode)
+        {
+            FireballDelay *= 2;
+        }
     }
 
     // Update is called once per frame
