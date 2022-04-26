@@ -46,7 +46,7 @@ public class Fireball : MonoBehaviour
             }
         }
 
-        if (timer <= -597)
+        if (timer <= -5997)
         {
             Destroy(gameObject);
         }
