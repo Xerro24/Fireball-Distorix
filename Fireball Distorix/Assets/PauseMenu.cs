@@ -52,6 +52,11 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(true);
     }
 
+    public void Map()
+    {
+
+    }
+
     public void HowToPlay()
     {
         //print("Yes");
