@@ -498,6 +498,7 @@ MonoBehaviour:
   FireBallPrefab: {fileID: 3416783890391296791, guid: fef6646f22d9bd34b8383b70e9de223a, type: 3}
   FireballSpeed: 200
   FireballDelay: 1
+  offset: 0
 --- !u!212 &38814678
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3915,6 +3916,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1513586741751588480, guid: 82d91cbbadcdc4341a578abcf27643bd, type: 3}
   m_PrefabInstance: {fileID: 903919078}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &443560764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 443560767}
+  - component: {fileID: 443560766}
+  - component: {fileID: 443560765}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &443560765
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443560764}
+  m_Enabled: 1
+--- !u!20 &443560766
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443560764}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 2
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 1.5691775
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 165.1
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: b1dfcabe6a846b94ba94eecb0a51582e, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &443560767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443560764}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 45, y: -20, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &447924820
 GameObject:
   m_ObjectHideFlags: 0
@@ -4211,6 +4295,7 @@ MonoBehaviour:
   IsWater: 0
   FireShooter: {fileID: 0}
   WaterShooter: {fileID: 0}
+  damage: 1
 --- !u!1 &480564052
 GameObject:
   m_ObjectHideFlags: 0
@@ -4378,6 +4463,7 @@ MonoBehaviour:
   IsWater: 0
   FireShooter: {fileID: 0}
   WaterShooter: {fileID: 0}
+  damage: 1
 --- !u!1 &503449371
 GameObject:
   m_ObjectHideFlags: 0
@@ -70564,6 +70650,7 @@ MonoBehaviour:
   FireBallPrefab: {fileID: 3416783890391296791, guid: fef6646f22d9bd34b8383b70e9de223a, type: 3}
   FireballSpeed: 200
   FireballDelay: 1
+  offset: 0
 --- !u!212 &985227973
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70622,6 +70709,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 898436778, guid: 2dcd1848bd805e74787cd46195dc86ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1257731883, guid: 2dcd1848bd805e74787cd46195dc86ec, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -70630,6 +70721,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1370547040, guid: 2dcd1848bd805e74787cd46195dc86ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884020584, guid: 2dcd1848bd805e74787cd46195dc86ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884020585, guid: 2dcd1848bd805e74787cd46195dc86ec, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884020585, guid: 2dcd1848bd805e74787cd46195dc86ec, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884020586, guid: 2dcd1848bd805e74787cd46195dc86ec, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: b1dfcabe6a846b94ba94eecb0a51582e, type: 2}
     - target: {fileID: 2949105346635387984, guid: 2dcd1848bd805e74787cd46195dc86ec, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -72952,6 +73063,7 @@ MonoBehaviour:
   FireBallPrefab: {fileID: 3416783890391296791, guid: fef6646f22d9bd34b8383b70e9de223a, type: 3}
   FireballSpeed: 200
   FireballDelay: 1
+  offset: 0
 --- !u!212 &1223615498
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74467,6 +74579,7 @@ MonoBehaviour:
   IsWater: 0
   FireShooter: {fileID: 0}
   WaterShooter: {fileID: 0}
+  damage: 1
 --- !u!4 &1429511467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1513586741751588480, guid: 82d91cbbadcdc4341a578abcf27643bd, type: 3}
@@ -75561,6 +75674,7 @@ MonoBehaviour:
   IsWater: 0
   FireShooter: {fileID: 0}
   WaterShooter: {fileID: 0}
+  damage: 1
 --- !u!1001 &1629428957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119355,6 +119469,7 @@ MonoBehaviour:
   FireBallPrefab: {fileID: 3416783890391296791, guid: fef6646f22d9bd34b8383b70e9de223a, type: 3}
   FireballSpeed: 200
   FireballDelay: 1
+  offset: 0
 --- !u!212 &1759075107
 SpriteRenderer:
   m_ObjectHideFlags: 0
