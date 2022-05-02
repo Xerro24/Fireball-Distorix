@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     private bool IsIFramesDone = false;
 
     public float Stamina;
-    public static float StaminaStart;
+    public float StaminaStart = 5;
     public bool IsSloMo;
     public bool CanSlow = true;
 
@@ -114,7 +114,12 @@ public class PlayerController : MonoBehaviour
             DashSpeed *= 2;
         }
 
-       
+        if (HasSlowUpgrade)
+        {
+            StaminaStart *= 1.5f;
+        }
+
+
 
         // The rb variable is set to the Rigidbody2D component of the GameObject that this script is attached to
         rb = GetComponent<Rigidbody2D>();

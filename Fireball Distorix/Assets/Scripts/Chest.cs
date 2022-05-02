@@ -41,7 +41,7 @@ public class Chest : MonoBehaviour
                 if (upgrade == "SlomoUpgrade")
                 {
                     PlayerController.HasSlowUpgrade = true;
-                    PlayerController.StaminaStart *= 1.5f;
+                    player.StaminaStart *= 1.5f;
                 }
 
 
@@ -66,7 +66,7 @@ public class Chest : MonoBehaviour
                 if (upgrade == "SlomoUpgrade")
                 {
                     PlayerController.HasSlowUpgrade = true;
-                    PlayerController.StaminaStart *= 1.5f;
+                    player.StaminaStart *= 1.5f;
                 }
                 Destroy(gameObject);
             }

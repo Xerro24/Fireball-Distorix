@@ -34,7 +34,6 @@ public class MainMenu : MonoBehaviour
     {
         PlayerController.EasyMode = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        PlayerController.StaminaStart = 5;
         PlayerController.Stack += 20;
 
     }
@@ -43,7 +42,6 @@ public class MainMenu : MonoBehaviour
     {
         PlayerController.EasyMode = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        PlayerController.StaminaStart = 5;
 
 
     }
@@ -72,10 +70,6 @@ public class MainMenu : MonoBehaviour
             PlayerController.HasDamageUp = data.HasDamage;
             PlayerController.HasDashUpgrade = data.HasDashUpgrade;
             PlayerController.HasSlowUpgrade = data.HasSlomoUpgrade;
-            if (PlayerController.HasSlowUpgrade)
-            {
-                PlayerController.StaminaStart *= 1.5f;
-            }
             PlayerController.BodyCount = data.BodyCount;
             SceneManager.LoadScene(data.Level);
         }

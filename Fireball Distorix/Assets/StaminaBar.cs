@@ -15,7 +15,6 @@ public class StaminaBar : MonoBehaviour
         slider.maxValue = 10;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         //slider.maxValue = player.StaminaStart;
-        slider.maxValue = PlayerController.StaminaStart;
 
     }
 
@@ -23,7 +22,9 @@ public class StaminaBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        slider.maxValue = player.StaminaStart;
+
+
         if (Input.GetMouseButton(1) || player.Stamina < slider.maxValue)
         {
             transform.GetChild(0).gameObject.SetActive(true);
