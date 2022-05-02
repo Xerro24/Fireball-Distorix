@@ -49,8 +49,11 @@ public class PlayerController : MonoBehaviour
     public static bool HasDash;
     public static bool HasWaterball;
     public static bool HasDamageUp;
+    public static bool HasDashUpgrade;
+    public static bool HasSlowUpgrade;
 
-    
+
+
     public bool WantToChangeDash = false;
     
     // The Dash mechanic
@@ -70,9 +73,17 @@ public class PlayerController : MonoBehaviour
     private bool IsIFramesDone = false;
 
     public float Stamina;
-    public float StaminaStart;
+    public static float StaminaStart;
     public bool IsSloMo;
     public bool CanSlow = true;
+
+    public bool CanWalk;
+    public Sprite Left;
+    public Sprite Right;
+
+    public bool CanRestart;
+
+    
 
 
 
@@ -80,6 +91,31 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if (HasWaterball)
+        {
+            GetComponent<WaterBucketSpawner>().enabled = true;
+        }
+
+        if (HasDamageUp)
+        {
+            transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().damage *= 1.8f;
+        }
+
+        Stamina = StaminaStart;
+
+        if (EasyMode)
+        {
+            DashDelay /= 1.5f;
+        }
+
+        if (HasDashUpgrade)
+        {
+            DashSpeed *= 2;
+        }
+
+       
+
         // The rb variable is set to the Rigidbody2D component of the GameObject that this script is attached to
         rb = GetComponent<Rigidbody2D>();
         if (WantToChangeEasyMode)
@@ -100,22 +136,7 @@ public class PlayerController : MonoBehaviour
 
         Dashtime = StartDash;
 
-        if (HasWaterball)
-        {
-            GetComponent<WaterBucketSpawner>().enabled = true;
-        }
-
-        if (HasDamageUp)
-        {
-            transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().damage *= 1.8f;
-        }
-
-        Stamina = StaminaStart;
-
-        if (EasyMode)
-        {
-            DashDelay /= 1.5f;
-        }
+       
 
     }
 
@@ -137,7 +158,7 @@ public class PlayerController : MonoBehaviour
             sr.sprite = Xessy;
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && !PauseMenu.IsPaused)
+        if (Input.GetKeyDown(KeyCode.R) && !PauseMenu.IsPaused && CanRestart)
         {
             Die();
         }
@@ -151,7 +172,27 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.I) && !PauseMenu.IsPaused)
+        {
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+            }
+
+        }
+
+        if ((x != 0 || y != 0) && CanWalk)
+        {
+            print("is dec and can w");
+            StartCoroutine(Walk());
+            print("after w");
+
+        }
+        else if ((x == 0 && y == 0))
+        {
+            sr.sprite = Xessy;
+        }
 
         if (GameObject.Find("Enemy") == null && GameObject.Find("Enemy (1)") == null && GameObject.Find("Enemy (2)") == null &&
             GameObject.Find("Enemy (3)") == null && GameObject.Find("Boss") == null && sr.sprite == Xessy)
@@ -223,7 +264,11 @@ public class PlayerController : MonoBehaviour
 
         if (Stamina < StaminaStart && !IsSloMo && !PauseMenu.IsPaused)
         {
-            Stamina += Time.unscaledDeltaTime;
+            if (!HasSlowUpgrade)
+                Stamina += Time.unscaledDeltaTime;
+            else
+                Stamina += Time.unscaledDeltaTime*2;
+
         }
 
         if (Stamina >= StaminaStart && !IsSloMo && !PauseMenu.IsPaused)
@@ -238,6 +283,8 @@ public class PlayerController : MonoBehaviour
             Stamina = 0;
             CanSlow = false;
         }
+
+        //print(DashSpeed);
 
         //print(CurrentRoom);
 
@@ -466,6 +513,28 @@ public class PlayerController : MonoBehaviour
         }
         yield return new WaitForSeconds(DashDelay);
         CanDash = true;
+    }
+
+     public IEnumerator Walk()
+    {
+        CanWalk = false;
+        if (sr.sprite == Left)
+        {
+            sr.sprite = Right;
+            print("r");
+        }
+            
+        else
+        {
+            sr.sprite = Left;
+            print("l");
+
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        print("d");
+        
+        CanWalk = true;
     }
 
 

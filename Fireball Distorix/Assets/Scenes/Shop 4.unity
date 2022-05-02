@@ -265,7 +265,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1b1e381f7dab3444f8b26c17cfc59b21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd0f83cc6de6e4b48bec4f25a6d8e369, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -285,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 202032650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -302,9 +302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc145c28d46325448d1e16ddcc167d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EasyCost: 35
-  HardCost: 7
-  upgrade: Damage
+  EasyCost: 15
+  HardCost: 3
+  upgrade: SlomoUpgrade
 --- !u!61 &202032655
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0039137006, y: 0.00069148466}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -329,7 +329,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.125, y: 0.5625}
+  m_Size: {x: 0.8766291, y: 0.1821515}
   m_EdgeRadius: 0
 --- !u!1 &386343365
 GameObject:
@@ -3648,8 +3648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e872bdc889d46aa4c816e481aebf5986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Easy: 35
-  Hard: 7
+  Easy: 15
+  Hard: 3
   cost: 
 --- !u!114 &720626366
 MonoBehaviour:
@@ -3981,6 +3981,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: CanRestart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
+      propertyPath: WantToChangeDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
+      propertyPath: WantToChangeEasyMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926686, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}

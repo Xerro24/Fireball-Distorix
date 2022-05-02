@@ -1176,6 +1176,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
+      propertyPath: CanRestart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: StackStart
       value: 1000
       objectReference: {fileID: 0}
@@ -1185,11 +1189,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926685, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: WantToChangeEasyMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926686, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 956280936625623928, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}

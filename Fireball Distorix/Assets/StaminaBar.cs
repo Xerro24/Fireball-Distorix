@@ -12,14 +12,19 @@ public class StaminaBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        slider.maxValue = 10;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        //slider.maxValue = player.StaminaStart;
+        slider.maxValue = PlayerController.StaminaStart;
+
     }
+
 
     // Update is called once per frame
     void Update()
     {
        
-        if (Input.GetMouseButton(1) || player.Stamina < 5)
+        if (Input.GetMouseButton(1) || player.Stamina < slider.maxValue)
         {
             transform.GetChild(0).gameObject.SetActive(true);
             transform.GetChild(1).gameObject.SetActive(true);
@@ -39,6 +44,9 @@ public class StaminaBar : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(false);
         }
+
+
+
         
     }
 }

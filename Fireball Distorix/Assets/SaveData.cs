@@ -11,6 +11,8 @@ public class SaveData
     public bool HasDash;
     public bool HasWaterball;
     public bool HasDamage;
+    public bool HasDashUpgrade;
+    public bool HasSlomoUpgrade;
     public int BodyCount;
     public int Level;
 
@@ -22,6 +24,8 @@ public class SaveData
         HasDash = PlayerController.HasDash;
         HasWaterball = PlayerController.HasWaterball;
         HasDamage = PlayerController.HasDamageUp;
+        HasDashUpgrade = PlayerController.HasDashUpgrade;
+        HasSlomoUpgrade = PlayerController.HasSlowUpgrade;
         BodyCount = PlayerController.BodyCount;
         Level = SceneManager.GetActiveScene().buildIndex;
 

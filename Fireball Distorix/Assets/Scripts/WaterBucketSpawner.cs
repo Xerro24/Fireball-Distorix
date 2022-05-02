@@ -45,9 +45,9 @@ public class WaterBucketSpawner : MonoBehaviour
             
         }
 
-
+        //print(GameObject.Find("Fire Shooter").GetComponent<Shooter>());
         // Checks if a water bucket has already been spawned and if the shooter isn't in water shooting mode
-        if (GameObject.Find("Water Bucket(Clone)") == null && !GameObject.Find("Fire Shooter").GetComponent<Shooter>().IsWater )//&& PlayerController.Stack >= 2)
+        if (GameObject.Find("Water Bucket(Clone)") == null && !GameObject.FindGameObjectWithTag("Shooter").GetComponent<Shooter>().IsWater )//&& PlayerController.Stack >= 2)
         {
             // Decreases the timer
             timer -= Time.deltaTime;

@@ -33,9 +33,22 @@ public class Chest : MonoBehaviour
                     PlayerController.HasWaterball = true;
                 if (upgrade == "Damage")
                     PlayerController.HasDamageUp = true;
+                if (upgrade == "DashUpgrade")
+                {
+                    PlayerController.HasDashUpgrade = true;
+                    player.DashSpeed *= 2;
+                }
+                if (upgrade == "SlomoUpgrade")
+                {
+                    PlayerController.HasSlowUpgrade = true;
+                    PlayerController.StaminaStart *= 1.5f;
+                }
 
 
-                    Destroy(gameObject);
+                    
+
+
+                Destroy(gameObject);
             }
 
             else if (PlayerController.Stack >= HardCost && !PlayerController.EasyMode)
@@ -45,6 +58,16 @@ public class Chest : MonoBehaviour
                     PlayerController.HasWaterball = true;
                 if (upgrade == "Damage")
                     PlayerController.HasDamageUp = true;
+                if (upgrade == "DashUpgrade")
+                {
+                    PlayerController.HasDashUpgrade = true;
+                    player.DashSpeed *= 2;
+                }
+                if (upgrade == "SlomoUpgrade")
+                {
+                    PlayerController.HasSlowUpgrade = true;
+                    PlayerController.StaminaStart *= 1.5f;
+                }
                 Destroy(gameObject);
             }
         }
