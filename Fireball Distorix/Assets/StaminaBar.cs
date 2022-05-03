@@ -12,10 +12,10 @@ public class StaminaBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slider.maxValue = 10;
+        
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         //slider.maxValue = player.StaminaStart;
-
+        slider.maxValue = player.StaminaStart;
     }
 
 

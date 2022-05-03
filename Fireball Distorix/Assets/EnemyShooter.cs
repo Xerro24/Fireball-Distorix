@@ -83,7 +83,7 @@ public class EnemyShooter : MonoBehaviour
 
         else if ("Room " + player.GetComponent<PlayerController>().CurrentRoom == transform.parent.parent.parent.name && transform.parent.parent.gameObject.GetComponent<Boss>() != null)
         {
-            print("h");
+            //print("h");
             if (timer <= 0)
             {
                 temp = true;
