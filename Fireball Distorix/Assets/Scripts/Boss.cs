@@ -140,13 +140,14 @@ public class Boss : MonoBehaviour
             }
         }
 
-        if ("Room " + player.GetComponent<PlayerController>().CurrentRoom != transform.parent.name)
+        if ("Room " + player.GetComponent<PlayerController>().CurrentRoom != transform.parent.name && !GetComponent<BossSpawner>().IsChasing)
         {
             rb.velocity = new Vector2((transform.parent.transform.position.x - transform.position.x) * speed,
                                    (transform.parent.transform.position.y - transform.position.y) * speed);
             timer = -1f;
         }
 
+        
 
         
 

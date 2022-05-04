@@ -177,6 +177,16 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                rb.bodyType = RigidbodyType2D.Kinematic;
+            }
+
+        }
+
+
         if (Input.GetKeyDown(KeyCode.I) && !PauseMenu.IsPaused)
         {
             if (Input.GetKeyDown(KeyCode.O))

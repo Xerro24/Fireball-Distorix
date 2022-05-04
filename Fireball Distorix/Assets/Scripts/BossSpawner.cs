@@ -17,6 +17,8 @@ public class BossSpawner : MonoBehaviour
 
     private bool temp;
 
+    public bool IsChasing = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +59,22 @@ public class BossSpawner : MonoBehaviour
             SpawnBoss = false;
         }
 
-        
+        if (SpawnBoss && player.GetComponent<PlayerController>().CurrentRoom == room.FinalRoom && IsChasing)
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = true;
+            GetComponent<Enemy>().enabled = true;
+            GetComponent<Boss>().enabled = true;
+            for (int j = 0; j <= transform.childCount - 1; j++)
+            {
+                transform.GetChild(j).gameObject.SetActive(true);
+            }
+
+            IsChasing = false;
+            SpawnBoss = false;
+        }
+
+
 
         if (GetComponent<Enemy>().Health <= 0)
         {
@@ -67,6 +84,24 @@ public class BossSpawner : MonoBehaviour
                 //print("danf");
             }
             gameObject.SetActive(false);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Level 5" && player.GetComponent<PlayerController>().CurrentRoom == 10)
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = true;
+            GetComponent<Boss>().enabled = true;
+            GetComponent<Boss>().BossLevel = 1;
+            IsChasing = true;
+            
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (IsChasing == true && collision.gameObject == player)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
