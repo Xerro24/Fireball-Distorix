@@ -15,6 +15,8 @@ public class Boss : MonoBehaviour
 
     private float timer;
 
+    private float otherTimer;
+
     public float time;
 
     public float DashSpeed = 5;
@@ -42,10 +44,13 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        rb.velocity = new Vector2((player.transform.position.x - transform.position.x) * speed, 
-                                   (player.transform.position.y - transform.position.y)* speed);
-        
+        if (otherTimer >= 0)
+        {
+            rb.velocity = new Vector2((player.transform.position.x - transform.position.x) * speed,
+                                   (player.transform.position.y - transform.position.y) * speed);
+
+        }
+
 
 
         if (BossLevel >= 2)
@@ -126,6 +131,7 @@ public class Boss : MonoBehaviour
         }
             
         timer += Time.deltaTime;
+        otherTimer += Time.deltaTime;
 
         if (BossLevel == 1)
         {
@@ -145,7 +151,7 @@ public class Boss : MonoBehaviour
         {
             rb.velocity = new Vector2((transform.parent.transform.position.x - transform.position.x) * speed,
                                    (transform.parent.transform.position.y - transform.position.y) * speed);
-            timer = -1f;
+            otherTimer = -1f;
         }
 
         

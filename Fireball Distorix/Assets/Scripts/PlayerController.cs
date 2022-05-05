@@ -77,9 +77,9 @@ public class PlayerController : MonoBehaviour
     public bool IsSloMo;
     public bool CanSlow = true;
 
-    public bool CanWalk;
+    /*public bool CanWalk;
     public Sprite Left;
-    public Sprite Right;
+    public Sprite Right;*/
 
     public bool CanRestart;
 
@@ -197,13 +197,14 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if ((x != 0 || y != 0) && CanWalk)
+        /*if ((x != 0 || y != 0) && CanWalk)
         {
             print("is dec and can w");
             StartCoroutine(Walk());
             print("after w");
 
-        }
+        }*/
+
         else if ((x == 0 && y == 0))
         {
             sr.sprite = Xessy;
@@ -480,10 +481,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void Upgrade()
+   /* public void Upgrade()
     {
         Speed = 700;
-    }
+    }*/
 
     private IEnumerator DashInputDelay()
     {
@@ -530,6 +531,7 @@ public class PlayerController : MonoBehaviour
         CanDash = true;
     }
 
+/*
      public IEnumerator Walk()
     {
         CanWalk = false;
@@ -546,11 +548,11 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         print("d");
         
         CanWalk = true;
-    }
+    }*/
 
 
 }
