@@ -23,7 +23,7 @@ public class Boss : MonoBehaviour
 
     public int BossLevel = 1;
 
-    private int Multidash;
+    private bool Multidash;
     
     Vector2 xy;
     // Start is called before the first frame update
@@ -31,10 +31,7 @@ public class Boss : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
-        if (Multidash == 5)
-        {
-
-        }
+        
 
         if (PlayerController.EasyMode)
         {
@@ -45,11 +42,10 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer >= 0)
-        { 
+        
         rb.velocity = new Vector2((player.transform.position.x - transform.position.x) * speed, 
                                    (player.transform.position.y - transform.position.y)* speed);
-        }
+        
 
 
         if (BossLevel >= 2)
@@ -123,7 +119,6 @@ public class Boss : MonoBehaviour
                 StartDash = true;
                 rb.velocity = new Vector2(0, 0);
                 timer = 0;
-                Multidash = 0;
                 //print("After Dash");
 
             }
@@ -138,6 +133,12 @@ public class Boss : MonoBehaviour
             {
                 timer = 0;
             }
+        }
+
+        if (BossLevel == 5 && !Multidash)
+        {
+            timer = -2;
+            Multidash = true;
         }
 
         if ("Room " + player.GetComponent<PlayerController>().CurrentRoom != transform.parent.name && !GetComponent<BossSpawner>().IsChasing)

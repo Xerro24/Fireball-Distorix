@@ -61,6 +61,7 @@ public class BossSpawner : MonoBehaviour
 
         if (SpawnBoss && player.GetComponent<PlayerController>().CurrentRoom == room.FinalRoom && IsChasing)
         {
+            print("s");
             GetComponent<SpriteRenderer>().enabled = true;
             GetComponent<BoxCollider2D>().enabled = true;
             GetComponent<Enemy>().enabled = true;
@@ -71,6 +72,7 @@ public class BossSpawner : MonoBehaviour
             }
 
             IsChasing = false;
+            GetComponent<Boss>().BossLevel = 5;
             SpawnBoss = false;
         }
 
@@ -101,7 +103,7 @@ public class BossSpawner : MonoBehaviour
     {
         if (IsChasing == true && collision.gameObject == player)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            player.GetComponent<PlayerController>().Die();
         }
     }
 }
