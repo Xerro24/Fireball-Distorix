@@ -151,6 +151,7 @@ public class Boss : MonoBehaviour
         {
             rb.velocity = new Vector2((transform.parent.transform.position.x - transform.position.x) * speed,
                                    (transform.parent.transform.position.y - transform.position.y) * speed);
+            timer = -1;
             otherTimer = -1f;
         }
 

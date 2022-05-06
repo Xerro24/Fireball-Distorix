@@ -203,12 +203,12 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Walk());
             print("after w");
 
-        }*/
+        }
 
         else if ((x == 0 && y == 0))
         {
             sr.sprite = Xessy;
-        }
+        }*/
 
         if (GameObject.Find("Enemy") == null && GameObject.Find("Enemy (1)") == null && GameObject.Find("Enemy (2)") == null &&
             GameObject.Find("Enemy (3)") == null && GameObject.Find("Boss") == null && sr.sprite == Xessy)
