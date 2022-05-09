@@ -14,12 +14,7 @@ public class MainMenu : MonoBehaviour
     {
         data = SaveSystem.Load();
         PlayerController.Stack = 0;
-        PlayerController.HasDash = false;
-        PlayerController.EasyMode = true;
-        PlayerController.HasWaterball = false;
-        PlayerController.HasDamageUp = false;
-        PlayerController.HasDashUpgrade = false;
-        PlayerController.HasSlowUpgrade = false;
+        PlayerController.Items.Clear();
         PlayerController.BodyCount = 0
             ;
 
@@ -65,11 +60,11 @@ public class MainMenu : MonoBehaviour
         { 
             PlayerController.Stack = data.Stack;
             PlayerController.EasyMode = data.EasyMode;
-            PlayerController.HasDash = data.HasDash;
-            PlayerController.HasWaterball = data.HasWaterball;
-            PlayerController.HasDamageUp = data.HasDamage;
-            PlayerController.HasDashUpgrade = data.HasDashUpgrade;
-            PlayerController.HasSlowUpgrade = data.HasSlomoUpgrade;
+
+            for (int i = 0; i < data.Items.Length; i++)
+            {
+                PlayerController.Items.Add(data.Items[i]);
+            }
             PlayerController.BodyCount = data.BodyCount;
             SceneManager.LoadScene(data.Level);
         }

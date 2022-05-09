@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +9,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     // Creates two variable named x and y
-    private float x;
-    private float y;
+
+    private Vector2 Direction;
 
     // A number to multiply the speed of the character
     public float Speed = 1;
@@ -46,11 +47,13 @@ public class PlayerController : MonoBehaviour
     public bool CanDamaged = true;
 
     // If the player has the respective upgrades
-    public static bool HasDash;
+    public static HashSet<string> Items = new HashSet<string>();
+
+    /*public static bool HasDash;
     public static bool HasWaterball;
     public static bool HasDamageUp;
     public static bool HasDashUpgrade;
-    public static bool HasSlowUpgrade;
+    public static bool HasSlowUpgrade;*/
 
 
 
@@ -59,18 +62,26 @@ public class PlayerController : MonoBehaviour
     // The Dash mechanic
     // The speed that the dash 
     public float DashSpeed;
+    //How long the dash is
     private float Dashtime = 0;
+    //The start value of the dash
     public float StartDash;
+    //What direction the player is dashing
     private int DashInput = 0;
     private int DashInputY = 0;
+    //If the player can dash
     private bool CanDash = true;
+    //How quickly the player can dash
     public float DashDelay = 1f;
+    //If the player is currently dashing
     public bool IsDashing = false;
-
+    //The amount of time the player is invincibile after dashing 
     public float Iframes;
     public float IframesStart = 2f;
-
+    //if the player is no longer invincible due to IFrames
     private bool IsIFramesDone = false;
+
+
 
     public float Stamina;
     public float StaminaStart = 5;
@@ -92,12 +103,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
 
-        if (HasWaterball)
+
+        if (Items.Contains("Waterball"))
         {
             GetComponent<WaterBucketSpawner>().enabled = true;
         }
 
-        if (HasDamageUp)
+        if (Items.Contains("Damage"))
         {
             transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().damage *= 1.8f;
         }
@@ -109,15 +121,17 @@ public class PlayerController : MonoBehaviour
             DashDelay /= 1.5f;
         }
 
-        if (HasDashUpgrade)
+        if (Items.Contains("DashSpeed"))
         {
             DashSpeed *= 2;
         }
 
-        if (HasSlowUpgrade)
+        if (Items.Contains("Slomo"))
         {
             StaminaStart *= 1.5f;
         }
+
+        
 
 
 
@@ -134,7 +148,7 @@ public class PlayerController : MonoBehaviour
             Stack = StackStart;
 
         if (WantToChangeDash)
-            HasDash = true;
+            Items.Add("Dash");
 
         StackStartLevel = Stack;
 
@@ -155,8 +169,8 @@ public class PlayerController : MonoBehaviour
     {
         // When WASD or the arrow keys are press the x and y are set to 1, -1 or 0
         // (A or left) x = -1, (D or right) x = 1, (S or down) y = -1, (W or up) y = 1
-        x = Input.GetAxisRaw("Horizontal");
-        y = Input.GetAxisRaw("Vertical");
+
+        Direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -257,7 +271,7 @@ public class PlayerController : MonoBehaviour
             CanDamaged = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && CanDash == true && IsDashing == false && HasDash)
+        if (Input.GetKeyDown(KeyCode.Space) && CanDash == true && IsDashing == false && Items.Contains("Dash"))
         {
             StartCoroutine(DashInputDelay());
         }
@@ -280,7 +294,7 @@ public class PlayerController : MonoBehaviour
 
         if (Stamina < StaminaStart && !IsSloMo && !PauseMenu.IsPaused)
         {
-            if (!HasSlowUpgrade)
+            if (!Items.Contains("SlomoUpgrade"))
                 Stamina += Time.unscaledDeltaTime;
             else
                 Stamina += Time.unscaledDeltaTime*2;
@@ -302,12 +316,14 @@ public class PlayerController : MonoBehaviour
 
         //print(DashSpeed);
 
-        //print(CurrentRoom);
+        print(CurrentRoom);
 
         //print(EasyMode);
 
         //print(IsSloMo);
         //print(HasDamageUp);
+
+         
 
     }
 
@@ -316,7 +332,7 @@ public class PlayerController : MonoBehaviour
     {
         // Creates a 2d vector. x/y = direction, speed = speed, and Time.deltatime for consistency through the frames
         // Then applies the vector to the RigidBody's velocity
-        rb.velocity = new Vector2(x * Speed * Time.deltaTime, y * Speed * Time.deltaTime);
+        rb.velocity = new Vector2(Direction.x * Speed * Time.deltaTime, Direction.y * Speed * Time.deltaTime);
 
         if (DashInput != 0 || DashInputY != 0)
         {
@@ -431,29 +447,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        for (int i = 1; i <= GameObject.Find("Rooms").transform.childCount; i++)
+        for (int i = 0; i <= GameObject.Find("Rooms").transform.childCount - 1; i++)
         {
-            if (collision.gameObject.CompareTag("Rooms") && collision.name == "Room " + i)
-            {
-                if (!collision.GetComponent<Rooms>().IsShootingRoom)
-                {
+            if (GameObject.Find("Rooms").transform.GetChild(i).GetChild(0).gameObject.activeInHierarchy)
+                CurrentRoom = i + 1;
 
-                    StopCoroutine(gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().co);
-                    gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().CanShoot = false;
 
-                    NoShooting = true;
-
-                }
-
-                else if (NoShooting && collision.GetComponent<Rooms>().IsShootingRoom)
-                {
-                    gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().CanShoot = true;
-                    NoShooting = false;
-
-                }
-                CurrentRoom = i;
-                break;
-            }
         }
 
 
@@ -491,37 +490,37 @@ public class PlayerController : MonoBehaviour
 
         if (DashInput == 0)
         {
-            if (x == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            if (Direction.x == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
                 DashInput = 1;
             }
-            else if (x == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            else if (Direction.x == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
                 DashInput = -1;
             }
-            if (y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            if (Direction.y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
                 DashInputY = 1;
             }
-            else if (y == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            else if (Direction.y == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
                 DashInputY = -1;
             }
 
 
-            if (x == 1 && y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            if (Direction.x == 1 && Direction.y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
                 DashInput = 2;
             }
-            else if (x == -1 && y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            else if (Direction.x == -1 && Direction.y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
                 DashInput = -2;
             }
-            if (y == -1 && x == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            if (Direction.y == -1 && Direction.x == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
                 DashInputY = 2;
             }
-            else if (y == -1 && x == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            else if (Direction.y == -1 && Direction.x == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
                 DashInputY = -2;
             }

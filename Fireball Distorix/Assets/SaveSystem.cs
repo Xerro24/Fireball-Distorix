@@ -4,14 +4,14 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+
 public static class SaveSystem
 {
+    static readonly string path = Application.persistentDataPath + "/Fireball Distorix.save";
 
-   public static void Save (PlayerController player)
+    public static void Save (PlayerController player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-
-        string path = Application.persistentDataPath + "/Fireball Distorix.save";
 
         FileStream stream = new FileStream(path, FileMode.Create);
 
@@ -24,7 +24,6 @@ public static class SaveSystem
 
     public static SaveData Load ()
     {
-        string path = Application.persistentDataPath + "/Fireball Distorix.save";
 
         if (File.Exists(path))
         {

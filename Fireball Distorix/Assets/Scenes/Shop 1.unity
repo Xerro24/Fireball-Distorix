@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EasyCost: 25
   HardCost: 5
-  upgrade: Waterball
+  upgrade: Water Bucket
 --- !u!61 &223124101
 BoxCollider2D:
   m_ObjectHideFlags: 0

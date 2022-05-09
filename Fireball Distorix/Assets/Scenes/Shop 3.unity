@@ -304,7 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EasyCost: 25
   HardCost: 5
-  upgrade: DashUpgrade
+  upgrade: Dash Farther
 --- !u!61 &202032655
 BoxCollider2D:
   m_ObjectHideFlags: 0

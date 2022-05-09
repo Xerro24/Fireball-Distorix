@@ -29,47 +29,29 @@ public class Chest : MonoBehaviour
             if (PlayerController.Stack >= EasyCost && PlayerController.EasyMode)
             {
                 PlayerController.Stack -= EasyCost;
-                if (upgrade == "Waterball")
-                    PlayerController.HasWaterball = true;
-                if (upgrade == "Damage")
-                    PlayerController.HasDamageUp = true;
-                if (upgrade == "DashUpgrade")
-                {
-                    PlayerController.HasDashUpgrade = true;
-                    player.DashSpeed *= 2;
-                }
-                if (upgrade == "SlomoUpgrade")
-                {
-                    PlayerController.HasSlowUpgrade = true;
-                    player.StaminaStart *= 1.5f;
-                }
-
-
-                    
-
-
-                Destroy(gameObject);
+                AddItems(player);
+               
             }
 
             else if (PlayerController.Stack >= HardCost && !PlayerController.EasyMode)
             {
                 PlayerController.Stack -= HardCost;
-                if (upgrade == "Waterball")
-                    PlayerController.HasWaterball = true;
-                if (upgrade == "Damage")
-                    PlayerController.HasDamageUp = true;
-                if (upgrade == "DashUpgrade")
-                {
-                    PlayerController.HasDashUpgrade = true;
-                    player.DashSpeed *= 2;
-                }
-                if (upgrade == "SlomoUpgrade")
-                {
-                    PlayerController.HasSlowUpgrade = true;
-                    player.StaminaStart *= 1.5f;
-                }
-                Destroy(gameObject);
+                AddItems(player);
             }
         }
+    }
+
+    private void AddItems(PlayerController player)
+    {
+        PlayerController.Items.Add(upgrade);
+        if (upgrade == "DashUpgrade")
+        {
+            player.DashSpeed *= 2; 
+        }
+        if (upgrade == "SlomoUpgrade")
+        {
+            player.StaminaStart *= 1.5f;
+        }
+        Destroy(gameObject);
     }
 }
