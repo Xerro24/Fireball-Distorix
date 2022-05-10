@@ -55,8 +55,11 @@ public class Door : MonoBehaviour
                 PlayerController.BodyCount += 1;
             }
 
+            DontDestroyOnLoad(collision);
             
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            collision.transform.position = new Vector2(0, 0);
 
         }
 

@@ -62,9 +62,11 @@ public class Shooter : MonoBehaviour
 
 
 
+
     // Update is called once per frame
     void Update()
     {
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         // Input.mousePosition returns the mouse coordinates in pixels
         // ScreenToWorldPoint converts the pixel coordinates to world coordinates
         // Because MousePos will be used with a Vector3, it also needs to be one but we are using 2d so we just set the z to 0

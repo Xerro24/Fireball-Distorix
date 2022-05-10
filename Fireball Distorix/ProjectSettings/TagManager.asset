@@ -12,6 +12,8 @@ TagManager:
   - Guard 2
   - Guard 3
   - Shield Shutoff
+  - Shooter
+  - RoomManager
   layers:
   - Default
   - TransparentFX

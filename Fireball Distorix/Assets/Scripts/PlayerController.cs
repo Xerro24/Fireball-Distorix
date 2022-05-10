@@ -183,7 +183,9 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.O))
             {
+                DontDestroyOnLoad(this);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                transform.position = new Vector2(0, 0);
 
             }
 
@@ -312,11 +314,12 @@ public class PlayerController : MonoBehaviour
         // Then applies the vector to the RigidBody's velocity
         rb.velocity = new Vector2(Direction.x * Speed * Time.deltaTime, Direction.y * Speed * Time.deltaTime);
 
-        if (DashInput == Vector2.zero)
+        if (DashInput != Vector2.zero)
         {
             if (Dashtime <= 0)
             {
                 DashInput = Vector2.zero;
+                DashDistance = Vector2.zero;
                 Dashtime = StartDash;
                 rb.velocity = Vector2.zero;
                 CanDash = false;
@@ -330,23 +333,23 @@ public class PlayerController : MonoBehaviour
                 Dashtime -= Time.deltaTime;
                 if (DashInput.x == 1)
                 {
-                    DashDistance = Vector2.right * DashSpeed * Time.deltaTime;
+                    DashDistance = new Vector2(DashSpeed * Time.deltaTime,DashDistance.y);
                     IsDashing = true;
 
                 }
                 else if (DashInput.x == -1)
                 {
-                    DashDistance = Vector2.left * DashSpeed * Time.deltaTime;
+                    DashDistance = new Vector2(-DashSpeed * Time.deltaTime, DashDistance.y);
                     IsDashing = true;
                 }
                 if (DashInput.y == 1)
                 {
-                    DashDistance = Vector2.up * DashSpeed * Time.deltaTime;
+                    DashDistance = new Vector2(DashDistance.x, DashSpeed * Time.deltaTime);
                     IsDashing = true;
                 }
                 else if (DashInput.y == -1)
                 {
-                    DashDistance = Vector2.down * DashSpeed * Time.deltaTime;
+                    DashDistance = new Vector2(DashDistance.x, -DashSpeed * Time.deltaTime);
                     IsDashing = true;
                 }
 
