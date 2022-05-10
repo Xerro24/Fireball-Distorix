@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class SaveData 
 {
+    public int SaveDataType;
     public int Stack;
     public bool EasyMode;
     public string[] Items;
@@ -14,8 +15,10 @@ public class SaveData
 
     public SaveData (PlayerController player)
     {
+        SaveDataType = 1;
         Stack = player.StackStartLevel;
         EasyMode = PlayerController.EasyMode;
+        Items = new string[PlayerController.Items.Count];
         PlayerController.Items.CopyTo(Items);
         BodyCount = PlayerController.BodyCount;
         Level = SceneManager.GetActiveScene().buildIndex;

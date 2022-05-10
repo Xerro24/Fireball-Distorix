@@ -44,11 +44,11 @@ public class Chest : MonoBehaviour
     private void AddItems(PlayerController player)
     {
         PlayerController.Items.Add(upgrade);
-        if (upgrade == "DashUpgrade")
+        if (upgrade == "Dash Farther")
         {
             player.DashSpeed *= 2; 
         }
-        if (upgrade == "SlomoUpgrade")
+        if (upgrade == "Longer Slomo Bar")
         {
             player.StaminaStart *= 1.5f;
         }

@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
         data = SaveSystem.Load();
         PlayerController.Stack = 0;
         PlayerController.Items.Clear();
+        PlayerController.Items.Add("temp");
         PlayerController.BodyCount = 0
             ;
 

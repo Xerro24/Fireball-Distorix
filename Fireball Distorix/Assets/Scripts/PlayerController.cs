@@ -63,12 +63,11 @@ public class PlayerController : MonoBehaviour
     // The speed that the dash 
     public float DashSpeed;
     //How long the dash is
-    private float Dashtime = 0;
+    [SerializeField] private float Dashtime = 0;
     //The start value of the dash
     public float StartDash;
     //What direction the player is dashing
-    private int DashInput = 0;
-    private int DashInputY = 0;
+    private Vector2 DashInput;
     //If the player can dash
     private bool CanDash = true;
     //How quickly the player can dash
@@ -81,6 +80,7 @@ public class PlayerController : MonoBehaviour
     //if the player is no longer invincible due to IFrames
     private bool IsIFramesDone = false;
 
+    private Vector2 DashDistance;
 
 
     public float Stamina;
@@ -102,18 +102,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
-        if (Items.Contains("Waterball"))
-        {
-            GetComponent<WaterBucketSpawner>().enabled = true;
-        }
-
-        if (Items.Contains("Damage"))
-        {
-            transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().damage *= 1.8f;
-        }
-
         Stamina = StaminaStart;
 
         if (EasyMode)
@@ -121,17 +109,7 @@ public class PlayerController : MonoBehaviour
             DashDelay /= 1.5f;
         }
 
-        if (Items.Contains("DashSpeed"))
-        {
-            DashSpeed *= 2;
-        }
 
-        if (Items.Contains("Slomo"))
-        {
-            StaminaStart *= 1.5f;
-        }
-
-        
 
 
 
@@ -316,7 +294,7 @@ public class PlayerController : MonoBehaviour
 
         //print(DashSpeed);
 
-        print(CurrentRoom);
+        //print(CurrentRoom);
 
         //print(EasyMode);
 
@@ -334,12 +312,11 @@ public class PlayerController : MonoBehaviour
         // Then applies the vector to the RigidBody's velocity
         rb.velocity = new Vector2(Direction.x * Speed * Time.deltaTime, Direction.y * Speed * Time.deltaTime);
 
-        if (DashInput != 0 || DashInputY != 0)
+        if (DashInput == Vector2.zero)
         {
             if (Dashtime <= 0)
             {
-                DashInput = 0;
-                DashInputY = 0;
+                DashInput = Vector2.zero;
                 Dashtime = StartDash;
                 rb.velocity = Vector2.zero;
                 CanDash = false;
@@ -351,33 +328,38 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Dashtime -= Time.deltaTime;
-                if (DashInput == 1)
+                if (DashInput.x == 1)
                 {
-                    rb.velocity = Vector2.right * DashSpeed * Time.deltaTime;
+                    DashDistance = Vector2.right * DashSpeed * Time.deltaTime;
                     IsDashing = true;
 
                 }
-                else if (DashInput == -1)
+                else if (DashInput.x == -1)
                 {
-                    rb.velocity = Vector2.left * DashSpeed * Time.deltaTime;
+                    DashDistance = Vector2.left * DashSpeed * Time.deltaTime;
                     IsDashing = true;
                 }
-                if (DashInputY == 1)
+                if (DashInput.y == 1)
                 {
-                    rb.velocity = Vector2.up * DashSpeed * Time.deltaTime;
+                    DashDistance = Vector2.up * DashSpeed * Time.deltaTime;
                     IsDashing = true;
                 }
-                else if (DashInputY == -1)
+                else if (DashInput.y == -1)
                 {
-                    rb.velocity = Vector2.down * DashSpeed * Time.deltaTime;
+                    DashDistance = Vector2.down * DashSpeed * Time.deltaTime;
                     IsDashing = true;
                 }
 
+                if (DashInput.x != 0 && DashInput.y != 0)
+                {
+                    DashDistance.x /= 2;
+                    DashDistance.y /= 2;
+                    
+                }
 
+                rb.velocity = DashDistance;
 
-
-
-                if (DashInput == 2)
+                /*if (DashInput == 2)
                 {
                     rb.velocity = new Vector2(1, 1) * DashSpeed / 2 * Time.deltaTime;
                     IsDashing = true;
@@ -397,7 +379,7 @@ public class PlayerController : MonoBehaviour
                 {
                     rb.velocity = new Vector2(-1, -1) * DashSpeed / 2 * Time.deltaTime;
                     IsDashing = true;
-                }
+                }*/
 
             }
         }
@@ -447,13 +429,31 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        for (int i = 0; i <= GameObject.Find("Rooms").transform.childCount - 1; i++)
-        {
-            if (GameObject.Find("Rooms").transform.GetChild(i).GetChild(0).gameObject.activeInHierarchy)
-                CurrentRoom = i + 1;
+        for (int i = 1; i <= GameObject.Find("Rooms").transform.childCount; i++)
+            {
+                if (collision.gameObject.CompareTag("Rooms") && collision.name == "Room " + i)
+                {
+                    if (!collision.GetComponent<Rooms>().IsShootingRoom)
+                    {
 
+                        StopCoroutine(gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().co);
+                        gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().CanShoot = false;
 
-        }
+                        NoShooting = true;
+                       
+
+                    }
+
+                    else if (NoShooting && collision.GetComponent<Rooms>().IsShootingRoom)
+                    {
+                        gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().CanShoot = true;
+                        NoShooting = false;
+
+                    }
+                    CurrentRoom = i;
+                    break;
+                }
+            }
 
 
 
@@ -488,42 +488,43 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DashInputDelay()
     {
 
-        if (DashInput == 0)
+        if (DashInput == Vector2.zero)
         {
             if (Direction.x == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
-                DashInput = 1;
+                DashInput.x = 1;
             }
             else if (Direction.x == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
-                DashInput = -1;
+                DashInput.x = -1;
             }
             if (Direction.y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
-                DashInputY = 1;
+                DashInput.y = 1;
             }
             else if (Direction.y == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
-                DashInputY = -1;
+                DashInput.y = -1;
             }
 
 
-            if (Direction.x == 1 && Direction.y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
+            /*if (Direction.x == 1 && Direction.y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
-                DashInput = 2;
+                DashInput = new Vector2(1,1);
+
             }
             else if (Direction.x == -1 && Direction.y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
-                DashInput = -2;
+                DashInput = new Vector2(-1,1);
             }
             if (Direction.y == -1 && Direction.x == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
-                DashInputY = 2;
+                DashInput = new Vector2(1,-1);
             }
             else if (Direction.y == -1 && Direction.x == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
             {
-                DashInputY = -2;
-            }
+                DashInput = new Vector2(-1,-1);
+            }*/
 
         }
         yield return new WaitForSeconds(DashDelay);
@@ -553,5 +554,28 @@ public class PlayerController : MonoBehaviour
         CanWalk = true;
     }*/
 
+
+    public void Upgrade()
+    {
+        if (Items.Contains("Water Bucket"))
+        {
+            GetComponent<WaterBucketSpawner>().enabled = true;
+        }
+
+        if (Items.Contains("Damage Up"))
+        {
+            transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().damage *= 1.8f;
+        }
+
+        if (Items.Contains("Dash Farther"))
+        {
+            DashSpeed *= 2;
+        }
+
+        if (Items.Contains("Longer Slomo Bar"))
+        {
+            StaminaStart *= 1.5f;
+        }
+    }
 
 }
