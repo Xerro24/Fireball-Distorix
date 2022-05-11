@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI = transform.Find("PauseMenu").gameObject;
         PauseMenuUI.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player.transform.position = Vector2.zero;
     }
 
     // Update is called once per frame
@@ -68,6 +69,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         IsPaused = false;
         SaveSystem.Save(player);
+        Destroy(player.gameObject);
         SceneManager.LoadScene(0);
     }
 }

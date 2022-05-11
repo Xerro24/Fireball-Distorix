@@ -9,11 +9,13 @@ using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
+
     SaveData data;
     private PlayerController player;
 
     private void Start()
     {
+
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         data = SaveSystem.Load();
         player.Stack = 0;
@@ -31,15 +33,21 @@ public class MainMenu : MonoBehaviour
     public void NoramlMode()
     {
         PlayerController.EasyMode = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         player.Stack += 20;
+        player.transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot = true;
 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
+        
     }
 
     public void HardMode()
     {
         PlayerController.EasyMode = false;
+        player.transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot = true;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
 
 
     }
@@ -52,6 +60,8 @@ public class MainMenu : MonoBehaviour
 
     public void Level()
     {
+        player.transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot = true;
+
         SceneManager.LoadScene(EventSystem.current.currentSelectedGameObject.name);
         
     }
@@ -69,6 +79,8 @@ public class MainMenu : MonoBehaviour
                 player.Items.Add(data.Items[i]);
             }
             PlayerController.BodyCount = data.BodyCount;
+            player.transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot = true;
+            player.Upgrade();
             SceneManager.LoadScene(data.Level);
         }
 

@@ -20,9 +20,8 @@ public class PlayerController : MonoBehaviour
     public int StackCounter;
     // The amount of Stacks you want to start with
     public int StackStart;
-    // If you can change the Stack 
-    public bool WantToChangeStack = false;
-    public int StackStartLevel;
+
+    [SerializeField]public int StackStartLevel;
 
     // The SpriteRenderer and the sprites
     public SpriteRenderer sr;
@@ -94,7 +93,57 @@ public class PlayerController : MonoBehaviour
 
     public bool CanRestart;
 
-    
+    // Store the scene that should trigger start
+    private Scene scene;
+
+
+
+
+
+
+
+
+    private void Awake()
+    {
+        // It is save to remove listeners even if they
+        // didn't exist so far.
+        // This makes sure it is added only once
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        // Add the listener to be called when a scene is loaded
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        DontDestroyOnLoad(gameObject);
+
+        // Store the creating scene as the scene to trigger start
+        scene = SceneManager.GetActiveScene();
+    }
+
+    private void OnDestroy()
+    {
+        // Always clean up your listeners when not needed anymore
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // Listener for sceneLoaded
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // return if not the start calling scene
+        if (string.Equals(scene.path, this.scene.path)) return;
+
+        //Debug.Log("Re-Initializing", this);
+        // do your "Start" stuff here
+        StackStartLevel = Stack;
+        Stamina = StaminaStart;
+        if (WantToChangeEasyMode)
+            EasyMode = true;
+        Dashtime = StartDash;
+    }
+
+
+
+
+
 
 
 
@@ -102,7 +151,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Stamina = StaminaStart;
+        
 
         if (EasyMode)
         {
@@ -115,29 +164,24 @@ public class PlayerController : MonoBehaviour
 
         // The rb variable is set to the Rigidbody2D component of the GameObject that this script is attached to
         rb = GetComponent<Rigidbody2D>();
-        if (WantToChangeEasyMode)
-            EasyMode = true;
+        
 
         sr = GetComponent<SpriteRenderer>();
 
 
 
-        if (WantToChangeStack)
-            Stack = StackStart;
+        
 
-        if (WantToChangeDash)
-            Items.Add("Dash");
+        
 
-        StackStartLevel = Stack;
-
-
-        Dashtime = StartDash;
 
        
 
+        
     }
 
 
+  
 
 
 
@@ -251,7 +295,7 @@ public class PlayerController : MonoBehaviour
             CanDamaged = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && CanDash == true && IsDashing == false && Items.Contains("Dash"))
+        if (Input.GetKeyDown(KeyCode.Space) && CanDash == true && IsDashing == false)
         {
             StartCoroutine(DashInputDelay());
         }
@@ -580,5 +624,17 @@ public class PlayerController : MonoBehaviour
             StaminaStart *= 1.5f;
         }
     }
+
+    /*private void WhenSceneChange()
+    {
+
+
+
+        int i = 0;
+        if (i == SceneManager.sceneLoaded)
+        {
+
+        }
+    }*/
 
 }

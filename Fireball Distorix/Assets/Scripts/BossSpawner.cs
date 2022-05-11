@@ -80,11 +80,11 @@ public class BossSpawner : MonoBehaviour
 
         if (GetComponent<Enemy>().Health <= 0)
         {
-            if (GetComponent<Boss>().BossLevel == 2)
+            /*if (GetComponent<Boss>().BossLevel == 2)
             {
                 GameObject DashUpgrade = Instantiate(DashPrefab, transform.position, transform.rotation);
                 //print("danf");
-            }
+            }*/
             gameObject.SetActive(false);
         }
 

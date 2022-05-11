@@ -44,6 +44,15 @@ public class Chest : MonoBehaviour
     private void AddItems(PlayerController player)
     {
         player.Items.Add(upgrade);
+        if (player.Items.Contains("Water Bucket"))
+        {
+            player.GetComponent<WaterBucketSpawner>().enabled = true;
+        }
+
+        if (player.Items.Contains("Damage Up"))
+        {
+            player.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().damage *= 1.8f;
+        }
         if (upgrade == "Dash Farther")
         {
             player.DashSpeed *= 2; 
