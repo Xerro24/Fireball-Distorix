@@ -10,12 +10,14 @@ using System.IO;
 public class MainMenu : MonoBehaviour
 {
     SaveData data;
+    private PlayerController player;
+
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         data = SaveSystem.Load();
-        PlayerController.Stack = 0;
-        PlayerController.Items.Clear();
-        PlayerController.Items.Add("temp");
+        player.Stack = 0;
+        player.Items.Clear();
         PlayerController.BodyCount = 0
             ;
 
@@ -30,7 +32,7 @@ public class MainMenu : MonoBehaviour
     {
         PlayerController.EasyMode = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        PlayerController.Stack += 20;
+        player.Stack += 20;
 
     }
 
@@ -59,12 +61,12 @@ public class MainMenu : MonoBehaviour
 
         if (data != null)
         { 
-            PlayerController.Stack = data.Stack;
+            player.Stack = data.Stack;
             PlayerController.EasyMode = data.EasyMode;
 
             for (int i = 0; i < data.Items.Length; i++)
             {
-                PlayerController.Items.Add(data.Items[i]);
+                player.Items.Add(data.Items[i]);
             }
             PlayerController.BodyCount = data.BodyCount;
             SceneManager.LoadScene(data.Level);

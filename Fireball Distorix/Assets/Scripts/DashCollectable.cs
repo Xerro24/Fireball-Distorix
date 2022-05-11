@@ -21,7 +21,7 @@ public class DashCollectable : MonoBehaviour
         PlayerController player = collision.GetComponent<PlayerController>();
         if (collision.gameObject.CompareTag("Player") && player != null)
         {
-            PlayerController.Items.Add("Dash");
+            player.Items.Add("Dash");
             Destroy(gameObject);
         }
     }

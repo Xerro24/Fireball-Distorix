@@ -9,13 +9,14 @@ public class StackCounter : MonoBehaviour
 
     
     private TextMeshProUGUI text;
-
+    private PlayerController player;
     
 
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         
     }
 
@@ -23,13 +24,13 @@ public class StackCounter : MonoBehaviour
     void Update()
     {
         //text.text = player.Stack.ToString();
-        if (PlayerController.Stack < 0)
+        if (player.Stack < 0)
         {
             text.SetText("0");
         }
         else
         {
-            text.SetText(PlayerController.Stack.ToString());
+            text.SetText(player.Stack.ToString());
         }
         
     }

@@ -24,7 +24,7 @@ public class SecretCollectable : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && player != null)
         {
             player.Speed += 350;
-            PlayerController.Stack += 20;
+            //PlayerController.Stack += 20;
             GameObject.Find("Fire Shooter").GetComponent<Shooter>().FireballDelay = 0f;
             Destroy(gameObject);
 

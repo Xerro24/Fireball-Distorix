@@ -26,16 +26,16 @@ public class Chest : MonoBehaviour
         PlayerController player = collision.GetComponent<PlayerController>();
         if (collision.gameObject.CompareTag("Player") && player != null)
         {
-            if (PlayerController.Stack >= EasyCost && PlayerController.EasyMode)
+            if (player.Stack >= EasyCost && PlayerController.EasyMode)
             {
-                PlayerController.Stack -= EasyCost;
+                player.Stack -= EasyCost;
                 AddItems(player);
                
             }
 
-            else if (PlayerController.Stack >= HardCost && !PlayerController.EasyMode)
+            else if (player.Stack >= HardCost && !PlayerController.EasyMode)
             {
-                PlayerController.Stack -= HardCost;
+                player.Stack -= HardCost;
                 AddItems(player);
             }
         }
@@ -43,7 +43,7 @@ public class Chest : MonoBehaviour
 
     private void AddItems(PlayerController player)
     {
-        PlayerController.Items.Add(upgrade);
+        player.Items.Add(upgrade);
         if (upgrade == "Dash Farther")
         {
             player.DashSpeed *= 2; 

@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public float Speed = 1;
 
     // The Stack mechanic
-    public static int Stack;
+    public  int Stack;
     public int StackCounter;
     // The amount of Stacks you want to start with
     public int StackStart;
@@ -47,13 +47,13 @@ public class PlayerController : MonoBehaviour
     public bool CanDamaged = true;
 
     // If the player has the respective upgrades
-    public static HashSet<string> Items = new HashSet<string>();
+    public  HashSet<string> Items = new HashSet<string>();
 
-    /*public static bool HasDash;
-    public static bool HasWaterball;
-    public static bool HasDamageUp;
-    public static bool HasDashUpgrade;
-    public static bool HasSlowUpgrade;*/
+    /*public  bool HasDash;
+    public  bool HasWaterball;
+    public  bool HasDamageUp;
+    public  bool HasDashUpgrade;
+    public  bool HasSlowUpgrade;*/
 
 
 

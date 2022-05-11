@@ -18,8 +18,8 @@ public class SaveData
         SaveDataType = 1;
         Stack = player.StackStartLevel;
         EasyMode = PlayerController.EasyMode;
-        Items = new string[PlayerController.Items.Count];
-        PlayerController.Items.CopyTo(Items);
+        Items = new string[player.Items.Count];
+        player.Items.CopyTo(Items);
         BodyCount = PlayerController.BodyCount;
         Level = SceneManager.GetActiveScene().buildIndex;
 
