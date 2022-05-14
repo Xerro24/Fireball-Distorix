@@ -3,7 +3,10 @@ guid: 6138e206c7f44d84aafabf69389d43dd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rb: {instanceID: 0}
+  - Player: {instanceID: 0}
+  - edgeball: {fileID: 21300000, guid: 074c8d72f9d24994bad71c51d81ed1bd, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

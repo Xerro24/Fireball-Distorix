@@ -20,8 +20,8 @@ public class MainMenu : MonoBehaviour
         data = SaveSystem.Load();
         player.Stack = 0;
         player.Items.Clear();
-        PlayerController.BodyCount = 0
-            ;
+        
+            
 
         string path = Application.persistentDataPath + "/Fireball Distorix.save";
         if (File.Exists(path))
@@ -34,18 +34,17 @@ public class MainMenu : MonoBehaviour
     {
         PlayerController.EasyMode = true;
         player.Stack += 20;
-        player.transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot = true;
-
+        Load();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
-        
+
+
+
     }
 
     public void HardMode()
     {
         PlayerController.EasyMode = false;
-        player.transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot = true;
-
+        Load();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
 
@@ -60,8 +59,7 @@ public class MainMenu : MonoBehaviour
 
     public void Level()
     {
-        player.transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot = true;
-
+        Load();
         SceneManager.LoadScene(EventSystem.current.currentSelectedGameObject.name);
         
     }
@@ -78,12 +76,19 @@ public class MainMenu : MonoBehaviour
             {
                 player.Items.Add(data.Items[i]);
             }
+
+            Load();
             PlayerController.BodyCount = data.BodyCount;
-            player.transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot = true;
             player.Upgrade();
             SceneManager.LoadScene(data.Level);
         }
 
+    }
+
+    public void Tutorial()
+    {
+        Load();
+        SceneManager.LoadScene(14);
     }
 
     /*
@@ -117,4 +122,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(7);
     }
     */
+
+    public void Load()
+    {
+        player.transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot = true;
+        PlayerController.BodyCount = 0;
+        player.CanRestart = true;
+        
+    }
 }

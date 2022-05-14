@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6741836696103411070}
   m_Layer: 0
   m_Name: Waterball
-  m_TagString: Untagged
+  m_TagString: Waterball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,10 +122,12 @@ MonoBehaviour:
   FireballSpeed: 20
   damage: 0
   IsWater: 1
+  IsEdgeball: 0
   timerStart: 10
   PlayerDamage: 1
   Player: {fileID: 0}
   VapCap: 999
+  edgeball: {fileID: 0}
 --- !u!58 &6741836696103411070
 CircleCollider2D:
   m_ObjectHideFlags: 0

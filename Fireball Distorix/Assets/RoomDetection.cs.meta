@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: aa241eeae91b47346a04bac822c870f1
+guid: 146f4813aba1fea4490a42d1cadbebbd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - edgeball: {fileID: 21300000, guid: 074c8d72f9d24994bad71c51d81ed1bd, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

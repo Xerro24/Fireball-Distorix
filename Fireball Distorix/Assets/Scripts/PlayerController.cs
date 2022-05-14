@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     // The amount of Stacks you want to start with
     public int StackStart;
 
-    [SerializeField]public int StackStartLevel;
+    public int StackStartLevel;
 
     // The SpriteRenderer and the sprites
     public SpriteRenderer sr;
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     public int CurrentRoom = 1;
 
     // If the player is in a no shooting enviroment
-    private bool NoShooting;
+    public bool NoShooting;
 
     // The number of bodies delivered
     public static int BodyCount;
@@ -53,10 +53,6 @@ public class PlayerController : MonoBehaviour
     public  bool HasDamageUp;
     public  bool HasDashUpgrade;
     public  bool HasSlowUpgrade;*/
-
-
-
-    public bool WantToChangeDash = false;
     
     // The Dash mechanic
     // The speed that the dash 
@@ -476,31 +472,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        for (int i = 1; i <= GameObject.Find("Rooms").transform.childCount; i++)
-            {
-                if (collision.gameObject.CompareTag("Rooms") && collision.name == "Room " + i)
-                {
-                    if (!collision.GetComponent<Rooms>().IsShootingRoom)
-                    {
-
-                        StopCoroutine(gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().co);
-                        gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().CanShoot = false;
-
-                        NoShooting = true;
-                       
-
-                    }
-
-                    else if (NoShooting && collision.GetComponent<Rooms>().IsShootingRoom)
-                    {
-                        gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().CanShoot = true;
-                        NoShooting = false;
-
-                    }
-                    CurrentRoom = i;
-                    break;
-                }
-            }
+       
 
 
 

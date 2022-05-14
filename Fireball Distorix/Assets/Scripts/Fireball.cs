@@ -13,6 +13,8 @@ public class Fireball : MonoBehaviour
 
     public bool IsWater;
 
+    public bool IsEdgeball;
+
     private int VaporizeCounter;
     private float timer;
     public float timerStart;
@@ -22,7 +24,8 @@ public class Fireball : MonoBehaviour
     public PlayerController Player;
 
     public int VapCap;
-     
+
+    public Sprite edgeball;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +49,13 @@ public class Fireball : MonoBehaviour
             }
         }
 
+        if (IsEdgeball)
+        {
+            gameObject.tag = "Edgeball";
+            GetComponent<SpriteRenderer>().sprite = edgeball;
+        }
+            
+
         if (timer <= -5997)
         {
             Destroy(gameObject);
@@ -61,7 +71,7 @@ public class Fireball : MonoBehaviour
         //Enemy2 enemy2 = collision.GetComponent<Enemy2>();
 
 
-        if (collision.gameObject.CompareTag("Player") && player != null && !IsWater)
+        if (collision.gameObject.CompareTag("Player") && player != null && !IsWater && IsEdgeball) 
         //if (player.IsDashing == false && player.Iframes <= 0)
         {
             if (player.CanDamaged && !player.IsDashing)

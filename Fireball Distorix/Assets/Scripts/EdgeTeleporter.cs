@@ -8,6 +8,8 @@ public class EdgeTeleporter : MonoBehaviour
     private Transform Room;
     private string selfname;
 
+    public Sprite edgeball;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,17 +53,10 @@ public class EdgeTeleporter : MonoBehaviour
 
 
             temp.x = Random.Range(TopLeft.x, TopRight.x);
-            temp.y = TopLeft.y - 0.1f;
+            temp.y = TopLeft.y - 0.2f;
             if (fireball.IsWater)
                 temp.y = TopLeft.y - 0.5f;
-            fireball.transform.position = temp;
-
-            fireball.rb.velocity = (new Vector2(0, 0));
-            fireball.transform.rotation = Quaternion.identity;
-
-            fireball.transform.eulerAngles = Vector3.forward * Random.Range(120f, 240f);
-            fireball.rb.AddForce(fireball.transform.up * fireball.FireballSpeed, ForceMode2D.Impulse);
-            fireball.damage = 0;
+            Edgeball(fireball, temp);
         }
 
         else if (selfname == "Top")
@@ -76,17 +71,10 @@ public class EdgeTeleporter : MonoBehaviour
 
 
             temp.x = Random.Range(BottomLeft.x, BottomRight.x);
-            temp.y = BottomLeft.y + 0.1f;
+            temp.y = BottomLeft.y + 0.2f;
             if (fireball.IsWater)
                 temp.y = BottomLeft.y + 0.5f;
-            fireball.transform.position = temp;
-
-            fireball.rb.velocity = (new Vector2(0, 0));
-            fireball.transform.rotation = Quaternion.identity;
-
-            fireball.transform.eulerAngles = Vector3.forward * Random.Range(-60f, 60f);
-            fireball.rb.AddForce(fireball.transform.up * fireball.FireballSpeed, ForceMode2D.Impulse);
-            fireball.damage = 0;
+            Edgeball(fireball, temp);
         }
 
         else if (selfname == "Right")
@@ -101,17 +89,10 @@ public class EdgeTeleporter : MonoBehaviour
 
 
             temp.y = Random.Range(BottomLeft.y, BottomRight.y);
-            temp.x = BottomLeft.x + 0.1f;
+            temp.x = BottomLeft.x + 0.2f;
             if (fireball.IsWater)
                 temp.x = BottomLeft.x + 0.5f;
-            fireball.transform.position = temp;
-
-            fireball.rb.velocity = (new Vector2(0, 0));
-            fireball.transform.rotation = Quaternion.identity;
-
-            fireball.transform.eulerAngles = Vector3.forward * Random.Range(210f, 330f);
-            fireball.rb.AddForce(fireball.transform.up * fireball.FireballSpeed, ForceMode2D.Impulse);
-            fireball.damage = 0;
+            Edgeball(fireball, temp);
         }
 
         else if (selfname == "Left")
@@ -126,18 +107,26 @@ public class EdgeTeleporter : MonoBehaviour
 
 
             temp.y = Random.Range(BottomLeft.y, BottomRight.y);
-            temp.x = BottomLeft.x - 0.1f;
+            temp.x = BottomLeft.x - 0.2f;
             if (fireball.IsWater)
                 temp.x = BottomLeft.x - 0.5f;
-            fireball.transform.position = temp;
-
-            fireball.rb.velocity = (new Vector2(0, 0));
-            fireball.transform.rotation = Quaternion.identity;
-
-            fireball.transform.eulerAngles = Vector3.forward * Random.Range(150f, 30f);
-            fireball.rb.AddForce(fireball.transform.up * fireball.FireballSpeed, ForceMode2D.Impulse);
-            fireball.damage = 0;
+            Edgeball(fireball, temp);
         }
+    }
+
+    public void Edgeball(Fireball fireball, Vector2 temp)
+    {
+        fireball.transform.position = temp;
+
+        fireball.rb.velocity = (new Vector2(0, 0));
+        fireball.transform.rotation = Quaternion.identity;
+
+        fireball.transform.eulerAngles = Vector3.forward * Random.Range(120f, 240f);
+        fireball.rb.AddForce(fireball.transform.up * fireball.FireballSpeed, ForceMode2D.Impulse);
+        fireball.damage = 0;
+        fireball.IsEdgeball = true;
+        
+        
     }
 
 

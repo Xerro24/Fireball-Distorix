@@ -152,9 +152,29 @@ public class Enemy : MonoBehaviour
                     player.Die();
                 }
 
+            }
 
+        else if (player.IsDashing == false && player.Iframes <= 0 && !isBoss)
+        {
+                print("h");
+            if (PlayerController.EasyMode)
+            {
+                //PlayerController.Stack -= 1;
+                if (player.CanDamaged && PlayerCanDamaged)// && timer >= time - 0.2)
+                {
+                    StartCoroutine(PlayerTakeDamage(1));
+                }
 
             }
+
+            else if (!PlayerController.EasyMode)
+            {
+                player.Die();
+            }
+
+
+
+        }
 
 
     }

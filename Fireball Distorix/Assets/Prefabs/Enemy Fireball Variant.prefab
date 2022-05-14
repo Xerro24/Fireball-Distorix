@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Fireball Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2760858939070541226, guid: 7fc09e8d225172a49a9af3c7a3bebceb, type: 3}
+      propertyPath: m_TagString
+      value: Enemy Fireball
+      objectReference: {fileID: 0}
     - target: {fileID: 2760858939070541236, guid: 7fc09e8d225172a49a9af3c7a3bebceb, type: 3}
       propertyPath: m_RootOrder
       value: 0
