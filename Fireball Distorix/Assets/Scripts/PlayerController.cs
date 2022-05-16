@@ -244,12 +244,7 @@ public class PlayerController : MonoBehaviour
             sr.sprite = Xessy;
         }*/
 
-        if (GameObject.Find("Enemy") == null && GameObject.Find("Enemy (1)") == null && GameObject.Find("Enemy (2)") == null &&
-            GameObject.Find("Enemy (3)") == null && GameObject.Find("Boss") == null && sr.sprite == Xessy)
-        {
-            //sr.sprite = Xes_Happy;
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        
 
         //if (Chest.HasUpgrade && Speed < 700)
         {
@@ -402,28 +397,6 @@ public class PlayerController : MonoBehaviour
 
                 rb.velocity = DashDistance;
 
-                /*if (DashInput == 2)
-                {
-                    rb.velocity = new Vector2(1, 1) * DashSpeed / 2 * Time.deltaTime;
-                    IsDashing = true;
-
-                }
-                else if (DashInput == -2)
-                {
-                    rb.velocity = new Vector2(-1, 1) * DashSpeed / 2 * Time.deltaTime;
-                    IsDashing = true;
-                }
-                if (DashInputY == 2)
-                {
-                    rb.velocity = new Vector2(1, -1) * DashSpeed / 2 * Time.deltaTime;
-                    IsDashing = true;
-                }
-                else if (DashInputY == -2)
-                {
-                    rb.velocity = new Vector2(-1, -1) * DashSpeed / 2 * Time.deltaTime;
-                    IsDashing = true;
-                }*/
-
             }
         }
 
@@ -465,6 +438,8 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         Stack = StackStartLevel;
+        StackCounter = 0;
+        sr.color = new Color(255f, 255f, 255f, 1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
@@ -476,22 +451,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-        /*
-        if (collision.gameObject.CompareTag("Rooms") && collision.name == "Room 1")
-        {
-            CurrentRoom = 1;
-        }
-
-        else if (collision.gameObject.CompareTag("Rooms") && collision.name == "Room 2")
-        {
-            CurrentRoom = 2;
-        }
-
-        else if (collision.gameObject.CompareTag("Rooms") && collision.name == "Room 3")
-        {
-            CurrentRoom = 3;
-        }
-        */
     }
 
     private void OnTriggerExit2D(Collider2D collision)

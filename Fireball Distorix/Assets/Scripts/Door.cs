@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Door : MonoBehaviour
 {
     private bool BodyDelivered;
+
+    public int ChangeNextRoom = -1;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,9 +59,19 @@ public class Door : MonoBehaviour
 
             
             
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            collision.transform.position = new Vector2(0, 0);
+            if (ChangeNextRoom == -1)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                collision.transform.position = new Vector2(0, 0);
+            }
+            
+            else
+            {
+                if (ChangeNextRoom == 0)
+                {
+                    GameObject.Find("Canvas").GetComponent<PauseMenu>().MainMenu();
+                }
+            }
 
         }
 

@@ -25,14 +25,15 @@ public class EdgeTeleporter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Fireball(Clone)" || collision.name == "Waterball(Clone)")
+        if (collision.name == "Fireball(Clone)" || collision.name == "Waterball(Clone)" || collision.tag == "Edgeball")
         {
             
             Fireball fireball = collision.GetComponent<Fireball>();
             //GameObject FireBall = collision.gameObject;
-
-            Teleport(fireball);
-
+            if (!fireball.IsSpecial)
+                Teleport(fireball);
+            else if (fireball.IsSpecial)
+                Destroy(fireball.gameObject);
             
         }
     }
@@ -56,7 +57,7 @@ public class EdgeTeleporter : MonoBehaviour
             temp.y = TopLeft.y - 0.2f;
             if (fireball.IsWater)
                 temp.y = TopLeft.y - 0.5f;
-            Edgeball(fireball, temp);
+            Edgeball(fireball, temp, 3);
         }
 
         else if (selfname == "Top")
@@ -74,7 +75,7 @@ public class EdgeTeleporter : MonoBehaviour
             temp.y = BottomLeft.y + 0.2f;
             if (fireball.IsWater)
                 temp.y = BottomLeft.y + 0.5f;
-            Edgeball(fireball, temp);
+            Edgeball(fireball, temp, 7);
         }
 
         else if (selfname == "Right")
@@ -92,7 +93,7 @@ public class EdgeTeleporter : MonoBehaviour
             temp.x = BottomLeft.x + 0.2f;
             if (fireball.IsWater)
                 temp.x = BottomLeft.x + 0.5f;
-            Edgeball(fireball, temp);
+            Edgeball(fireball, temp, 5);
         }
 
         else if (selfname == "Left")
@@ -110,21 +111,22 @@ public class EdgeTeleporter : MonoBehaviour
             temp.x = BottomLeft.x - 0.2f;
             if (fireball.IsWater)
                 temp.x = BottomLeft.x - 0.5f;
-            Edgeball(fireball, temp);
+            Edgeball(fireball, temp, 1);
         }
     }
 
-    public void Edgeball(Fireball fireball, Vector2 temp)
+    public void Edgeball(Fireball fireball, Vector2 temp, int angle)
     {
         fireball.transform.position = temp;
 
         fireball.rb.velocity = (new Vector2(0, 0));
         fireball.transform.rotation = Quaternion.identity;
 
-        fireball.transform.eulerAngles = Vector3.forward * Random.Range(120f, 240f);
+        fireball.transform.eulerAngles = Vector3.forward * Random.Range(45 * angle, 45 * angle + 90);
         fireball.rb.AddForce(fireball.transform.up * fireball.FireballSpeed, ForceMode2D.Impulse);
         fireball.damage = 0;
-        fireball.IsEdgeball = true;
+        if (!fireball.IsWater)
+            fireball.IsEdgeball = true;
         
         
     }

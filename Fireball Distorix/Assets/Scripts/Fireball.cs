@@ -27,6 +27,8 @@ public class Fireball : MonoBehaviour
 
     public Sprite edgeball;
 
+    public bool IsSpecial;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,7 @@ public class Fireball : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = edgeball;
         }
             
+
 
         if (timer <= -5997)
         {
@@ -105,7 +108,7 @@ public class Fireball : MonoBehaviour
         if (IsWater)
         {
 
-            if (collision.name == "Fireball(Clone)" || collision.name ==  "Enemy Fireball Variant(Clone)")
+            if (collision.CompareTag("Edgeball") || collision.CompareTag("Enemy Fireball"))
             {
                 VaporizeCounter += 1;
                 collision.GetComponent<SpriteRenderer>().enabled = false;

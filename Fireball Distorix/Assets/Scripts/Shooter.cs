@@ -46,6 +46,7 @@ public class Shooter : MonoBehaviour
 
 
 
+
     public Coroutine co;
 
     // Start is called before the first frame update
@@ -109,6 +110,9 @@ public class Shooter : MonoBehaviour
                 co = StartCoroutine(Shoot());
             }
         }
+
+        if (IsWater)
+            sr.sprite = WaterShooter;
     }
 
     // Less frequent Update used for physics calculations
