@@ -71,6 +71,7 @@ public class MainMenu : MonoBehaviour
         { 
             player.Stack = data.Stack;
             PlayerController.EasyMode = data.EasyMode;
+            PlayerController.EasierMode = data.EasierMode;
 
             for (int i = 0; i < data.Items.Length; i++)
             {
@@ -82,6 +83,18 @@ public class MainMenu : MonoBehaviour
             player.Upgrade();
             SceneManager.LoadScene(data.Level);
         }
+
+    }
+
+    public void EasyMode()
+    {
+        PlayerController.EasyMode = true;
+        PlayerController.EasierMode = true;
+        player.Stack += 20;
+        Load();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+
 
     }
 

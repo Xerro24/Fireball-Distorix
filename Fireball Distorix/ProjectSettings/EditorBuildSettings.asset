@@ -39,26 +39,26 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: c08149ba8cebd2d46b82b62e18492fe5
   - enabled: 1
-    path: Assets/Scenes/Shop 4.unity
-    guid: 81fc826c99646014d93b9f1fa1bdf0b9
+    path: Assets/Scenes/Shop 3.unity
+    guid: 348a326382900c14b80cc541da9fc02a
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 8a4def661dac9994b858dfe20ab5e2cd
   - enabled: 1
-    path: Assets/Scenes/Shop 1.unity
-    guid: a45835255d932f149905bdc34b19e26b
+    path: Assets/Scenes/Shop 2.unity
+    guid: 1d937e1f36cb7e54dac3df5c13dbd6fb
   - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: 4837a0da7ae91e74199b292e36ff465f
   - enabled: 1
-    path: Assets/Scenes/Shop 2.unity
-    guid: 1d937e1f36cb7e54dac3df5c13dbd6fb
+    path: Assets/Scenes/Shop 1.unity
+    guid: a45835255d932f149905bdc34b19e26b
   - enabled: 1
     path: Assets/Scenes/Level 4.unity
     guid: e24db14ef94fc8740a052ebddc39c997
   - enabled: 1
-    path: Assets/Scenes/Shop 3.unity
-    guid: 348a326382900c14b80cc541da9fc02a
+    path: Assets/Scenes/Shop 4.unity
+    guid: 81fc826c99646014d93b9f1fa1bdf0b9
   - enabled: 1
     path: Assets/Scenes/Level 5.unity
     guid: b4b2f05e7e806924f877783278cf040b

@@ -9,6 +9,7 @@ public class SaveData
     public int SaveDataType;
     public int Stack;
     public bool EasyMode;
+    public bool EasierMode;
     public string[] Items;
     public int BodyCount;
     public int Level;
@@ -18,6 +19,7 @@ public class SaveData
         SaveDataType = 1;
         Stack = player.StackStartLevel;
         EasyMode = PlayerController.EasyMode;
+        EasierMode = PlayerController.EasierMode;
         Items = new string[player.Items.Count];
         player.Items.CopyTo(Items);
         BodyCount = PlayerController.BodyCount;

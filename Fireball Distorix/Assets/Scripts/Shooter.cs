@@ -44,10 +44,10 @@ public class Shooter : MonoBehaviour
 
     public float damage = 1;
 
-
-
-
     public Coroutine co;
+
+    public bool ShootSpecial;
+
 
     // Start is called before the first frame update
     void Start()
@@ -113,6 +113,7 @@ public class Shooter : MonoBehaviour
 
         if (IsWater)
             sr.sprite = WaterShooter;
+
     }
 
     // Less frequent Update used for physics calculations
@@ -149,13 +150,14 @@ public class Shooter : MonoBehaviour
         else
         {
             // Creates the fireball at the firepoint position and rotation
-            GameObject Fireball = Instantiate(FireBallPrefab, FirePoint.position, FirePoint.rotation);
+            GameObject fireball = Instantiate(FireBallPrefab, FirePoint.position, FirePoint.rotation);
 
             // Add force to the fireball
-            Rigidbody2D rb = Fireball.GetComponent<Rigidbody2D>();
+            Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
             rb.AddForce(FirePoint.up * FireballSpeed *Time.fixedDeltaTime, ForceMode2D.Impulse);
-
-            Fireball.GetComponent<Fireball>().damage = damage;
+            if (ShootSpecial)
+                fireball.GetComponent<Fireball>().IsSpecial = true;
+            fireball.GetComponent<Fireball>().damage = damage;
 
             // Makes it so the shooter can't shoot until the amount of seconds in FireballDelay
             CanShoot = false;

@@ -10,22 +10,32 @@ public class SpecialShooter : MonoBehaviour
     public float FireballDelay = 5f;
     public float damage = 1;
     public bool CanShoot = true;
+    public float StartDelay;
+    public float timer;
 
     // Start is called before the first frame update
     void Start()
     {
         FirePoint = transform.GetChild(0);
+        timer = StartDelay;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (CanShoot)
-        {
+        timer -= Time.deltaTime;
 
-            StartCoroutine(Shoot());
-            
+        if (timer <= 0)
+        {
+            if (CanShoot)
+            {
+
+                StartCoroutine(Shoot());
+
+            }
         }
+
+        
     }
 
     public IEnumerator Shoot()

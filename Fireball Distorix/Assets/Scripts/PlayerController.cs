@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     // Store the scene that should trigger start
     private Scene scene;
 
-
+    public static bool EasierMode;
 
 
 
@@ -134,6 +134,9 @@ public class PlayerController : MonoBehaviour
         if (WantToChangeEasyMode)
             EasyMode = true;
         Dashtime = StartDash;
+        if (transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot)
+            transform.GetChild(0).GetChild(0).GetComponent<Shooter>().co = StartCoroutine(transform.GetChild(0).GetChild(0).GetComponent<Shooter>().Shoot());
+        Destroy(GameObject.Find("Fireball(Clone)"));
     }
 
 
@@ -256,9 +259,14 @@ public class PlayerController : MonoBehaviour
 
         if (StackCounter >= 5)
         {
-            if (EasyMode)
+            if (EasyMode && !EasierMode)
             {
                 Stack += 2;
+            }
+
+            else if (EasyMode && EasierMode)
+            {
+                Stack += 4;
             }
 
             else
@@ -329,6 +337,12 @@ public class PlayerController : MonoBehaviour
             CanSlow = false;
         }
 
+        if (NoShooting)
+            transform.GetChild(0).GetChild(0).GetComponent<Shooter>().ShootSpecial = true;
+        else
+            transform.GetChild(0).GetChild(0).GetComponent<Shooter>().ShootSpecial = false;
+
+
         //print(DashSpeed);
 
         //print(CurrentRoom);
@@ -338,7 +352,7 @@ public class PlayerController : MonoBehaviour
         //print(IsSloMo);
         //print(HasDamageUp);
 
-         
+
 
     }
 
