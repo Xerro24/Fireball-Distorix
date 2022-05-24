@@ -42,6 +42,8 @@ public class WaterBucketSpawner : MonoBehaviour
                 yRangeMin = room.transform.GetChild(2).GetChild(0).position.y + 2;
                 yRangeMax = room.transform.GetChild(3).GetChild(0).position.y - 2;
             }
+
+            
             
         }
 

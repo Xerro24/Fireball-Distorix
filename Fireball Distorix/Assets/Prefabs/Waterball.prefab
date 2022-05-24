@@ -128,6 +128,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   VapCap: 999
   edgeball: {fileID: 0}
+  IsSpecial: 0
 --- !u!58 &6741836696103411070
 CircleCollider2D:
   m_ObjectHideFlags: 0

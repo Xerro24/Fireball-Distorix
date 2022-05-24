@@ -62,7 +62,7 @@ public class EnemyFireball : MonoBehaviour
     {
         //PlayerController.Stack -= damage;
         yield return StartCoroutine(player.TakeDamage(damage));
-        Debug.Log(damage);
+        //Debug.Log(damage);
         Destroy(gameObject);
     }
 }

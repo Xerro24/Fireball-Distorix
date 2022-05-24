@@ -20,8 +20,10 @@ public class MainMenu : MonoBehaviour
         data = SaveSystem.Load();
         player.Stack = 0;
         player.Items.Clear();
-        
-            
+        PlayerController.EasyMode = true;
+        PlayerController.EasierMode = false;
+
+
 
         string path = Application.persistentDataPath + "/Fireball Distorix.save";
         if (File.Exists(path))

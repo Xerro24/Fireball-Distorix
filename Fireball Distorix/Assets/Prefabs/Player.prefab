@@ -210,6 +210,7 @@ MonoBehaviour:
   FireShooter: {fileID: 21300000, guid: 809853e15160e274a9851e266c1f0e8b, type: 3}
   WaterShooter: {fileID: 21300000, guid: ae87b4b8b96eee34bbab20cdd95073c0, type: 3}
   damage: 1
+  ShootSpecial: 0
 --- !u!1 &956280936155926686
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +317,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -394,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9509d9072a1c846449e5ee8b68ffb2e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerStart: 20
+  timerStart: 11
   BucketPrefab: {fileID: 7372386834301171394, guid: 6bf8879a9751926479e8ae825d912518, type: 3}
   xRangeMin: -7
   xRangeMax: 7
@@ -417,7 +418,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

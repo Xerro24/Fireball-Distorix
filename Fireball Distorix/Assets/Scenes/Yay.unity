@@ -224,7 +224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &187121731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,18 +238,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
+  Stack: 0
   StackCounter: 0
   StackStart: 0
-  WantToChangeStack: 0
   StackStartLevel: 0
   sr: {fileID: 0}
   Xessy: {fileID: 0}
   Xes_Happy: {fileID: 0}
   CurrentRoom: 1
+  NoShooting: 0
   WantToChangeEasyMode: 0
   CanDamaged: 1
-  WantToChangeDash: 0
   DashSpeed: 0
+  Dashtime: 0
   StartDash: 0
   DashDelay: 1
   IsDashing: 0
@@ -259,9 +260,7 @@ MonoBehaviour:
   StaminaStart: 0
   IsSloMo: 0
   CanSlow: 1
-  CanWalk: 0
-  Left: {fileID: 0}
-  Right: {fileID: 0}
+  CanRestart: 0
 --- !u!212 &187121732
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1533,6 +1532,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1821838058
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1882494357316116958, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: IsFinalRoom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882494357316116958, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: IsShootingRoom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502230079241164287, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
+      propertyPath: m_Name
+      value: Rooms
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
 --- !u!1 &1857939940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,18 +1696,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 350
+  Stack: 0
   StackCounter: 0
   StackStart: 0
-  WantToChangeStack: 0
   StackStartLevel: 0
   sr: {fileID: 0}
   Xessy: {fileID: 21300000, guid: b9e0c3c536f4a964590bbaa3ba59564f, type: 3}
   Xes_Happy: {fileID: 21300000, guid: 508d49e2cedd5164e9c856fd7bd4acd5, type: 3}
   CurrentRoom: 1
+  NoShooting: 0
   WantToChangeEasyMode: 0
   CanDamaged: 1
-  WantToChangeDash: 0
   DashSpeed: 0
+  Dashtime: 0
   StartDash: 0
   DashDelay: 1
   IsDashing: 0
@@ -1653,9 +1718,7 @@ MonoBehaviour:
   StaminaStart: 0
   IsSloMo: 0
   CanSlow: 1
-  CanWalk: 0
-  Left: {fileID: 0}
-  Right: {fileID: 0}
+  CanRestart: 0
 --- !u!50 &1857939944
 Rigidbody2D:
   serializedVersion: 4
