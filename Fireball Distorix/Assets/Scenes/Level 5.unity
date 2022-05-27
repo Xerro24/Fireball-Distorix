@@ -2818,7 +2818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 625452178561440883, guid: a3a16e5f2b06c6f4d903e3beceb17e4d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.5
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 625452178561440883, guid: a3a16e5f2b06c6f4d903e3beceb17e4d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4241,7 +4241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443560764}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45, y: -20, z: -10}
+  m_LocalPosition: {x: 45, y: -10, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4605,6 +4605,7 @@ MonoBehaviour:
   FireShooter: {fileID: 0}
   WaterShooter: {fileID: 0}
   damage: 1
+  ShootSpecial: 0
 --- !u!1 &480564052
 GameObject:
   m_ObjectHideFlags: 0
@@ -4773,6 +4774,7 @@ MonoBehaviour:
   FireShooter: {fileID: 0}
   WaterShooter: {fileID: 0}
   damage: 1
+  ShootSpecial: 0
 --- !u!1 &503449371
 GameObject:
   m_ObjectHideFlags: 0
@@ -69815,7 +69817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959874865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1733250166}
@@ -70458,7 +70460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3567708004063824271, guid: eec8fefc2f6471d43875b03a65d8e3a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -27
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 3567708004063824271, guid: eec8fefc2f6471d43875b03a65d8e3a1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -71388,7 +71390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 625452178561440883, guid: a3a16e5f2b06c6f4d903e3beceb17e4d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.5
+      value: -10.5
       objectReference: {fileID: 0}
     - target: {fileID: 625452178561440883, guid: a3a16e5f2b06c6f4d903e3beceb17e4d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -71519,7 +71521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3502230079241164284, guid: 3c4b127fa38e61c48b8e433b20c16bd5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -71728,7 +71730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140778846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -71925,7 +71927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926684, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 956280936155926684, guid: d72d39c4e9bb1f84abb7724fc9fb95c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -72490,7 +72492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218077523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74171,6 +74173,7 @@ MonoBehaviour:
   FireShooter: {fileID: 0}
   WaterShooter: {fileID: 0}
   damage: 1
+  ShootSpecial: 0
 --- !u!1001 &1414414479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74188,7 +74191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3514290659730704081, guid: f6ae3cce8d49aac43b63c95f9e96b88d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -40
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 3514290659730704081, guid: f6ae3cce8d49aac43b63c95f9e96b88d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -75353,6 +75356,7 @@ MonoBehaviour:
   FireShooter: {fileID: 0}
   WaterShooter: {fileID: 0}
   damage: 1
+  ShootSpecial: 0
 --- !u!1001 &1629428957
 PrefabInstance:
   m_ObjectHideFlags: 0

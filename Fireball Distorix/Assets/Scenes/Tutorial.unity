@@ -6278,6 +6278,10 @@ PrefabInstance:
       propertyPath: Health
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4381382984809358632, guid: 29b04afe7d718004db4ccff23cae1359, type: 3}
+      propertyPath: BossDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4381382984809358633, guid: 29b04afe7d718004db4ccff23cae1359, type: 3}
       propertyPath: m_RootOrder
       value: 6

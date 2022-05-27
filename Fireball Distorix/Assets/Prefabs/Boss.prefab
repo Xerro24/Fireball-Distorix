@@ -680,6 +680,8 @@ MonoBehaviour:
   Health: 20
   timer: 0.1
   Speed: 0
+  isBoss: 0
+  BossDamage: 10
   CanDamaged: 1
   temp: 0
 --- !u!114 &4381382984809358646
@@ -697,6 +699,7 @@ MonoBehaviour:
   player: {fileID: 0}
   SpawnBoss: 1
   DashPrefab: {fileID: 3475215878090836068, guid: 514fbf01188b3924e87969892685bde3, type: 3}
+  IsChasing: 0
 --- !u!114 &4381382984809358645
 MonoBehaviour:
   m_ObjectHideFlags: 0

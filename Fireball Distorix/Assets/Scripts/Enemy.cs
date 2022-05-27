@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     private PlayerController Player;
 
     public bool isBoss;
+    public int BossDamage = 10; 
 
     private bool PlayerCanDamaged = true;
 
@@ -142,7 +143,7 @@ public class Enemy : MonoBehaviour
                     //PlayerController.Stack -= 1;
                     if (player.CanDamaged && PlayerCanDamaged)// && timer >= time - 0.2)
                     {
-                        StartCoroutine(PlayerTakeDamage(10));
+                        StartCoroutine(PlayerTakeDamage(BossDamage));
                     }
                         
                 }

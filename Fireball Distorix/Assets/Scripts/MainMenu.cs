@@ -103,6 +103,7 @@ public class MainMenu : MonoBehaviour
     public void Tutorial()
     {
         PlayerController.EasyMode = true;
+        player.Stack += 20;
         Load();
         SceneManager.LoadScene(14);
     }
