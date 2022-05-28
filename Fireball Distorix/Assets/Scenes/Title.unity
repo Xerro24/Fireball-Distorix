@@ -706,7 +706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 475, y: -375}
+  m_AnchoredPosition: {x: 475, y: -400}
   m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &136316777
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -916,10 +916,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 580121297}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 665158404}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: CharacterSelectRightButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1708,7 +1708,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Start with and gain less stacks, Boss insta-kills and has more health
 
-    
+
 
     Significantly
     harder, not recomended for players who are not good at this game'
@@ -2288,6 +2288,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf37f9e5f148c34a8e0760e2566f164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StaticSucks:
+  - CharaSprite: {fileID: 21300000, guid: c80a620292d7117448b682c32e3522d0, type: 3}
+    CharaName: Wizard Guy
+    CharaDesc: He's Wizard Guy
+    IsUnlocked: 1
+    UnlockDesc: 
+  - CharaSprite: {fileID: 21300000, guid: 5f92af0d2a5811b4ba2c173eeb93f9b3, type: 3}
+    CharaName: Xes Loveheart
+    CharaDesc: Even goddesses need to shoot fireballs sometimes. Now in 64x64 pixel!
+    IsUnlocked: 0
+    UnlockDesc: Beat the game on Hard mode
+  - CharaSprite: {fileID: 21300000, guid: d88af69464168ec40a6ec0d7fe86b065, type: 3}
+    CharaName: Dead guy
+    CharaDesc: Revived from the DEAD!!!!!
+    IsUnlocked: 0
+    UnlockDesc: Find and get all the dead bodies to the door
+  CharaSprite: {fileID: 1655618004}
+  CharaName: {fileID: 1731902652}
+  CharaDesc: {fileID: 136316776}
 --- !u!1 &668696505
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,10 +3138,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 580121297}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 665158404}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: CharacterSelectLeftButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9309,7 +9328,7 @@ GameObject:
   - component: {fileID: 1655618006}
   - component: {fileID: 1655618005}
   m_Layer: 5
-  m_Name: Character
+  m_Name: Character Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9743,7 +9762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 475, y: 275}
+  m_AnchoredPosition: {x: 475, y: 300}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1731902653

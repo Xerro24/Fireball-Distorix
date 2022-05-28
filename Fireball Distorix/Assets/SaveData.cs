@@ -12,7 +12,10 @@ public class SaveData
     public bool EasierMode;
     public string[] Items;
     public int BodyCount;
+    public static bool Dead;
     public int Level;
+    public int CharaIndex;
+    public static bool Xessy;
 
     public SaveData (PlayerController player)
     {
@@ -22,8 +25,19 @@ public class SaveData
         EasierMode = PlayerController.EasierMode;
         Items = new string[player.Items.Count];
         player.Items.CopyTo(Items);
+        
         BodyCount = PlayerController.BodyCount;
+        if (PlayerController.BodyCount == 5 || MainMenu.Chara[2].IsUnlocked)
+            Dead = true;
         Level = SceneManager.GetActiveScene().buildIndex;
+        CharaIndex = MainMenu.CharaIndex;
+        if (PlayerController.IsXessyUnlocked || MainMenu.Chara[2].IsUnlocked)
+            Xessy = true;
+
+    }
+
+    public SaveData (Character[])
+    {
 
     }
 

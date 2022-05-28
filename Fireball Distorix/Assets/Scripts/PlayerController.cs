@@ -94,6 +94,8 @@ public class PlayerController : MonoBehaviour
 
     public static bool EasierMode;
 
+    public static bool IsXessyUnlocked = false;
+
 
 
 
@@ -137,6 +139,10 @@ public class PlayerController : MonoBehaviour
         if (transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot)
             transform.GetChild(0).GetChild(0).GetComponent<Shooter>().co = StartCoroutine(transform.GetChild(0).GetChild(0).GetComponent<Shooter>().Shoot());
         Destroy(GameObject.Find("Fireball(Clone)"));
+        if (SceneManager.GetActiveScene().name == "norm end" && EasyMode == false)
+        {
+            IsXessyUnlocked = true;
+        }
     }
 
 
@@ -193,10 +199,10 @@ public class PlayerController : MonoBehaviour
 
         Direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        if (Input.GetKeyDown(KeyCode.X))
+        /*if (Input.GetKeyDown(KeyCode.X))
         {
             sr.sprite = Xessy;
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.R) && !PauseMenu.IsPaused && CanRestart)
         {

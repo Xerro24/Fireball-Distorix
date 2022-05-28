@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,23 +6,64 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.IO;
+using TMPro;
 
 
 public class MainMenu : MonoBehaviour
 {
+    [Serializable]
+    public class Character
+    {
+        public Sprite CharaSprite;
+        public string CharaName;
+        public string CharaDesc;
+        public bool IsUnlocked;
+        public string UnlockDesc;
+
+        public Character(Sprite sprite, string name, string desc)
+        {
+            CharaSprite = sprite;
+            CharaName = name;
+            CharaDesc = desc;
+        }
+    }
+
 
     SaveData data;
     private PlayerController player;
 
+    public Character[] StaticSucks;
+    public static Character[] Chara;
+
+    public static int CharaIndex = 0;
+    
+
+    public Transform CharaSprite;
+    public Transform CharaName;
+    public Transform CharaDesc;
+
+    //public Character chara;
+
+    //[SerializeField] public ArrayList chara = new ArrayList();
+
     private void Start()
     {
-
+        Chara = StaticSucks;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         data = SaveSystem.Load();
         player.Stack = 0;
         player.Items.Clear();
         PlayerController.EasyMode = true;
         PlayerController.EasierMode = false;
+        if (data != null)
+        {
+            CharaIndex = data.CharaIndex;
+            Chara[1].IsUnlocked = SaveData.Xessy;
+            Chara[2].IsUnlocked = SaveData.Dead;
+        }
+
+        print(Chara[1].IsUnlocked);
+
 
 
 
@@ -30,6 +72,28 @@ public class MainMenu : MonoBehaviour
         {
             transform.GetChild(0).gameObject.SetActive(true);
         }
+
+    }
+
+    private void Update()
+    {
+        CharaSprite.GetComponent<Image>().sprite = Chara[CharaIndex].CharaSprite;
+        CharaName.GetComponent<TextMeshProUGUI>().SetText(Chara[CharaIndex].CharaName);
+        CharaDesc.GetComponent<TextMeshProUGUI>().SetText(Chara[CharaIndex].CharaDesc);
+        if (!Chara[CharaIndex].IsUnlocked)
+        {
+            CharaSprite.GetComponent<Image>().color = new Color(0f, 0f, 0f, 1f);
+            CharaName.GetComponent<TextMeshProUGUI>().SetText("???");
+            CharaDesc.GetComponent<TextMeshProUGUI>().SetText(Chara[CharaIndex].UnlockDesc);
+        }
+        else
+        {
+            CharaSprite.GetComponent<Image>().color = new Color(255f, 255f, 255f, 1f);
+
+            player.sr.sprite = Chara[CharaIndex].CharaSprite;
+
+        }
+
 
     }
     public void NoramlMode()
@@ -115,5 +179,40 @@ public class MainMenu : MonoBehaviour
         PlayerController.BodyCount = 0;
         player.CanRestart = true;
         
+    }
+
+    public void CharacterSelectLeftButton()
+    {
+        //print(CharaIndex);
+        if (CharaIndex == 0)
+        {
+            //print("o");
+            CharaIndex = Chara.Length -1;
+            
+        }
+        else
+        {
+            //print("e");
+            CharaIndex -= 1;
+        }
+
+
+
+
+    }
+
+    public void CharacterSelectRightButton()
+    {
+        //print(CharaIndex);
+        if (CharaIndex == Chara.Length - 1)
+        {
+            CharaIndex = 0;
+        }
+        else
+        {
+            CharaIndex += 1;
+        }
+
+
     }
 }
