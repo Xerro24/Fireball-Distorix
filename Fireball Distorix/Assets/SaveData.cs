@@ -16,6 +16,7 @@ public class SaveData
     public int Level;
     public int CharaIndex;
     public static bool Xessy;
+    public bool[] Chara;
 
     public SaveData (PlayerController player)
     {
@@ -27,17 +28,20 @@ public class SaveData
         player.Items.CopyTo(Items);
         
         BodyCount = PlayerController.BodyCount;
-        if (PlayerController.BodyCount == 5 || MainMenu.Chara[2].IsUnlocked)
-            Dead = true;
+        
         Level = SceneManager.GetActiveScene().buildIndex;
-        CharaIndex = MainMenu.CharaIndex;
-        if (PlayerController.IsXessyUnlocked || MainMenu.Chara[2].IsUnlocked)
-            Xessy = true;
+        
 
     }
 
-    public SaveData (Character[])
+    public SaveData(MainMenu.Character[] chara)
     {
+
+        CharaIndex = MainMenu.CharaIndex;
+        for (int i = 0; i < chara.Length-1; i++)
+        {
+            Chara[i] = chara[i].IsUnlocked;
+        }
 
     }
 

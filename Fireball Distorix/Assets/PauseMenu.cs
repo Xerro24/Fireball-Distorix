@@ -63,12 +63,14 @@ public class PauseMenu : MonoBehaviour
         //print("Yes");
     }
 
-    public void MainMenu()
+    public void ToMainMenu()
     {
 
         Time.timeScale = 1;
         IsPaused = false;
         SaveSystem.Save(player);
+        SaveSystem.SaveMainMenu(MainMenu.Chara);
+
         Destroy(player.gameObject);
         SceneManager.LoadScene(0);
     }

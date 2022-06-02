@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
         Destroy(GameObject.Find("Fireball(Clone)"));
         if (SceneManager.GetActiveScene().name == "norm end" && EasyMode == false)
         {
-            IsXessyUnlocked = true;
+            MainMenu.Chara[1].IsUnlocked = true;
         }
     }
 

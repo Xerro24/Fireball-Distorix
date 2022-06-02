@@ -30,6 +30,8 @@ public class MainMenu : MonoBehaviour
 
 
     SaveData data;
+    SaveData MainData;
+
     private PlayerController player;
 
     public Character[] StaticSucks;
@@ -51,18 +53,33 @@ public class MainMenu : MonoBehaviour
         Chara = StaticSucks;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         data = SaveSystem.Load();
+        MainData = SaveSystem.LoadMainMenu();
         player.Stack = 0;
         player.Items.Clear();
         PlayerController.EasyMode = true;
         PlayerController.EasierMode = false;
-        if (data != null)
+
+        //print(StaticSucks[1].IsUnlocked);
+
+        if (MainData != null)
         {
             CharaIndex = data.CharaIndex;
-            Chara[1].IsUnlocked = SaveData.Xessy;
-            Chara[2].IsUnlocked = SaveData.Dead;
+            print(data.Chara);
+            for (int i = 0; i < data.Chara.Length-1; i++)
+            {
+                print("I dsju sjhgy thgis");
+                print(data.Chara[i]);
+                print(Chara[i].IsUnlocked);
+                data.Chara[i] = Chara[i].IsUnlocked;
+            }
+
+            
         }
 
-        print(Chara[1].IsUnlocked);
+        SaveSystem.SaveMainMenu(Chara);
+
+
+        //print(Chara[1].IsUnlocked);
 
 
 
@@ -77,6 +94,7 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
+        //print(CharaIndex);
         CharaSprite.GetComponent<Image>().sprite = Chara[CharaIndex].CharaSprite;
         CharaName.GetComponent<TextMeshProUGUI>().SetText(Chara[CharaIndex].CharaName);
         CharaDesc.GetComponent<TextMeshProUGUI>().SetText(Chara[CharaIndex].CharaDesc);

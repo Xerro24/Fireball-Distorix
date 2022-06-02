@@ -69,7 +69,7 @@ public class Door : MonoBehaviour
             {
                 if (ChangeNextRoom == 0)
                 {
-                    GameObject.Find("Canvas").GetComponent<PauseMenu>().MainMenu();
+                    GameObject.Find("Canvas").GetComponent<PauseMenu>().ToMainMenu();
                 }
             }
 
