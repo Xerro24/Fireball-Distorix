@@ -71,6 +71,14 @@ public class Door : MonoBehaviour
                 {
                     GameObject.Find("Canvas").GetComponent<PauseMenu>().ToMainMenu();
                 }
+
+                else if (ChangeNextRoom == 10)
+                {
+                    print("y");
+                    collision.transform.position = new Vector2(100, 0);
+                    SceneManager.LoadScene(ChangeNextRoom);
+                    
+                }
             }
 
         }

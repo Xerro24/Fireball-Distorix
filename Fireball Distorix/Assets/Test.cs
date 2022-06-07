@@ -12,7 +12,7 @@ public class Test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text = GetComponent<TextMeshProUGUI>();
+        
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
     }
@@ -20,9 +20,6 @@ public class Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //text.text = player.Stack.ToString();
-
-
-        text.SetText(player.Stamina.ToString());
+        player.transform.position = new Vector2(10000, 0);
     }
 }

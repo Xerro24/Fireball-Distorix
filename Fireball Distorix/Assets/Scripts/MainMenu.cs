@@ -44,24 +44,31 @@ public class MainMenu : MonoBehaviour
     public Transform CharaName;
     public Transform CharaDesc;
 
+
+    public Toggle DevMode;
+
     //public Character chara;
 
     //[SerializeField] public ArrayList chara = new ArrayList();
+
+
 
     private void Start()
     {
         Chara = StaticSucks;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         data = SaveSystem.Load();
-        MainData = SaveSystem.LoadMainMenu();
+        //MainData = SaveSystem.LoadMainMenu();
         player.Stack = 0;
         player.Items.Clear();
         PlayerController.EasyMode = true;
         PlayerController.EasierMode = false;
 
+        DevMode.isOn = PlayerController.DevMode;
+
         //print(StaticSucks[1].IsUnlocked);
 
-        if (MainData != null)
+        /*if (MainData != null)
         {
             CharaIndex = data.CharaIndex;
             print(data.Chara);
@@ -74,9 +81,9 @@ public class MainMenu : MonoBehaviour
             }
 
             
-        }
+        }*/
 
-        SaveSystem.SaveMainMenu(Chara);
+        //SaveSystem.SaveMainMenu(Chara);
 
 
         //print(Chara[1].IsUnlocked);
@@ -231,6 +238,13 @@ public class MainMenu : MonoBehaviour
             CharaIndex += 1;
         }
 
+
+    }
+
+    public void DevModeChanger()
+    {
+        
+        PlayerController.DevMode = DevMode.isOn;
 
     }
 }

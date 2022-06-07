@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     public static bool IsXessyUnlocked = false;
 
-
+    public static bool DevMode = false;
 
 
 
@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
 
-
+        //DevMode = false;
         
 
         
@@ -209,7 +209,7 @@ public class PlayerController : MonoBehaviour
             Die();
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J) && DevMode)
         {
             if (Input.GetKeyDown(KeyCode.K))
             {
@@ -218,7 +218,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && DevMode)
         {
             if (Input.GetKeyDown(KeyCode.Y))
             {
@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.I) && !PauseMenu.IsPaused)
+        if (Input.GetKeyDown(KeyCode.I) && !PauseMenu.IsPaused && DevMode)
         {
             if (Input.GetKeyDown(KeyCode.O))
             {
@@ -587,5 +587,7 @@ public class PlayerController : MonoBehaviour
 
         }
     }*/
+
+    
 
 }
