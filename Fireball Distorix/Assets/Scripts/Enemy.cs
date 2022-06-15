@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+//THe script that does all the enemy stuff
 public class Enemy : MonoBehaviour
 {
     public float Health = 10;
@@ -29,7 +31,7 @@ public class Enemy : MonoBehaviour
         if (GetComponent<Boss>() != null)
             isBoss = true;
 
-        if (isBoss && !PlayerController.EasyMode)
+        if (isBoss && !PlayerController.NormMode)
         {
             float temp2 = Health;
             temp2 *= 2.5f;
@@ -38,10 +40,10 @@ public class Enemy : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // Update is called once per frame, makes sure the boss can be damaged once the shields are down
     void Update()
     {
-        //transform.position = new Vector2(6, Mathf.PingPong(Time.time * Speed, 6) - 3);
+       
         if (isBoss && transform.GetChild(0).gameObject.activeSelf)
         {
             CanDamaged = false;
@@ -55,29 +57,17 @@ public class Enemy : MonoBehaviour
             
         }
 
-        /*
-        if (isBoss && !transform.GetChild(0).gameObject.activeSelf)
-        {
-            print("f");
-        }
-        //print(isBoss && !transform.GetChild(0).gameObject.activeSelf);
-        */
+        
         
     }
 
+    //How the enemies take damage
     public IEnumerator TakeDamage(float damage)
     {
         CanDamaged = false;
         
         sr.color = new Color(255f, 0f, 0f, 1f);
-        //if (Player.EasyMode)
-        {
-            //Player.StackCounter += 2;
-        }
-        //else
-        {
-            Player.StackCounter += 1;
-        }
+        Player.StackCounter += 1;
         yield return new WaitForSeconds(timer);
         Health -= damage;
         CanDamaged = true;
@@ -90,16 +80,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //How the enemy dies
     void Die()
     {
-        //gameObject.SetActive(false);
+        
 
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<Enemy>().enabled = false;
-        //gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        //gameObject.GetComponent<MovingEnemy>().enabled = false;
-        //gameObject.GetComponent<DashingEnemy>().enabled = false;
         foreach (BoxCollider2D c in GetComponents<BoxCollider2D>())
         {
             c.enabled = false;
@@ -111,34 +99,31 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //Checks if the player collided with the enemy
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController player = collision.GetComponent<PlayerController>();
 
         if (collision.gameObject.CompareTag("Player") && player != null)
-        //if (player.IsDashing == false && player.Iframes <= 0)
+        
         {
             if (player.CanDamaged && !isBoss && PlayerCanDamaged)
                 StartCoroutine(PlayerTakeDamage(1));
             
         }
 
-        /*
-        else if (collision.gameObject.CompareTag("Player") && player != null && player.Stack > 0)
-        //if (player.IsDashing == false && player.Iframes <= 0)
-        {
-            player.Stack -= 1;
-        }
-        */
+        
     }
 
+
+    //If the enemy is a boss, then when the player collides with them they take constant damage as long as the player is in the boss's hixbox
     private void OnTriggerStay2D(Collider2D collision)
     {
         PlayerController player = collision.GetComponent<PlayerController>();
         if (collision.gameObject.CompareTag("Player") && player != null)
             if (player.IsDashing == false && player.Iframes <= 0 && isBoss)
             {
-                if (PlayerController.EasyMode)
+                if (PlayerController.NormMode)
                 {
                     //PlayerController.Stack -= 1;
                     if (player.CanDamaged && PlayerCanDamaged)// && timer >= time - 0.2)
@@ -148,7 +133,7 @@ public class Enemy : MonoBehaviour
                         
                 }
 
-                else if (!PlayerController.EasyMode)
+                else if (!PlayerController.NormMode)
                 {
                     player.Die();
                 }
@@ -173,6 +158,8 @@ public class Enemy : MonoBehaviour
 
     }
 
+
+    //Makes sure that the player has some invincablity before taking damage again
     public IEnumerator PlayerTakeDamage(float damage)
     {
         PlayerCanDamaged = false;

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+//THe script for the boss attack patterns
 public class Boss : MonoBehaviour
 {
     //public float speed;
@@ -28,21 +30,23 @@ public class Boss : MonoBehaviour
     private bool Multidash;
     
     Vector2 xy;
-    // Start is called before the first frame update
+
+
+    // Start is called before the first frame update, on normal mode the boss dashes half as far
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
         
 
-        if (PlayerController.EasyMode)
+        if (PlayerController.NormMode)
         {
             DashSpeed /= 2;
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    // Update is called once per frame, the boss boss movement, dashing and 
+    void Update() 
     {
         if (otherTimer >= 0)
         {
@@ -65,7 +69,7 @@ public class Boss : MonoBehaviour
             {
                 StartDash = false;
                 rb.velocity = new Vector2(0, 0);
-                //print("Before Dash");
+
 
 
             }
@@ -74,7 +78,6 @@ public class Boss : MonoBehaviour
             {
                 StartDash = true;
                 rb.velocity = new Vector2(0, 0);
-                //print("Before Dash");
 
 
             }
@@ -82,54 +85,31 @@ public class Boss : MonoBehaviour
             {
 
                 rb.velocity = new Vector2(xy.x * DashSpeed, (xy.y * DashSpeed));
-                //print("During Dash");
+
 
             }
-
-            //else if (timer >= time && timer <= time + 0.25 && BossLevel > 2)
-            //{
-                //StartDash = true;
-                //xy = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y).normalized;
-
-                //rb.velocity = new Vector2(xy.x * DashSpeed, (xy.y * DashSpeed));
-                //print("During Dash");
-
-            //}
 
             else if (timer >= time && timer <= time + 0.5 && BossLevel > 2)
             {
-                //StartDash = true;
-                //xy = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y).normalized;
+
 
                 StartDash = false;
                 rb.velocity = new Vector2(xy.x * DashSpeed, (xy.y * DashSpeed));
-                //print("During Dash");
+
 
             }
-
-            /*
-            else if (timer >= time + 0.25 && BossLevel <= 3 && Multidash < 2)
-            {
-                StartDash = true;
-                rb.velocity = new Vector2(0, 0);
-                timer = time - 1f;
-                Multidash++;
-                //print("After Dash");
-
-            }
-            */
 
             else if (timer >= time + 0.25)
             {
                 StartDash = true;
                 rb.velocity = new Vector2(0, 0);
                 timer = 0;
-                //print("After Dash");
+
 
             }
 
         }
-            
+
         timer += Time.deltaTime;
         otherTimer += Time.deltaTime;
 
@@ -155,64 +135,13 @@ public class Boss : MonoBehaviour
             otherTimer = -1f;
         }
 
-        
-
-        
-
-
-        /*
-        if (transform.position.x < 7 && transform.position.x >= -7 && transform.position.y < 0)
-        {
-            
-            transform.Translate(speed * Time.deltaTime, 0, 0);
-        }
-
-        else if (transform.position.y < 3 && transform.position.y >= -3 && transform.position.x > 0)
-        {
-            
-            transform.Translate(0, speed * Time.deltaTime, 0);
-        }
-
-        else if (transform.position.x <= 7 && transform.position.x > -7 && transform.position.y > 0)
-        {
-            
-            transform.Translate(0, -speed * Time.deltaTime, 0);
-        }
-
-        else if (transform.position.y <= 3 && transform.position.y > -3 && transform.position.x < 0)
-        {
-            
-            transform.Translate(-speed * Time.deltaTime, 0, 0);
-        }
-
-        else if (transform.position.x > 7)
-        {
-            transform.position = new Vector2(7, -3);
-        }
-
-        else if (transform.position.y > 3)
-        {
-            transform.position = new Vector2(7, 3);
-        }
-
-        else if (transform.position.x < -7)
-        {
-            transform.position = new Vector2(-7, 3);
-        }
-
-        else if (transform.position.x < -3)
-        {
-            transform.position = new Vector2(-7, -3);
-        }
-
-        */
-
     }
 
-    private void FixedUpdate()
-    {
+        
 
-    }
+
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -221,7 +150,7 @@ public class Boss : MonoBehaviour
         if (player.IsDashing == false && player.Iframes <= 0)
         {
                 /*
-            if (PlayerController.EasyMode)
+            if (PlayerController.NormMode)
             {
                 //PlayerController.Stack -= 1;
                 while (player.CanDamaged)
@@ -231,7 +160,7 @@ public class Boss : MonoBehaviour
                 }
             }
                 */
-            if (!PlayerController.EasyMode)
+            if (!PlayerController.NormMode)
             {
                 player.Die();
 

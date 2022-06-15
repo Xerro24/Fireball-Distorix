@@ -26,14 +26,14 @@ public class Chest : MonoBehaviour
         PlayerController player = collision.GetComponent<PlayerController>();
         if (collision.gameObject.CompareTag("Player") && player != null)
         {
-            if (player.Stack >= EasyCost && PlayerController.EasyMode)
+            if (player.Stack >= EasyCost && PlayerController.NormMode)
             {
                 player.Stack -= EasyCost;
                 AddItems(player);
                
             }
 
-            else if (player.Stack >= HardCost && !PlayerController.EasyMode)
+            else if (player.Stack >= HardCost && !PlayerController.NormMode)
             {
                 player.Stack -= HardCost;
                 AddItems(player);

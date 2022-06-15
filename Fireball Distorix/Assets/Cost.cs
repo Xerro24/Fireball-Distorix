@@ -18,7 +18,7 @@ public class Cost : MonoBehaviour
 
         text = GetComponent<TextMeshProUGUI>();
 
-        if (PlayerController.EasyMode)
+        if (PlayerController.NormMode)
             cost = Easy;
 
         else

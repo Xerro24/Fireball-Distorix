@@ -1021,6 +1021,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3064027845281535673, guid: 82d91cbbadcdc4341a578abcf27643bd, type: 3}
+      propertyPath: IsShootingRoom
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9219539971373306340, guid: 82d91cbbadcdc4341a578abcf27643bd, type: 3}
       propertyPath: m_RootOrder
       value: 13

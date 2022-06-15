@@ -61,10 +61,12 @@ public class MainMenu : MonoBehaviour
         //MainData = SaveSystem.LoadMainMenu();
         player.Stack = 0;
         player.Items.Clear();
-        PlayerController.EasyMode = true;
+        PlayerController.NormMode = true;
         PlayerController.EasierMode = false;
 
         DevMode.isOn = PlayerController.DevMode;
+
+        player.hasDamageUpgrade = false;
 
         //print(StaticSucks[1].IsUnlocked);
 
@@ -123,7 +125,7 @@ public class MainMenu : MonoBehaviour
     }
     public void NoramlMode()
     {
-        PlayerController.EasyMode = true;
+        PlayerController.NormMode = true;
         player.Stack += 20;
         Load();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -134,7 +136,7 @@ public class MainMenu : MonoBehaviour
 
     public void HardMode()
     {
-        PlayerController.EasyMode = false;
+        PlayerController.NormMode = false;
         Load();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
@@ -161,7 +163,7 @@ public class MainMenu : MonoBehaviour
         if (data != null)
         { 
             player.Stack = data.Stack;
-            PlayerController.EasyMode = data.EasyMode;
+            PlayerController.NormMode = data.NormMode;
             PlayerController.EasierMode = data.EasierMode;
 
             for (int i = 0; i < data.Items.Length; i++)
@@ -177,9 +179,9 @@ public class MainMenu : MonoBehaviour
 
     }
 
-    public void EasyMode()
+    public void NormMode()
     {
-        PlayerController.EasyMode = true;
+        PlayerController.NormMode = true;
         PlayerController.EasierMode = true;
         player.Stack += 20;
         Load();
@@ -191,7 +193,7 @@ public class MainMenu : MonoBehaviour
 
     public void Tutorial()
     {
-        PlayerController.EasyMode = true;
+        PlayerController.NormMode = true;
         player.Stack += 20;
         Load();
         SceneManager.LoadScene(14);

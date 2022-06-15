@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
+// The script that does all the player stuff
 public class PlayerController : MonoBehaviour
 {
     // Creates a variable name rb, of type Rigidbody2D
     private Rigidbody2D rb;
 
-    // Creates two variable named x and y
-
+    //The direction the player is moving
     private Vector2 Direction;
 
     // A number to multiply the speed of the character
@@ -39,20 +41,14 @@ public class PlayerController : MonoBehaviour
     public static int BodyCount;
 
     // The normal mode and if you want to change
-    public bool WantToChangeEasyMode;
-    public static bool EasyMode = false;
+    public bool WantToChangeNormMode;
+    public static bool NormMode = false;
 
     // If the player can be damaged
     public bool CanDamaged = true;
 
     // If the player has the respective upgrades
     public  HashSet<string> Items = new HashSet<string>();
-
-    /*public  bool HasDash;
-    public  bool HasWaterball;
-    public  bool HasDamageUp;
-    public  bool HasDashUpgrade;
-    public  bool HasSlowUpgrade;*/
     
     // The Dash mechanic
     // The speed that the dash 
@@ -75,71 +71,74 @@ public class PlayerController : MonoBehaviour
     //if the player is no longer invincible due to IFrames
     private bool IsIFramesDone = false;
 
+    //The Distance that the dash travels
     private Vector2 DashDistance;
 
-
+    //The SloMo mechanic
+    //How long you can SloMo
     public float Stamina;
+    //The start time of the SloMo time
     public float StaminaStart = 5;
+    //If SloMo is active
     public bool IsSloMo;
+    //If the player can use the SloMo
     public bool CanSlow = true;
-
-    /*public bool CanWalk;
-    public Sprite Left;
-    public Sprite Right;*/
 
     public bool CanRestart;
 
     // Store the scene that should trigger start
     private Scene scene;
 
+    //Easy mode 2, EVEN EASIER :)
     public static bool EasierMode;
 
+    //Pretty sure this variable is useless, but I don't want to remove it in case something breaks. It was for unlocking Xes in the character select 
     public static bool IsXessyUnlocked = false;
 
+    //DevMode gives access to button 
     public static bool DevMode = false;
 
+    public bool hasDamageUpgrade;
 
 
 
+    // The function that creats the function that is called every scene load
     private void Awake()
     {
-        // It is save to remove listeners even if they
-        // didn't exist so far.
-        // This makes sure it is added only once
+        
         SceneManager.sceneLoaded -= OnSceneLoaded;
 
-        // Add the listener to be called when a scene is loaded
+        
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         DontDestroyOnLoad(gameObject);
 
-        // Store the creating scene as the scene to trigger start
+        
         scene = SceneManager.GetActiveScene();
     }
 
+    //disables the function when the player is destroy so it doesn't take up memory 
     private void OnDestroy()
     {
-        // Always clean up your listeners when not needed anymore
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // Listener for sceneLoaded
+    // The function that is called every scene load
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // return if not the start calling scene
+        
         if (string.Equals(scene.path, this.scene.path)) return;
 
-        //Debug.Log("Re-Initializing", this);
-        // do your "Start" stuff here
+        //The stuff I want to set at start of every scene
         StackStartLevel = Stack;
         Stamina = StaminaStart;
-        if (WantToChangeEasyMode)
-            EasyMode = true;
+        if (WantToChangeNormMode)
+            NormMode = true;
         Dashtime = StartDash;
         if (transform.GetChild(0).GetChild(0).GetComponent<Shooter>().CanShoot)
             transform.GetChild(0).GetChild(0).GetComponent<Shooter>().co = StartCoroutine(transform.GetChild(0).GetChild(0).GetComponent<Shooter>().Shoot());
         Destroy(GameObject.Find("Fireball(Clone)"));
-        if (SceneManager.GetActiveScene().name == "norm end" && EasyMode == false)
+        if (SceneManager.GetActiveScene().name == "norm end" && NormMode == false)
         {
             MainMenu.Chara[1].IsUnlocked = true;
         }
@@ -153,12 +152,12 @@ public class PlayerController : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
+    // Start is called once when the player is first created
     void Start()
     {
         
 
-        if (EasyMode)
+        if (NormMode)
         {
             DashDelay /= 1.5f;
         }
@@ -174,8 +173,7 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
 
-        //DevMode = false;
-        
+
 
         
 
@@ -191,7 +189,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    // Update is called once per frame
+    // Update is called once per frame, all the player input is done here, like dashing direction and slomo 
     void Update()
     {
         // When WASD or the arrow keys are press the x and y are set to 1, -1 or 0
@@ -199,10 +197,7 @@ public class PlayerController : MonoBehaviour
 
         Direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        /*if (Input.GetKeyDown(KeyCode.X))
-        {
-            sr.sprite = Xessy;
-        }*/
+       
 
         if (Input.GetKeyDown(KeyCode.R) && !PauseMenu.IsPaused && CanRestart)
         {
@@ -240,37 +235,17 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        /*if ((x != 0 || y != 0) && CanWalk)
-        {
-            print("is dec and can w");
-            StartCoroutine(Walk());
-            print("after w");
-
-        }
-
-        else if ((x == 0 && y == 0))
-        {
-            sr.sprite = Xessy;
-        }*/
-
-        
-
-        //if (Chest.HasUpgrade && Speed < 700)
-        {
-            //Upgrade();
-        }
-
 
 
 
         if (StackCounter >= 5)
         {
-            if (EasyMode && !EasierMode)
+            if (NormMode && !EasierMode)
             {
                 Stack += 2;
             }
 
-            else if (EasyMode && EasierMode)
+            else if (NormMode && EasierMode)
             {
                 Stack += 4;
             }
@@ -308,7 +283,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButton(1) && Stamina > 0 && CanSlow && !PauseMenu.IsPaused)
         {
             Time.timeScale = 0.5f;
-            //Time.fixedDeltaTime = 0.02f * Time.timeScale;
             Stamina -= Time.unscaledDeltaTime;
             IsSloMo = true;
 
@@ -317,7 +291,6 @@ public class PlayerController : MonoBehaviour
         else if ((!Input.GetMouseButton(1) || Stamina <= 0) && Time.timeScale == 0.5 && !PauseMenu.IsPaused)
         {
             Time.timeScale = 1;
-            //Time.fixedDeltaTime = 0.02f * Time.timeScale;
             IsSloMo = false;
         }
 
@@ -349,20 +322,10 @@ public class PlayerController : MonoBehaviour
             transform.GetChild(0).GetChild(0).GetComponent<Shooter>().ShootSpecial = false;
 
 
-        //print(DashSpeed);
-
-        //print(CurrentRoom);
-
-        //print(EasyMode);
-
-        //print(IsSloMo);
-        //print(HasDamageUp);
-
-
 
     }
 
-    // Less frequent Update used for physics calculations
+    // Less frequent Update used for physics calculations, this is where the actual player stuff that uses physics is executed, like movement and dashing
     private void FixedUpdate()
     {
         // Creates a 2d vector. x/y = direction, speed = speed, and Time.deltatime for consistency through the frames
@@ -426,7 +389,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
+    //How the player takes damage
     public IEnumerator TakeDamage(float damage)
     {
         if (!IsDashing)
@@ -455,6 +418,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //How the player dies
     public void Die()
     {
         Stack = StackStartLevel;
@@ -465,24 +429,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-       
 
 
-
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-
-    }
-
-   /* public void Upgrade()
-    {
-        Speed = 700;
-    }*/
-
+    //Takes the dash direction input and has a delay before you can dash again
     private IEnumerator DashInputDelay()
     {
 
@@ -505,54 +454,13 @@ public class PlayerController : MonoBehaviour
                 DashInput.y = -1;
             }
 
-
-            /*if (Direction.x == 1 && Direction.y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
-            {
-                DashInput = new Vector2(1,1);
-
-            }
-            else if (Direction.x == -1 && Direction.y == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
-            {
-                DashInput = new Vector2(-1,1);
-            }
-            if (Direction.y == -1 && Direction.x == 1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
-            {
-                DashInput = new Vector2(1,-1);
-            }
-            else if (Direction.y == -1 && Direction.x == -1 && Input.GetKeyDown(KeyCode.Space) && CanDash)
-            {
-                DashInput = new Vector2(-1,-1);
-            }*/
-
         }
         yield return new WaitForSeconds(DashDelay);
         CanDash = true;
     }
 
-/*
-     public IEnumerator Walk()
-    {
-        CanWalk = false;
-        if (sr.sprite == Left)
-        {
-            sr.sprite = Right;
-            print("r");
-        }
-            
-        else
-        {
-            sr.sprite = Left;
-            print("l");
 
-        }
-
-        yield return new WaitForSeconds(0.1f);
-        print("d");
-        
-        CanWalk = true;
-    }*/
-
-
+    //All the player upgrades
     public void Upgrade()
     {
         if (Items.Contains("Water Bucket"))
@@ -560,9 +468,10 @@ public class PlayerController : MonoBehaviour
             GetComponent<WaterBucketSpawner>().enabled = true;
         }
 
-        if (Items.Contains("Damage Up"))
+        if (Items.Contains("Damage Up") && !hasDamageUpgrade)
         {
             transform.GetChild(0).GetChild(0).gameObject.GetComponent<Shooter>().damage *= 1.8f;
+            hasDamageUpgrade = true;
         }
 
         if (Items.Contains("Dash Farther"))
@@ -576,17 +485,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*private void WhenSceneChange()
-    {
-
-
-
-        int i = 0;
-        if (i == SceneManager.sceneLoaded)
-        {
-
-        }
-    }*/
+    
 
     
 
