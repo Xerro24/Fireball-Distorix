@@ -123,7 +123,7 @@ public class MainMenu : MonoBehaviour
 
 
     }
-    public void NoramlMode()
+    public void NormalMode()
     {
         PlayerController.NormMode = true;
         player.Stack += 20;
@@ -179,7 +179,7 @@ public class MainMenu : MonoBehaviour
 
     }
 
-    public void NormMode()
+    public void EasyMode()
     {
         PlayerController.NormMode = true;
         PlayerController.EasierMode = true;

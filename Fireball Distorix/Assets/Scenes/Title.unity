@@ -2369,7 +2369,7 @@ MonoBehaviour:
     CharaDesc: He's Wizard Guy
     IsUnlocked: 1
     UnlockDesc: 
-  - CharaSprite: {fileID: 21300000, guid: 5f92af0d2a5811b4ba2c173eeb93f9b3, type: 3}
+  - CharaSprite: {fileID: 21300000, guid: a97def2cd5ccbd548aa35606a16065ed, type: 3}
     CharaName: Xes Loveheart
     CharaDesc: Even goddesses need to shoot fireballs sometimes. Now in 64x64 pixel!
     IsUnlocked: 1
@@ -11268,7 +11268,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 665158404}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: NoramlMode
+        m_MethodName: NormalMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
