@@ -93,7 +93,7 @@ TextureImporter:
       213: -6196799168755409047
     second: Layer 30 copy 5_29
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -114,6 +114,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -152,6 +153,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -191,6 +193,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -844,6 +858,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Layer 30 copy 5_0: -3311014691925677303
+      Layer 30 copy 5_8: 6135326343894465072
+      Layer 30 copy 5_25: 8081392720385672701
+      Layer 30 copy 5_1: -5239389160832977468
+      Layer 30 copy 5_3: 4863812830339763246
+      Layer 30 copy 5_12: 1692896888193848235
+      Layer 30 copy 5_21: -8785642417917843969
+      Layer 30 copy 5_23: 1520073692578117101
+      Layer 30 copy 5_7: 4557604035674701423
+      Layer 30 copy 5_9: 4505550194247433649
+      Layer 30 copy 5_15: -7856214438517410282
+      Layer 30 copy 5_2: 4281168150764479884
+      Layer 30 copy 5_22: 7468801741841580936
+      Layer 30 copy 5_10: -7112982022767350875
+      Layer 30 copy 5_11: 4825155707306168175
+      Layer 30 copy 5_4: 1692620363044999024
+      Layer 30 copy 5_27: -121606902549872074
+      Layer 30 copy 5_14: -5241544508204324423
+      Layer 30 copy 5_20: 7863542775245350684
+      Layer 30 copy 5_5: -1036124150739788280
+      Layer 30 copy 5_28: 8785928502110412938
+      Layer 30 copy 5_16: 4911306839331184098
+      Layer 30 copy 5_17: -7045028859821641613
+      Layer 30 copy 5_29: -6196799168755409047
+      Layer 30 copy 5_19: -1928669607285400006
+      Layer 30 copy 5_18: 7995332213334989560
+      Layer 30 copy 5_24: -4226479673888587451
+      Layer 30 copy 5_6: -4933773837124178103
+      Layer 30 copy 5_13: -7506244862650695850
+      Layer 30 copy 5_26: -9101498167241811023
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

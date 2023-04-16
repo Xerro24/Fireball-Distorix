@@ -93,7 +93,7 @@ TextureImporter:
       213: 6444525488446983950
     second: dfcgvh_29
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -114,6 +114,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -152,6 +153,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -191,6 +193,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -844,6 +858,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      dfcgvh_21: 1190464464030689469
+      dfcgvh_27: -6049549428450581676
+      dfcgvh_20: 8895147607248644245
+      dfcgvh_19: -3284015212579827497
+      dfcgvh_3: -4100287401167036580
+      dfcgvh_15: -1151017404539333189
+      dfcgvh_16: 3817876184371957661
+      dfcgvh_6: 5769533652821827556
+      dfcgvh_2: -4379972540544587233
+      dfcgvh_9: -7884121801251254419
+      dfcgvh_18: 3566804654287213620
+      dfcgvh_0: 4081985824628864158
+      dfcgvh_23: 8699066329003419838
+      dfcgvh_17: 7730669588200298000
+      dfcgvh_12: -6087340209648287682
+      dfcgvh_24: -2662110921031190623
+      dfcgvh_11: -3042851609498989908
+      dfcgvh_7: 9181375251059872275
+      dfcgvh_10: 8876389409720229668
+      dfcgvh_13: 7325075202896500938
+      dfcgvh_29: 6444525488446983950
+      dfcgvh_22: -3957183875955981036
+      dfcgvh_26: -2626541076866746704
+      dfcgvh_14: 3294406776429192004
+      dfcgvh_28: -281196571608495953
+      dfcgvh_5: 2794155565252611801
+      dfcgvh_4: -8170385412144960401
+      dfcgvh_1: 35513955920968917
+      dfcgvh_8: -2321235755117996593
+      dfcgvh_25: -7490835289716715796
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

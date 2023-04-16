@@ -147,7 +147,7 @@ TextureImporter:
       213: 773445571042289599
     second: Pink_47
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -168,6 +168,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -206,6 +207,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -245,6 +247,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1276,6 +1290,55 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Pink_10: -942109970077638612
+      Pink_21: -4558251795355019679
+      Pink_15: -1070786133750771281
+      Pink_37: 7001283196855539318
+      Pink_25: 221569070702146843
+      Pink_20: 3396489723399940345
+      Pink_19: -5663252365120651252
+      Pink_2: -2698069653466453940
+      Pink_29: -6223115515978540675
+      Pink_42: 8920061084629153414
+      Pink_14: 3903090132030290891
+      Pink_8: 2451925445430609146
+      Pink_9: 2597259338202843451
+      Pink_1: 139881317523503543
+      Pink_26: 6500171455524716412
+      Pink_0: -7381184880430962403
+      Pink_22: 134833331926615786
+      Pink_23: 4260375011821521710
+      Pink_16: -2861354452907581786
+      Pink_41: -4800327501244115620
+      Pink_45: 4541344482109046075
+      Pink_31: -7287695720372602663
+      Pink_6: -2993699658363159222
+      Pink_33: 6126479412735558834
+      Pink_17: 3472590331781178929
+      Pink_7: -4353293926914191365
+      Pink_35: -5639224571496366744
+      Pink_38: 7069602862040033984
+      Pink_12: -3702374633614268465
+      Pink_4: 6815019005497079155
+      Pink_27: -9032790855149585028
+      Pink_36: -4366833975737877004
+      Pink_3: -3962920276799938668
+      Pink_5: 4966520737234555678
+      Pink_43: -9199339993519372603
+      Pink_11: -845820854023452326
+      Pink_34: -1326196376255646321
+      Pink_44: 6563712326625123996
+      Pink_13: -2576162496561395546
+      Pink_32: -2568107558662682153
+      Pink_24: 4707978725416701449
+      Pink_28: -7315496754983333527
+      Pink_47: 773445571042289599
+      Pink_40: -5136396875290005054
+      Pink_30: -5707730366462450929
+      Pink_46: 4931628397042228236
+      Pink_39: 8797028406639109315
+      Pink_18: 2923636594288005845
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -147,7 +147,7 @@ TextureImporter:
       213: 7352383194698333782
     second: Red_47
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -168,6 +168,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -206,6 +207,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -245,6 +247,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1276,6 +1290,55 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Red_26: 207985602576000244
+      Red_24: -6619866989123072841
+      Red_31: 5851941741769488358
+      Red_25: -7396589353877904233
+      Red_17: -8640869339235213351
+      Red_7: 7829259069414977506
+      Red_42: -6834351280950729281
+      Red_41: -6949797327712711732
+      Red_43: 5269646898239942418
+      Red_29: 5272962696499987204
+      Red_6: 4744403000761406451
+      Red_40: -3968790495424374369
+      Red_14: 5001614241177408538
+      Red_13: -3853936905171992677
+      Red_22: -5034789619093568540
+      Red_8: -5815146464303538831
+      Red_45: 3305966130208546514
+      Red_20: -3583301422595798647
+      Red_37: -8237220940581724210
+      Red_11: -8174016207417349085
+      Red_23: -48909801595771465
+      Red_30: 8137865238253982330
+      Red_21: 3698072006486610548
+      Red_1: 1613127925512473047
+      Red_18: -2510862584765665154
+      Red_36: 4559080372515461128
+      Red_35: -704757844827084108
+      Red_27: -7300656319635983163
+      Red_39: 6245266847006273606
+      Red_9: 2129389494081237454
+      Red_46: -4203148173003091218
+      Red_10: 5577207492566289022
+      Red_19: 8386939831862851512
+      Red_28: 6285426425962927572
+      Red_38: 7135613487375384243
+      Red_5: -8314221879049074932
+      Red_2: 5333967998348892124
+      Red_0: 6286595657586805340
+      Red_4: -7465866551671254797
+      Red_34: 6819399233843890137
+      Red_3: 2398322965701019735
+      Red_32: -3436954332035437035
+      Red_16: 5806510531919626354
+      Red_47: 7352383194698333782
+      Red_44: -4517300050630082619
+      Red_12: -383690438304193631
+      Red_15: -1422219833815749257
+      Red_33: 4588794673477382902
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

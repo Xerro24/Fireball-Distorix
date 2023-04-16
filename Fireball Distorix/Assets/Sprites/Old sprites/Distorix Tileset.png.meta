@@ -93,7 +93,7 @@ TextureImporter:
       213: 3993638604680594356
     second: Distorix Tileset_29
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -114,6 +114,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -152,6 +153,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -191,6 +193,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -844,6 +858,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Distorix Tileset_20: 317937356562086350
+      Distorix Tileset_27: -1990484833838295835
+      Distorix Tileset_11: 8339715057081696225
+      Distorix Tileset_6: 4109267659868468088
+      Distorix Tileset_12: 7853500275123646463
+      Distorix Tileset_19: 8071184896337314668
+      Distorix Tileset_10: -2176429828954925398
+      Distorix Tileset_22: -4251126394583975585
+      Distorix Tileset_7: -9016770449474601216
+      Distorix Tileset_9: 1170822379860020533
+      Distorix Tileset_23: 8484654508160667211
+      Distorix Tileset_18: -448056369043758508
+      Distorix Tileset_25: 4289129251058237710
+      Distorix Tileset_29: 3993638604680594356
+      Distorix Tileset_14: 2265198256790844000
+      Distorix Tileset_4: -8062566884916205400
+      Distorix Tileset_28: 8568431879006028953
+      Distorix Tileset_3: -7850029865873631696
+      Distorix Tileset_2: 9169771161356884779
+      Distorix Tileset_24: -9172515122263284827
+      Distorix Tileset_5: 1056243462551774354
+      Distorix Tileset_1: -6166277481498737291
+      Distorix Tileset_8: -1005841730002841068
+      Distorix Tileset_0: -5485413333229066312
+      Distorix Tileset_21: -99852264796503142
+      Distorix Tileset_13: 7622108637982818669
+      Distorix Tileset_17: 5613125044531396786
+      Distorix Tileset_15: -488524922715172169
+      Distorix Tileset_26: 3607997809802568700
+      Distorix Tileset_16: 426366902867258258
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

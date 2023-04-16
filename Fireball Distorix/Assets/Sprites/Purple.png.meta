@@ -237,7 +237,7 @@ TextureImporter:
       213: -3735625763209050452
     second: Purple_47
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -258,6 +258,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -296,6 +297,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -335,6 +337,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1366,6 +1380,55 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Purple_3: 7023335495681361342
+      Purple_31: 8090355728741316717
+      Purple_16: -5288859454904436947
+      Purple_24: 8445997788142582881
+      Purple_23: -2967999186833215670
+      Purple_22: 1247587548587373735
+      Purple_12: 83938953421708647
+      Purple_4: -753657338236177858
+      Purple_15: -5509338419380726490
+      Purple_33: -3899995005747608756
+      Purple_8: -1126154515564559108
+      Purple_47: -3735625763209050452
+      Purple_7: -1563939491729908057
+      Purple_44: -9154035890567787410
+      Purple_34: -1909719938141544852
+      Purple_26: -6142584560544987811
+      Purple_35: -2394564586491463711
+      Purple_0: -8923911374754931897
+      Purple_43: -5417063213548697506
+      Purple_46: -816618726805043999
+      Purple_14: -4004006821000467505
+      Purple_6: -7312579410625941613
+      Purple_9: 7398211552118589124
+      Purple_25: 2243874940750789533
+      Purple_20: -8364200602132233428
+      Purple_2: 9214806981023359645
+      Purple_36: -325140337249532631
+      Purple_37: 4559896257208753253
+      Purple_21: -8913900870582387761
+      Purple_13: -5400761825225490789
+      Purple_28: -300373696918434248
+      Purple_38: -4316256537087471811
+      Purple_17: 4618897405018085951
+      Purple_11: -2148530501938679830
+      Purple_5: -4490135875324254906
+      Purple_32: -5032966199609529870
+      Purple_29: -9146333799912753982
+      Purple_27: 5888738486494687993
+      Purple_45: -6845922032158788145
+      Purple_41: -5266643496669106413
+      Purple_42: 2417765690253979808
+      Purple_1: -5645376200931320486
+      Purple_30: 8539029541341201794
+      Purple_40: 1698698133703336288
+      Purple_10: -8426474168591060697
+      Purple_18: -1904924454179935624
+      Purple_39: 5927358014186334324
+      Purple_19: -1807824498931642482
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
