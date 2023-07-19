@@ -98,8 +98,11 @@ public class PlayerController : MonoBehaviour
     //DevMode gives access to button 
     public static bool DevMode = false;
 
+
     public bool hasDamageUpgrade;
 
+
+    //public 
 
 
     // The function that creats the function that is called every scene load
@@ -141,6 +144,11 @@ public class PlayerController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "norm end" && NormMode == false)
         {
             MainMenu.Chara[1].IsUnlocked = true;
+        }
+
+        if (PlatformVerison.Moblie)
+        {
+
         }
     }
 
